@@ -1,0 +1,19 @@
+{
+  "_example_notice": "Illustrative schema example only; not a real strategy recommendation.",
+  "strategy_id": "str_demo_001",
+  "strategy_version": "0.2",
+  "created_at": "2026-09-16T00:00:00+08:00",
+  "research_package_id": "rp_demo_001",
+  "primary_objective": {"business_objective":"demo objective","content_objective":"build evidence-backed authority","leading_indicators":[]},
+  "strategic_wedge": {"statement":"Use evidence-backed market analysis instead of generic commentary.","supporting_ids":["ins_demo_001"],"will_not_compete_on":["unsupported trend hot takes"]},
+  "content_pillars": [{"pillar_id":"pillar_demo_001","name":"Evidence-backed decisions","job":"Demonstrate decision quality","objective":"authority","target_segments":["demo-segment"],"audience_problem":"Too much generic advice without evidence","supporting_claim_ids":["claim_demo_001"],"supporting_insight_ids":["ins_demo_001"],"supporting_voc_theme_ids":["voct_demo_001"],"funnel_stages":["awareness","consideration"],"in_scope":["verified market analysis"],"out_of_scope":["unsupported predictions"],"differentiation":"Trace recommendations to evidence","confidence":"MEDIUM"}],
+  "content_opportunities": [],
+  "strategy_decisions": [],
+  "portfolio": {"core":[],"responsive":[],"experiment":[],"deferred":[],"rejected":[]},
+  "experiments": [],
+  "creator_briefs": [],
+  "challenger_results": [],
+  "research_requests": [],
+  "measurement_plan": {},
+  "integrity_status": "READY_WITH_GAPS"
+}

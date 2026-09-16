@@ -1,0 +1,12 @@
+{
+  "strategy_goal": "initial_strategy",
+  "business_objective": "Build evidence-backed authority and generate qualified demand",
+  "target_segments": ["demo-segment"],
+  "channels": ["youtube","telegram"],
+  "time_horizon": "30 days",
+  "capacity": {"short_video_per_week":3,"long_form_per_month":2},
+  "constraints": ["Do not make unsupported claims"],
+  "existing_strategy_id": null,
+  "research_package_id": "rp_demo_001",
+  "performance_dataset_ids": []
+}

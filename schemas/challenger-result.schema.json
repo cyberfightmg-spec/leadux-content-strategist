@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/challenger-result.schema.json",
+  "title": "LeadUX Strategy Challenger Result",
+  "type": "object",
+  "required": ["challenge_id","target_type","target_id","status","objection"],
+  "properties": {
+    "challenge_id": {"type":"string"},
+    "target_type": {"enum":["strategy","wedge","pillar","opportunity","decision","experiment","brief"]},
+    "target_id": {"type":"string"},
+    "status": {"enum":["SURVIVES","NARROWED","INVALIDATED"]},
+    "objection": {"type":"string"},
+    "supporting_ids": {"type":"array","items":{"type":"string"}},
+    "alternative_explanation": {"type":["string","null"]},
+    "required_change": {"type":["string","null"]},
+    "unresolved_risk": {"type":["string","null"]}
+  },
+  "additionalProperties": true
+}

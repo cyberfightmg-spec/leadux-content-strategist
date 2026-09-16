@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/content-brief.schema.json",
+  "title": "LeadUX Creator Brief",
+  "type": "object",
+  "required": ["brief_id","content_opportunity_id","objective","audience","angle","required_evidence_ids","forbidden_claims","success_metric"],
+  "properties": {
+    "brief_id": {"type":"string"},
+    "content_opportunity_id": {"type":"string"},
+    "decision_id": {"type":["string","null"]},
+    "pillar_id": {"type":["string","null"]},
+    "objective": {"type":"string"},
+    "audience": {"type":"string"},
+    "topic": {"type":["string","null"]},
+    "tension": {"type":["string","null"]},
+    "angle": {"type":"string"},
+    "required_evidence_ids": {"type":"array","items":{"type":"string"}},
+    "required_facts": {"type":"array","items":{"type":"string"}},
+    "forbidden_claims": {"type":"array","items":{"type":"string"}},
+    "recommended_format": {"type":["string","null"]},
+    "channel": {"type":["string","null"]},
+    "cta_intent": {"type":["string","null"]},
+    "success_metric": {"type":"string"},
+    "constraints": {"type":"array","items":{"type":"string"}},
+    "experiment_id": {"type":["string","null"]}
+  },
+  "additionalProperties": true
+}

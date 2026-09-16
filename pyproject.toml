@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leadux-content-strategist"
+version = "0.3.0"
+description = "Evidence-first strategy layer between market research and content creation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "LeadUX AI"}]
+dependencies = ["jsonschema>=4.21", "referencing>=0.33"]
+keywords = ["ai-agents", "content-strategy", "marketing", "research", "open-source"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+leadux-strategist = "leadux_content_strategist.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

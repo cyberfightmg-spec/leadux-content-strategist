@@ -1,0 +1,5 @@
+[
+  {"observation_id":"obs_001","content_id":"c1","platform":"youtube","published_at":"2026-09-01T10:00:00Z","observed_at":"2026-09-03T10:00:00Z","metrics":{"views":1000,"comments":20},"missing_metrics":[],"baseline":null,"known_confounders":[]},
+  {"observation_id":"obs_002","content_id":"c2","platform":"youtube","published_at":"2026-09-04T10:00:00Z","observed_at":"2026-09-06T10:00:00Z","metrics":{"views":1500,"comments":25},"missing_metrics":[],"baseline":null,"known_confounders":[]},
+  {"observation_id":"obs_003","content_id":"c3","platform":"youtube","published_at":"2026-09-07T10:00:00Z","observed_at":"2026-09-09T10:00:00Z","metrics":{"views":700,"comments":10},"missing_metrics":[],"baseline":null,"known_confounders":[]}
+]

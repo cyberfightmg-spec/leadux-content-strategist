@@ -1,0 +1,18 @@
+{
+  "_example_notice": "Illustrative schema example only; values are not market facts.",
+  "research_package_id": "rp_demo_001",
+  "research_run": {"research_id":"res_demo_001","goal":"content strategy input","market":"demo-market","geography":["demo-geo"],"target_customer":"demo-segment","completed_at":"2026-09-16","integrity_status":"VERIFIED_WITH_GAPS"},
+  "claims": [{"claim_id":"claim_demo_001","text":"Illustrative audience need from upstream research.","evidence_type":"HYPOTHESIS","source_ids":["src_demo_001"],"confidence":"MEDIUM","verification_status":"VERIFIED_WITH_LIMITATIONS"}],
+  "insights": [{"insight_id":"ins_demo_001","text":"Illustrative strategic insight.","supporting_claim_ids":["claim_demo_001"],"contradicting_claim_ids":[],"confidence":"MEDIUM"}],
+  "market_opportunities": [],
+  "voc_records": [{"voc_id":"voc_demo_001","type":"pain","theme":"setup complexity","text_or_paraphrase":"Illustrative setup-complexity signal.","claim_ids":["claim_demo_001"],"date":"2026-09-10"}],
+  "voc_themes": [{"theme_id":"voct_demo_001","theme":"setup complexity","voc_ids":["voc_demo_001"],"claim_ids":["claim_demo_001"],"confidence":"MEDIUM"}],
+  "strategic_signals": [{"signal_id":"sig_demo_001","type":"product","observed_change":"Illustrative competitor product change.","observed_at":"2026-09-12","supporting_claim_ids":["claim_demo_001"],"confidence":"MEDIUM"}],
+  "content_footprint": [],
+  "contradictions": [],
+  "data_gaps": [{"gap_id":"gap_demo_001","question":"Need first-party performance baseline."}],
+  "integrity_status": "VERIFIED_WITH_GAPS",
+  "generated_at": "2026-09-16T00:00:00+08:00",
+  "content_footprints": [{"content_footprint_id":"cf_demo_001","entity_id":"comp_demo_001","topics":["automation"],"formats":["video"],"channels":["youtube"],"claim_ids":["claim_demo_001"]}],
+  "handoff": {"generated_at":"2026-09-16T12:00:00Z","producer_version":"0.2.0-example","selection_notes":["Synthetic example IDs for schema validation."],"omitted_artifact_types":[]}
+}

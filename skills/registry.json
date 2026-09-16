@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "project": "leadux-content-strategist",
+  "version": "0.3.0",
+  "router": "../SKILL.md",
+  "skills": [
+    {"name":"strategy-intake","path":"strategy-intake/SKILL.md","stage":1,"requires":["research-package","strategy-request"]},
+    {"name":"strategy-memory","path":"strategy-memory/SKILL.md","stage":2,"requires":["strategy-memory"]},
+    {"name":"objective-mapping","path":"objective-mapping/SKILL.md","stage":3,"requires":["strategy-request"]},
+    {"name":"strategic-wedge","path":"strategic-wedge/SKILL.md","stage":4,"requires":["research-package","brand-context"]},
+    {"name":"content-pillars","path":"content-pillars/SKILL.md","stage":5,"requires":["strategic-wedge"]},
+    {"name":"content-opportunity-engine","path":"content-opportunity-engine/SKILL.md","stage":6,"requires":["research-package","content-pillars"]},
+    {"name":"portfolio-prioritization","path":"portfolio-prioritization/SKILL.md","stage":7,"requires":["content-opportunities","capacity"]},
+    {"name":"experiment-design","path":"experiment-design/SKILL.md","stage":8,"requires":["strategy-decisions"]},
+    {"name":"strategy-challenger","path":"strategy-challenger/SKILL.md","stage":9,"requires":["strategy-decisions","evidence-lineage"]},
+    {"name":"content-briefing","path":"content-briefing/SKILL.md","stage":10,"requires":["approved-strategy-decisions"]},
+    {"name":"synthesis","path":"synthesis/SKILL.md","stage":11,"requires":["challenged-strategy","creator-briefs"]},
+    {"name":"performance-learning","path":"performance-learning/SKILL.md","stage":"feedback","requires":["performance-observations","strategy-memory"]},
+    {"name":"research-gap-router","path":"research-gap-router/SKILL.md","stage":"conditional","requires":["blocking-evidence-gap"]}
+  ]
+}
