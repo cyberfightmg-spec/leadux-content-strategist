@@ -1,6 +1,9 @@
 ---
 name: leadux-content-strategist
-description: Evidence-first content strategy router that converts verified market research, brand context, historical content, and first-party performance into traceable strategic choices, experiments, and Creator briefs.
+description: >-
+  Evidence-first content strategy router that converts verified market research, brand context,
+  historical content, and first-party performance into traceable strategic choices, experiments,
+  and Creator briefs.
 metadata:
   version: 0.3.0
   role: router
