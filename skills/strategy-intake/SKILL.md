@@ -1,9 +1,10 @@
 ---
 name: strategy-intake
 description: >-
-  Validate upstream market evidence, identity/business context, audience/ICP fit, customer journey intent, positioning/offer fit, objectives, constraints, and performance history before strategic decisions.
+  Validate upstream market evidence, identity/business context, audience/ICP fit, customer journey intent,
+  positioning/offer fit, channel/distribution fit, objectives, constraints, and performance history before strategic decisions.
 metadata:
-  version: 0.7.0
+  version: 0.8.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,9 +13,9 @@ license: MIT
 # Skill: Strategy Intake
 
 ## Mission
-Validate that the strategist has enough evidence about the market, actual business, intended audience/ICP, customer decision state, and supported positioning before making content decisions.
+Validate that the strategist has enough evidence about the market, actual business, intended audience/ICP, customer decision state, supported positioning, and usable distribution surfaces before making content decisions.
 
-A strong research package without commercial context is insufficient. A business profile without market evidence is insufficient. A content audience is not automatically a buyer. Engagement is not purchase intent. A full strategy must not proceed as `READY` when the primary ICP, journey intent, promise, or reason-to-choose is invented.
+A strong research package without commercial context is insufficient. A business profile without market evidence is insufficient. A content audience is not automatically a buyer. Engagement is not purchase intent. A popular platform is not automatically a valid distribution channel.
 
 ## Required checks
 
@@ -40,7 +41,7 @@ A strong research package without commercial context is insufficient. A business
 ### Audience / ICP side
 - `audience-icp-fit` exists and validates;
 - content audience, problem holder, user, buyer and decision-maker are separated when material;
-- primary ICP is `CONFIRMED_ICP` or `SUPPORTED_CANDIDATE`, or an explicit experiment/hypothesis with a strategy integrity downgrade;
+- primary ICP is `CONFIRMED_ICP` or `SUPPORTED_CANDIDATE`, or an explicit experiment/hypothesis with an integrity downgrade;
 - audience-only segments are not used as sales ICPs without evidence;
 - unknown buyer/decision relationships are visible;
 - `safe_for_strategy` is true for a full `READY` run.
@@ -64,17 +65,29 @@ A strong research package without commercial context is insufficient. A business
 - forbidden/qualified claims are preserved;
 - `safe_for_strategy` is true for a full `READY` run.
 
+### Channel / distribution side
+- `channel-distribution-fit` exists when the strategy includes channel or format recommendations;
+- every primary channel has an explicit audience/role and journey-state relationship;
+- every primary channel has a defined content/distribution job;
+- channel fit is not inferred from platform popularity or competitor presence;
+- views/reach/engagement are not used as proof of leads or revenue;
+- operational capacity and response burden are compatible with the plan;
+- owned/rented/earned/paid distinctions are preserved where material;
+- experimental channels remain hypotheses with measurement plans;
+- `safe_for_strategy` is true for a full `READY` distribution plan.
+
 ### Founder / brand side
 - Founder/Brand Context exists and validates when required;
-- commercial priorities reflect approved ICP, journey constraints, and positioning/offer-fit rather than guessed priorities;
+- commercial priorities reflect approved ICP, journey constraints, positioning/offer-fit and channel roles rather than guessed priorities;
 - credible proof assets are known;
-- channel roles and production capacity are known;
+- production capacity is known;
 - brand-dilution constraints are explicit.
 
 ### Learning side
 - availability and quality of first-party performance history;
 - strategy memory freshness;
-- existing winners/losers and sample-size limitations.
+- existing winners/losers and sample-size limitations;
+- channel-specific history is not generalized across incomparable platforms/metrics.
 
 ### Decision side
 - business objective;
@@ -92,6 +105,7 @@ Return:
 - `audience_icp_gaps`;
 - `journey_intent_gaps`;
 - `positioning_gaps`;
+- `channel_distribution_gaps`;
 - `usable_brand_context`;
 - `brand_context_gaps`;
 - `blocked_decisions`;
@@ -108,8 +122,9 @@ For a full commercial strategy:
 - a critical conversion/message decision based on invented journey intent → cannot receive `READY`;
 - unsafe Positioning / Offer Fit → cannot receive `READY`;
 - unsupported main promise or invented reason-to-choose → `BLOCKED` or `NEEDS_RESEARCH`;
+- a material channel plan based on popularity, unsupported audience presence, or unavailable capacity → cannot receive `READY`;
 - missing/materially incomplete founder context for founder-led work → cannot receive `READY`;
 - `INSUFFICIENT_EVIDENCE` research → core market-dependent decisions remain blocked;
 - weak performance history → strategy may proceed, but performance-derived recommendations remain experiments.
 
-Do not repair weak research, weak context, weak ICP, weak journey evidence, or weak positioning by inventing missing facts.
+Do not repair weak research, weak context, weak ICP, weak journey evidence, weak positioning, or weak channel evidence by inventing missing facts.
