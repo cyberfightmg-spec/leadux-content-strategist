@@ -22,9 +22,21 @@ A full strategy must pass all applicable gates.
 
 A full commercial strategy cannot be `READY` when Business Context is materially incomplete.
 
-## 4. Positioning / Offer Fit Gate
+## 4. Audience / ICP Fit Gate
+- content audience is not silently equated with buyer ICP;
+- problem holder, user, buyer and decision-maker are separated when materially different;
+- primary ICP status is supported by evidence or explicitly labeled hypothesis;
+- demographic/persona details are not invented for completeness;
+- audience priorities match current business goals and serviceability;
+- high-engagement but commercially weak audiences are marked `AUDIENCE_NOT_ICP` when appropriate;
+- unknown buyer/decision relationships remain visible;
+- `safe_for_strategy = true` for a full `READY` commercial strategy.
+
+A strategy cannot be `READY` when its primary sales target is only an unsupported persona guess.
+
+## 5. Positioning / Offer Fit Gate
 - at least one primary offer or strategic commercial focus is explicit;
-- priority audience/buying situation is supported or transparently partial;
+- priority ICP/buying situation comes from `audience-icp-fit` or equivalent verified evidence;
 - main promise is not `UNSUPPORTED`;
 - reason-to-choose is defensible or `POSITIONING_GAP` is explicitly returned;
 - differentiation is based on business truth, proof, identity/capability, or verified market evidence;
@@ -34,9 +46,9 @@ A full commercial strategy cannot be `READY` when Business Context is materially
 
 Never invent a USP merely to pass this gate.
 
-## 5. Founder / Brand Context Gate
+## 6. Founder / Brand Context Gate
 - founder/brand identity is explicit when relevant;
-- priority audiences and offers match approved positioning/offer fit;
+- priority audiences and offers match approved Audience / ICP Fit and Positioning / Offer Fit;
 - positioning and anti-positioning are explicit;
 - credible proof assets are known;
 - channel roles and capacity are known;
@@ -44,20 +56,20 @@ Never invent a USP merely to pass this gate.
 
 A full strategy cannot be `READY` when this context is materially incomplete.
 
-## 6. Objective Traceability Gate
+## 7. Objective Traceability Gate
 Every major content job connects to a current business/content objective and an intended audience action.
 
-## 7. Evidence Lineage Gate
-Every material decision is traceable to research evidence, Identity/Business Context, Positioning / Offer Fit, Founder/Brand Context, first-party performance, a validated pattern, or an explicit constraint.
+## 8. Evidence Lineage Gate
+Every material decision is traceable to research evidence, Identity/Business Context, Audience / ICP Fit, Positioning / Offer Fit, Founder/Brand Context, first-party performance, a validated pattern, or an explicit constraint.
 
-## 8. Anti-Generic Gate
+## 9. Anti-Generic Gate
 For every major recommendation ask:
 
 > Could this recommendation be given unchanged to a direct competitor?
 
 If yes, narrow or reject it unless the generic element is intentionally infrastructural.
 
-## 9. Validated Pattern Gate
+## 10. Validated Pattern Gate
 When an external strategy pattern influences a decision:
 - record its `pattern_id`;
 - preserve its evidence grade and limitations;
@@ -65,34 +77,34 @@ When an external strategy pattern influences a decision:
 - adapt the mechanism to the brand/business;
 - do not copy tactics by default.
 
-## 10. Trade-off Gate
+## 11. Trade-off Gate
 The strategy states what is `CORE`, `RESPONSIVE`, `EXPERIMENT`, `DEFERRED`, and `REJECTED`.
 
-## 11. Credibility / Proof Gate
+## 12. Credibility / Proof Gate
 The founder/brand can credibly explain, demonstrate, document or prove the proposed territory and content claims remain inside approved evidence boundaries.
 
-## 12. Commercial Fit Gate
-Priority work supports a primary/secondary offer, strategic asset, audience or business objective. Interesting but commercially distracting topics are downgraded or rejected.
+## 13. Commercial Fit Gate
+Priority work supports a primary/secondary offer, strategic asset, approved ICP or business objective. Interesting but commercially distracting topics are downgraded or rejected.
 
-## 13. Feasibility Gate
+## 14. Feasibility Gate
 Cadence, format and production requirements fit actual capacity.
 
-## 14. Challenger Gate
+## 15. Challenger Gate
 High-impact decisions have a skeptical counterweight, credible alternative, failure mode and reversal evidence.
 
-## 15. Creator Handoff Gate
-Creator briefs preserve strategic intent, evidence, approved positioning, proof and forbidden unsupported claims without prematurely writing final content.
+## 16. Creator Handoff Gate
+Creator briefs preserve strategic intent, evidence, approved positioning, ICP role, proof and forbidden unsupported claims without prematurely writing final content.
 
-## 16. Measurement Gate
+## 17. Measurement Gate
 The strategy defines observable indicators and interpretation limits. Unknown thresholds remain unknown.
 
-## 17. Learning Gate
+## 18. Learning Gate
 Where first-party performance exists, the strategy compares against relevant internal baselines and avoids causal overclaiming.
 
 ## Status rules
 
-Use `NEEDS_RESEARCH` when a central market-dependent or positioning-dependent decision lacks adequate evidence.
+Use `NEEDS_RESEARCH` when a central market-dependent, audience-dependent or positioning-dependent decision lacks adequate evidence.
 
-Use `READY_WITH_GAPS` when the strategy can proceed but material context, positioning, research, performance or pattern-transfer uncertainty remains.
+Use `READY_WITH_GAPS` when the strategy can proceed but material context, ICP, positioning, research, performance or pattern-transfer uncertainty remains.
 
-Use `BLOCKED` when missing evidence/context or unsupported positioning prevents safe or useful strategic selection.
+Use `BLOCKED` when missing evidence/context, unsupported ICP, or unsupported positioning prevents safe or useful strategic selection.
