@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/customer-journey-intent.schema.json",
+  "title": "Universal Customer Journey / Funnel Intent",
+  "type": "object",
+  "required": ["journey_id", "audience_fit_id", "journeys", "safe_for_strategy"],
+  "properties": {
+    "journey_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "audience_fit_id": {"type": "string", "minLength": 1},
+    "positioning_fit_id": {"type": ["string", "null"]},
+    "journeys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["journey_path_id", "audience_id", "role", "state", "state_confidence"],
+        "properties": {
+          "journey_path_id": {"type": "string"},
+          "audience_id": {"type": "string"},
+          "offer_id": {"type": ["string", "null"]},
+          "role": {
+            "enum": ["CONTENT_AUDIENCE", "PROBLEM_HOLDER", "USER", "BUYER", "DECISION_MAKER", "INFLUENCER", "CHAMPION", "BLOCKER", "ICP"]
+          },
+          "state": {
+            "enum": ["UNAWARE", "PROBLEM_AWARE", "SOLUTION_AWARE", "CATEGORY_EXPLORING", "VENDOR_COMPARING", "TRUST_VALIDATING", "PURCHASE_READY", "CUSTOMER_ONBOARDING", "CUSTOMER_ADOPTION", "RETENTION_EXPANSION", "ADVOCACY", "UNKNOWN"]
+          },
+          "state_confidence": {"enum": ["CONFIRMED", "SUPPORTED", "HYPOTHESIS", "UNKNOWN"]},
+          "problem_or_job": {"type": ["string", "null"]},
+          "current_question": {"type": ["string", "null"]},
+          "next_decision": {"type": ["string", "null"]},
+          "questions": {"type": "array", "items": {"type": "string"}},
+          "objections": {"type": "array", "items": {"type": "string"}},
+          "perceived_risks": {"type": "array", "items": {"type": "string"}},
+          "trust_requirements": {"type": "array", "items": {"type": "string"}},
+          "proof_needed": {"type": "array", "items": {"type": "string"}},
+          "alternatives": {"type": "array", "items": {"type": "string"}},
+          "switching_friction": {"type": "array", "items": {"type": "string"}},
+          "triggers": {"type": "array", "items": {"type": "string"}},
+          "content_jobs": {
+            "type": "array",
+            "items": {"enum": ["RECOGNIZE", "DIAGNOSE", "EDUCATE", "REFRAME", "COMPARE", "PROVE", "DE_RISK", "QUALIFY", "CONVERT", "ONBOARD", "ENABLE", "RETAIN", "EXPAND", "ADVOCATE"]}
+          },
+          "desired_action": {"type": ["string", "null"]},
+          "cta_strength": {"enum": ["NONE", "LOW", "MEDIUM", "HIGH", "UNKNOWN"]},
+          "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_voc_ids": {"type": "array", "items": {"type": "string"}},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "primary_journeys": {"type": "array", "items": {"type": "string"}},
+    "unknown_journey_states": {"type": "array", "items": {"type": "string"}},
+    "journey_gaps": {"type": "array", "items": {"type": "string"}},
+    "research_requests": {"type": "array", "items": {"type": "string"}},
+    "questions_required_from_user": {"type": "array", "items": {"type": "string"}},
+    "safe_for_strategy": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
