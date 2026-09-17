@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/audience-icp-fit.schema.json",
+  "title": "Universal Audience / ICP Fit",
+  "type": "object",
+  "required": ["audience_icp_fit_id", "segments", "safe_for_strategy"],
+  "properties": {
+    "audience_icp_fit_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "updated_at": {"type": ["string", "null"]},
+    "business_context_id": {"type": ["string", "null"]},
+    "positioning_offer_fit_id": {"type": ["string", "null"]},
+    "research_package_id": {"type": ["string", "null"]},
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["segment_id", "name", "evidence_status", "priority"],
+        "properties": {
+          "segment_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "description": {"type": ["string", "null"]},
+          "evidence_status": {"enum": ["CONFIRMED_ICP", "SUPPORTED_CANDIDATE", "HYPOTHESIS", "AUDIENCE_NOT_ICP", "REJECTED", "UNKNOWN"]},
+          "priority": {"enum": ["PRIMARY", "SECONDARY", "EXPERIMENTAL", "DEFERRED", "REJECTED"]},
+          "roles": {
+            "type": "object",
+            "properties": {
+              "content_audience": {"type": ["boolean", "null"]},
+              "problem_holder": {"type": ["boolean", "null"]},
+              "user": {"type": ["boolean", "null"]},
+              "buyer": {"type": ["boolean", "null"]},
+              "decision_maker": {"type": ["boolean", "null"]},
+              "influencer": {"type": ["boolean", "null"]},
+              "champion": {"type": ["boolean", "null"]},
+              "blocker": {"type": ["boolean", "null"]}
+            },
+            "additionalProperties": true
+          },
+          "jobs": {"type": "array", "items": {"type": "string"}},
+          "problems": {"type": "array", "items": {"type": "string"}},
+          "desired_outcomes": {"type": "array", "items": {"type": "string"}},
+          "alternatives": {"type": "array", "items": {"type": "string"}},
+          "objections": {"type": "array", "items": {"type": "string"}},
+          "buying_triggers": {"type": "array", "items": {"type": "string"}},
+          "switching_reasons": {"type": "array", "items": {"type": "string"}},
+          "language": {"type": "array", "items": {"type": "string"}},
+          "commercial_fit": {
+            "type": "object",
+            "properties": {
+              "problem_relevance": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "buying_evidence": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "offer_fit": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "proof_fit": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "delivery_fit": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "revenue_fit": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "reachability": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]}
+            },
+            "additionalProperties": true
+          },
+          "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_voc_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_business_fields": {"type": "array", "items": {"type": "string"}},
+          "contradicting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "unknowns": {"type": "array", "items": {"type": "string"}},
+          "rejection_reason": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "primary_icp_ids": {"type": "array", "items": {"type": "string"}},
+    "secondary_icp_ids": {"type": "array", "items": {"type": "string"}},
+    "content_audience_ids": {"type": "array", "items": {"type": "string"}},
+    "audience_not_icp_ids": {"type": "array", "items": {"type": "string"}},
+    "rejected_segment_ids": {"type": "array", "items": {"type": "string"}},
+    "unknown_role_relationships": {"type": "array", "items": {"type": "string"}},
+    "research_requests": {"type": "array", "items": {"type": "object"}},
+    "questions_required_from_user": {"type": "array", "items": {"type": "string"}},
+    "safe_for_positioning": {"type": "boolean"},
+    "safe_for_strategy": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
