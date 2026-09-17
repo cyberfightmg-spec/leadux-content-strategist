@@ -10,6 +10,9 @@
 - Added explicit anti-generic, brand-dilution, credibility-fit and commercial-fit gates.
 - Added pattern IDs and transfer-assumption discipline to strategic reasoning.
 - Added Marketing Council architecture attribution for skeptical counterweights and reversal criteria.
+- Added external `content-performance-pattern` schema for normalized competitor/adjacent-creator outliers coming from LeadUX Competitor Research.
+- Extended research-package and handoff infrastructure to preserve content-performance patterns, evidence levels, transfer assumptions and limitations.
+- Strategy opportunities must distinguish observable content success from audience, lead and business outcomes.
 
 ## 0.3.0
 - Packaged the project as a public Agent Skills repository.
