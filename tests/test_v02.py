@@ -14,6 +14,20 @@ def load(rel): return json.loads((ROOT/rel).read_text())
 def test_strategy_request_schema():
     assert validate_schema(load('examples/strategy-request.example.json'),'strategy-request.schema.json') == []
 
+def test_founder_brand_context_schema():
+    ctx=load('examples/founder-brand-context.leadux.example.json')
+    assert validate_schema(ctx,'founder-brand-context.schema.json') == []
+    assert ctx['positioning']['core_promise']
+    assert any(o['priority']=='CORE' for o in ctx['offers'])
+
+def test_validated_strategy_pattern_library():
+    lib=load('references/validated-strategy-patterns.json')
+    assert lib['patterns']
+    ids=[p['pattern_id'] for p in lib['patterns']]
+    assert len(ids)==len(set(ids))
+    assert all(p['evidence_grade'] in {'A','B','C'} for p in lib['patterns'])
+    assert all(p.get('limitations') for p in lib['patterns'])
+
 def test_memory_schema():
     assert validate_schema(load('examples/memory/strategy-memory.example.json'),'strategy-memory.schema.json') == []
 
@@ -51,7 +65,6 @@ def test_workspace_init(tmp_path):
     assert (tmp_path/'manifest.json').exists()
     assert (tmp_path/'memory/strategy-memory.json').exists()
 
-
 def test_preflight_status():
     from leadux_content_strategist.preflight import research_preflight
     r=load('examples/research-package.example.json')
@@ -67,28 +80,23 @@ def test_handoff_builder_preserves_ids():
     assert validate_schema(out,'research-package.schema.json')==[]
     assert research_integrity_errors(out)==[]
 
-
 def test_tight_strategy_output_schema():
     s=load('examples/strategy-output.example.json')
     assert validate_schema(s,'strategy-output.schema.json')==[]
     assert s['decisions'][0]['decision_id']=='dec_demo_001'
 
-
 def test_skill_registry_and_frontmatter():
-    import json
     import re
-    from pathlib import Path
-
     root = Path(__file__).resolve().parents[1]
-    registry = json.loads((root / "skills" / "registry.json").read_text())
-    registered = {row["name"] for row in registry["skills"]}
-    directories = {p.parent.name for p in (root / "skills").glob("*/SKILL.md")}
+    registry = json.loads((root / 'skills' / 'registry.json').read_text())
+    registered = {row['name'] for row in registry['skills']}
+    directories = {p.parent.name for p in (root / 'skills').glob('*/SKILL.md')}
     assert registered == directories
 
-    for path in [root / "SKILL.md", *list((root / "skills").glob("*/SKILL.md"))]:
+    for path in [root / 'SKILL.md', *list((root / 'skills').glob('*/SKILL.md'))]:
         text = path.read_text()
-        assert text.startswith("---\n")
-        header = text.split("---", 2)[1]
-        assert re.search(r"^name:\s*.+$", header, re.M)
-        assert re.search(r"^description:\s*>-", header, re.M)
-        assert re.search(r"^license:\s*MIT$", header, re.M)
+        assert text.startswith('---\n')
+        header = text.split('---', 2)[1]
+        assert re.search(r'^name:\s*.+$', header, re.M)
+        assert re.search(r'^description:\s*>-', header, re.M)
+        assert re.search(r'^license:\s*MIT$', header, re.M)
