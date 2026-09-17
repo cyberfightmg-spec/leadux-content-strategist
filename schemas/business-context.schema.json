@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/business-context.schema.json",
+  "title": "Universal Business Context",
+  "type": "object",
+  "required": ["business_context_id", "business", "offers", "audiences", "economics", "goals", "resources", "constraints", "provenance"],
+  "properties": {
+    "business_context_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "updated_at": {"type": ["string", "null"]},
+    "business": {
+      "type": "object",
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "business_model": {"type": "array", "items": {"type": "string"}},
+        "stage": {"type": ["string", "null"]},
+        "geographies": {"type": "array", "items": {"type": "string"}},
+        "languages": {"type": "array", "items": {"type": "string"}},
+        "current_revenue_model": {"type": "array", "items": {"type": "string"}},
+        "desired_revenue_model": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "offers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["offer_id", "name", "priority", "status"],
+        "properties": {
+          "offer_id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": ["string", "null"]},
+          "priority": {"enum": ["CORE", "GROWTH", "EXPERIMENT", "DEPRIORITIZED"]},
+          "status": {"enum": ["ACTIVE", "PLANNED", "EXPERIMENTAL", "PAUSED", "UNKNOWN"]},
+          "target_audience_ids": {"type": "array", "items": {"type": "string"}},
+          "problem_solved": {"type": ["string", "null"]},
+          "desired_outcome": {"type": ["string", "null"]},
+          "pricing_model": {"type": ["string", "null"]},
+          "delivery_model": {"type": ["string", "null"]},
+          "proof_assets": {"type": "array", "items": {"type": "string"}},
+          "capacity_notes": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "audiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["audience_id", "name", "priority"],
+        "properties": {
+          "audience_id": {"type": "string"},
+          "name": {"type": "string"},
+          "priority": {"enum": ["PRIMARY", "SECONDARY", "EXPERIMENTAL"]},
+          "buyer_roles": {"type": "array", "items": {"type": "string"}},
+          "jobs": {"type": "array", "items": {"type": "string"}},
+          "known_problems": {"type": "array", "items": {"type": "string"}},
+          "desired_outcomes": {"type": "array", "items": {"type": "string"}},
+          "evidence_status": {"enum": ["USER_STATED", "RESEARCH_SUPPORTED", "MIXED", "UNKNOWN"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "economics": {
+      "type": "object",
+      "properties": {
+        "revenue_priorities": {"type": "array", "items": {"type": "string"}},
+        "recurring_revenue_targets": {"type": "array", "items": {"type": "string"}},
+        "one_time_revenue_targets": {"type": "array", "items": {"type": "string"}},
+        "margin_constraints": {"type": "array", "items": {"type": "string"}},
+        "price_constraints": {"type": "array", "items": {"type": "string"}},
+        "financial_unknowns": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["goal_id", "goal", "priority"],
+        "properties": {
+          "goal_id": {"type": "string"},
+          "goal": {"type": "string"},
+          "priority": {"enum": ["PRIMARY", "SECONDARY", "EXPERIMENTAL"]},
+          "time_horizon": {"type": ["string", "null"]},
+          "success_definition": {"type": ["string", "null"]},
+          "measurement_status": {"enum": ["DEFINED", "PARTIAL", "UNKNOWN"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "team": {"type": "array", "items": {"type": "string"}},
+        "time_capacity": {"type": "array", "items": {"type": "string"}},
+        "budget_capacity": {"type": "array", "items": {"type": "string"}},
+        "tools_and_channels": {"type": "array", "items": {"type": "string"}},
+        "existing_assets": {"type": "array", "items": {"type": "string"}},
+        "delivery_constraints": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "must_do": {"type": "array", "items": {"type": "string"}},
+        "must_not_do": {"type": "array", "items": {"type": "string"}},
+        "markets_not_served": {"type": "array", "items": {"type": "string"}},
+        "offer_constraints": {"type": "array", "items": {"type": "string"}},
+        "legal_or_operational": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "unknown_fields": {"type": "array", "items": {"type": "string"}},
+    "questions_required_before_strategy": {"type": "array", "items": {"type": "string"}},
+    "safe_to_start_strategy": {"type": "boolean"},
+    "blocking_reason": {"type": ["string", "null"]},
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field_path", "source_type"],
+        "properties": {
+          "field_path": {"type": "string"},
+          "source_type": {"enum": ["USER_STATED", "USER_CONFIRMED", "DOCUMENTED", "RESEARCH_SUPPORTED", "UNKNOWN"]},
+          "source_note": {"type": ["string", "null"]},
+          "recorded_at": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
