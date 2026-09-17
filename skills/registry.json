@@ -5,8 +5,9 @@
   "router": "../SKILL.md",
   "skills": [
     {"name":"identity-unpacking","path":"identity-unpacking/SKILL.md","stage":0,"requires":["founder-led-strategy-request"]},
-    {"name":"strategy-intake","path":"strategy-intake/SKILL.md","stage":1,"requires":["research-package","strategy-request","identity-profile-when-founder-led"]},
-    {"name":"founder-brand-context","path":"founder-brand-context/SKILL.md","stage":2,"requires":["identity-profile","business-offer-context"]},
+    {"name":"business-context","path":"business-context/SKILL.md","stage":0.5,"requires":["strategy-request"]},
+    {"name":"strategy-intake","path":"strategy-intake/SKILL.md","stage":1,"requires":["research-package","strategy-request","identity-profile-when-founder-led","business-context"]},
+    {"name":"founder-brand-context","path":"founder-brand-context/SKILL.md","stage":2,"requires":["identity-profile","business-context"]},
     {"name":"strategy-memory","path":"strategy-memory/SKILL.md","stage":3,"requires":["strategy-memory"]},
     {"name":"strategy-pattern-selection","path":"strategy-pattern-selection/SKILL.md","stage":4,"requires":["research-package","founder-brand-context","strategy-request"]},
     {"name":"objective-mapping","path":"objective-mapping/SKILL.md","stage":5,"requires":["strategy-request","founder-brand-context"]},
