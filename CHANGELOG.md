@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0 — Founder-aware validated-strategy architecture
+- Added first-class `founder-brand-context` skill and JSON schema.
+- Added public LeadUX founder/brand context example.
+- Added `strategy-pattern-selection` skill.
+- Added evidence-graded `validated-strategy-patterns.json` library.
+- Added strategy-source audit separating adoption, independent usage, result evidence and replication strength.
+- Upgraded root router and agent rules so full strategy requires both market evidence and founder/brand context.
+- Added explicit anti-generic, brand-dilution, credibility-fit and commercial-fit gates.
+- Added pattern IDs and transfer-assumption discipline to strategic reasoning.
+- Added Marketing Council architecture attribution for skeptical counterweights and reversal criteria.
+
 ## 0.3.0
 - Packaged the project as a public Agent Skills repository.
 - Added YAML frontmatter to the root router and every specialized skill.
