@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.8.0 — Channel / distribution fit
+- Added first-class `channel-distribution-fit` skill after Positioning / Offer Fit.
+- Added channel evidence states: `CONFIRMED_FIT`, `SUPPORTED_FIT`, `HYPOTHESIS`, `INSUFFICIENT_EVIDENCE`, `REJECTED`.
+- Added channel priorities: `PRIMARY`, `SECONDARY`, `REPURPOSE_ONLY`, `EXPERIMENTAL`, `DEFERRED`, `REJECTED`.
+- Added explicit separation of audience (`WHO`), journey state (`STATE`), content job (`JOB`), channel (`WHERE`), format (`FORMAT`), next action (`ACTION`) and measured result (`OUTCOME`).
+- Added broad channel families covering owned site/search/email/messaging/social/video/community/marketplaces/partners/PR/paid/outbound/events.
+- Added rule that platform popularity and competitor presence do not prove channel fit.
+- Added owned vs rented distribution modeling and rented-to-owned paths.
+- Added repurposing graph with source asset → derived asset → channel → audience/state → content job.
+- Added operational-fit checks for production capability, sustainability, response burden, budget and compliance.
+- Added measurement layers separating distribution signals, audience response, lead signals and business outcomes.
+- Added `channel-distribution-fit.schema.json` and generic example.
+- Founder / Brand Context, Strategy Intake, Quality Gates, Content Opportunities and Creator Briefs now consume Channel / Distribution Fit.
+- Strategy request/output schemas can trace `channel_distribution_fit_id` and distribution assumptions.
+- CLI schema inference and tests updated for Channel / Distribution Fit objects.
+
 ## 0.7.0 — Customer journey / funnel intent
 - Added first-class `customer-journey-intent` skill between Audience / ICP Fit and Positioning / Offer Fit.
 - Added evidence-backed journey states: `UNAWARE`, `PROBLEM_AWARE`, `SOLUTION_AWARE`, `CATEGORY_EXPLORING`, `VENDOR_COMPARING`, `TRUST_VALIDATING`, `PURCHASE_READY`, onboarding, adoption, retention/expansion, advocacy and `UNKNOWN`.
