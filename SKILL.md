@@ -1,7 +1,7 @@
 ---
 name: leadux-content-strategist
 description: >-
-  Evidence-first founder-aware content strategy router that starts with strict identity unpacking,
+  Evidence-first universal content strategy router that starts with strict identity and business context capture,
   then combines verified market research, founder/brand context, validated strategy patterns,
   strategy memory, and first-party performance into traceable strategic choices and Creator briefs.
 metadata:
@@ -15,13 +15,15 @@ license: MIT
 
 ## Purpose
 
-Transform verified market evidence into a strategy that is specific to the actual founder/brand that must execute it.
+Transform verified market evidence into a strategy that is specific to the actual person/brand/business that must execute it.
 
-For founder-led brands, strategy begins with **identity unpacking before planning**.
+For founder-led brands, strategy begins with identity unpacking. For every commercial strategy, business context is a separate required input.
 
 ```text
-IDENTITY UNPACKING
-        ↓ confirmed founder profile
+IDENTITY UNPACKING (when founder-led)
+        ↓ confirmed identity profile
+BUSINESS CONTEXT
+        ↓ confirmed commercial context
 FOUNDER / BRAND CONTEXT
         +
 RESEARCH EVIDENCE
@@ -45,22 +47,23 @@ It is not a generic idea generator, not a one-shot calendar prompt, and not the 
 ## Non-negotiable principles
 
 1. No material strategic recommendation without lineage.
-2. No identity, personality, value, expertise, goal, or personal-boundary field may be invented or inferred from style/behavior.
-3. Missing strategically relevant identity data → ask the founder directly and wait for an answer.
-4. Market evidence and founder/brand context are separate inputs; neither replaces the other.
-5. Research claims keep their original evidence class and verification status.
-6. `UNKNOWN` remains unknown.
-7. Strategy must make choices, trade-offs, deferrals and rejections.
-8. Trend visibility is not audience demand.
-9. Competitor activity is not competitor success.
-10. Another creator's success is not automatically transferable.
-11. Strategy patterns are mechanisms to adapt, not tactics to copy.
-12. First-party performance outranks generic best practice when the evidence is reliable and comparable.
-13. Historical performance is observational evidence, not automatic causal proof.
-14. High-impact decisions must survive `strategy-challenger`.
-15. Full personalized strategy requires a confirmed Identity Profile and valid Founder/Brand Context.
-16. Final scripts/posts belong to a downstream Creator.
-17. Strategy memory must be explicit and auditable.
+2. No identity, personality, value, expertise, goal, personal-boundary, business, offer, pricing, audience, revenue, or resource field may be invented.
+3. Missing strategically relevant identity/business data → ask directly and wait for an answer.
+4. Identity and Business Context are separate inputs; neither replaces the other.
+5. Market evidence and founder/brand context are separate inputs; neither replaces the other.
+6. Research claims keep their original evidence class and verification status.
+7. `UNKNOWN` remains unknown.
+8. Strategy must make choices, trade-offs, deferrals and rejections.
+9. Trend visibility is not audience demand.
+10. Competitor activity is not competitor success.
+11. Another creator's success is not automatically transferable.
+12. Strategy patterns are mechanisms to adapt, not tactics to copy.
+13. First-party performance outranks generic best practice when the evidence is reliable and comparable.
+14. Historical performance is observational evidence, not automatic causal proof.
+15. High-impact decisions must survive `strategy-challenger`.
+16. Full personalized strategy requires valid context for the person/brand/business executing it.
+17. Final scripts/posts belong to a downstream Creator.
+18. Strategy memory must be explicit and auditable.
 
 Read and obey:
 
@@ -110,6 +113,39 @@ If strategically important fields remain unresolved, set `safe_to_start_strategy
 
 ---
 
+# Step 0.5 — Business Context
+
+Load:
+
+`skills/business-context/SKILL.md`
+
+This stage is universal and separate from personality.
+
+Capture only confirmed or documented facts about:
+- business model;
+- active/planned offers;
+- offer priorities;
+- target audiences;
+- problem/outcome per offer;
+- current and desired revenue models;
+- commercial goals and horizons;
+- team/time/budget/tools/assets;
+- delivery capacity;
+- must-do / must-not-do constraints;
+- markets or industries intentionally not served.
+
+Never infer pricing, revenue, margin, ICP, offer priority, conversion, capacity, or economics.
+
+If two goals conflict, surface the conflict and ask which priority wins now.
+
+Output must conform to:
+
+`schemas/business-context.schema.json`
+
+For a full commercial strategy, unresolved business fields that materially change prioritization must block or downgrade the run.
+
+---
+
 # Step 1 — Normalize the strategy request
 
 Capture:
@@ -125,6 +161,7 @@ Capture:
   "constraints": [],
   "research_package_id": "",
   "identity_profile_id": "",
+  "business_context_id": "",
   "founder_context_id": "",
   "performance_dataset_ids": []
 }
@@ -134,15 +171,27 @@ Do not ask again for information already explicitly supplied and provenance-safe
 
 ---
 
-# Step 2 — Validate the evidence package
+# Step 2 — Validate the evidence/context package
 
 Load `skills/strategy-intake/SKILL.md`.
 
-Check research integrity, geography/segment fit, freshness, contradictions, gaps, first-party performance quality, confirmed Identity Profile, and usable Founder/Brand Context.
+Check:
+- research integrity;
+- geography/segment fit;
+- freshness;
+- contradictions/gaps;
+- first-party performance quality;
+- confirmed Identity Profile when founder-led;
+- valid Business Context;
+- usable Founder/Brand Context.
 
 If market evidence is materially insufficient, route a scoped request through `skills/research-gap-router/SKILL.md`.
 
-If identity/business context is materially incomplete, return to `identity-unpacking` or `founder-brand-context` instead of guessing.
+If identity is incomplete, return to `identity-unpacking`.
+
+If commercial context is incomplete, return to `business-context`.
+
+Do not repair missing context by inference.
 
 ---
 
@@ -151,10 +200,10 @@ If identity/business context is materially incomplete, return to `identity-unpac
 Load `skills/founder-brand-context/SKILL.md`.
 
 The Founder/Brand Context must be derived only from:
-- confirmed Identity Profile;
-- explicit business/offer facts;
-- explicit founder confirmations;
-- appropriate public facts that do not substitute for self-definition.
+- confirmed Identity Profile where relevant;
+- confirmed Business Context;
+- explicit founder/brand confirmations;
+- appropriate public facts that do not substitute for self-definition or commercial intent.
 
 A full strategy must understand:
 - who the founder/brand is;
@@ -176,7 +225,7 @@ market opportunity
 ×
 audience relevance
 ×
-founder credibility
+founder/brand credibility
 ×
 business priority
 ×
@@ -191,7 +240,7 @@ execution capacity
 
 Load `skills/strategy-memory/SKILL.md`.
 
-Use the founder/brand's own history to understand repeated topics/angles, winners/losers, format/channel patterns, experiments, stale assumptions and overused topics.
+Use the brand's own history to understand repeated topics/angles, winners/losers, format/channel patterns, experiments, stale assumptions and overused topics.
 
 Do not use a generic benchmark when a reliable first-party comparison is available.
 
@@ -251,7 +300,7 @@ Also state what the brand will deliberately not compete on.
 
 Load `skills/content-pillars/SKILL.md`.
 
-Every pillar must state its strategic job, audience, business/offer connection, founder proof, research support, differentiation, inclusion/exclusion boundaries, and relevant buyer role/stage.
+Every pillar must state its strategic job, audience, business/offer connection, founder/brand proof, research support, differentiation, inclusion/exclusion boundaries, and relevant buyer role/stage.
 
 Reject pillars that are interesting but dilute positioning or commercial focus.
 
@@ -265,6 +314,7 @@ Every strong opportunity should answer:
 - Why this audience?
 - Why this problem?
 - Why this founder/brand?
+- Why this business objective/offer?
 - Why now?
 - Why this angle?
 - Why this format/channel?
@@ -305,7 +355,7 @@ Return `SURVIVES`, `NARROWED`, or `INVALIDATED` per major decision.
 
 Load `skills/content-briefing/SKILL.md`.
 
-Briefs may specify topic, audience, tension, angle, objective, evidence, founder POV/proof, required facts, forbidden unsupported claims, format/channel, CTA intent and success metric.
+Briefs may specify topic, audience, tension, angle, objective, evidence, founder/brand POV/proof, required facts, forbidden unsupported claims, format/channel, CTA intent and success metric.
 
 Do not write final content here.
 
@@ -318,20 +368,21 @@ Load `skills/synthesis/SKILL.md`.
 Final output should include:
 1. strategy scope/date;
 2. research integrity/limits;
-3. Identity Profile ID/version and unresolved fields;
-4. Founder/Brand Context ID/version and gaps;
-5. business/content objective;
-6. selected/rejected strategy patterns and adaptations;
-7. strategic wedge;
-8. content pillars;
-9. portfolio decisions;
-10. priority opportunities;
-11. experiments;
-12. intentionally rejected work;
-13. Creator briefs;
-14. challenger findings;
-15. research/context requests;
-16. measurement and feedback plan.
+3. Identity Profile ID/version and unresolved fields when relevant;
+4. Business Context ID/version, commercial conflicts and unresolved fields;
+5. Founder/Brand Context ID/version and gaps;
+6. business/content objective;
+7. selected/rejected strategy patterns and adaptations;
+8. strategic wedge;
+9. content pillars;
+10. portfolio decisions;
+11. priority opportunities;
+12. experiments;
+13. intentionally rejected work;
+14. Creator briefs;
+15. challenger findings;
+16. research/context requests;
+17. measurement and feedback plan.
 
 ---
 
@@ -356,6 +407,6 @@ NEEDS_RESEARCH
 BLOCKED
 ```
 
-A founder-led full strategy cannot be `READY` when the Identity Profile is unconfirmed or Founder/Brand Context is materially incomplete.
+A full commercial strategy cannot be `READY` when Business Context is materially incomplete. A founder-led full strategy also cannot be `READY` when the Identity Profile is unconfirmed or Founder/Brand Context is materially incomplete.
 
-The goal is not more ideas. The goal is fewer, more specific, more defensible decisions that this founder/brand can actually win with.
+The goal is not more ideas. The goal is fewer, more specific, more defensible decisions that the actual business can execute and benefit from.
