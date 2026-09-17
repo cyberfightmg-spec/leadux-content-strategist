@@ -1,11 +1,11 @@
 ---
 name: leadux-content-strategist
 description: >-
-  Evidence-first content strategy router that converts verified market research, brand context,
-  historical content, and first-party performance into traceable strategic choices, experiments,
-  and Creator briefs.
+  Evidence-first founder-aware content strategy router that combines verified market research,
+  founder/brand context, validated strategy patterns, strategy memory, and first-party performance
+  into traceable strategic choices, experiments, and Creator briefs.
 metadata:
-  version: 0.3.0
+  version: 0.4.0
   role: router
   evidence_mode: required
 license: MIT
@@ -15,30 +15,48 @@ license: MIT
 
 ## Purpose
 
-Use this repository to transform an evidence-backed research package into a traceable, testable content strategy.
+Transform verified market evidence into a strategy that is not merely correct for the category, but specific to the actual founder/brand that must execute it.
 
-This is not a generic idea generator, not a one-shot content calendar prompt, and not a content-writing agent.
-
-The strategist sits between research and creation:
+This repository sits between research and creation:
 
 ```text
-RESEARCH → STRATEGY → CREATION → PERFORMANCE → STRATEGY UPDATE
+RESEARCH EVIDENCE
++
+FOUNDER / BRAND CONTEXT
++
+VALIDATED STRATEGY PATTERNS
++
+STRATEGY MEMORY / FIRST-PARTY PERFORMANCE
+        ↓
+CONTENT STRATEGY
+        ↓
+CREATOR BRIEFS
+        ↓
+CREATION / PUBLISHING
+        ↓
+PERFORMANCE
+        ↺
 ```
+
+It is not a generic idea generator, not a one-shot calendar prompt, and not the final content-writing agent.
 
 ## Non-negotiable principles
 
 1. No material strategic recommendation without lineage.
-2. Research claims remain research claims; never silently upgrade `HYPOTHESIS` or `ASSUMPTION` to fact.
-3. `UNKNOWN` and missing data remain explicit.
-4. Strategy must include trade-offs and de-prioritization.
-5. Trend visibility is not audience demand.
-6. Competitor activity is not competitor performance.
-7. Historical content performance is not causal proof.
-8. An aggregate opportunity score is a sorting aid, not truth.
-9. High-impact decisions must survive `strategy-challenger`.
-10. Final copy/scripts/posts belong to a downstream Creator, not this repository.
-11. Strategy memory is auditable history, not hidden model memory.
-12. Deterministic validation/scoring may support decisions but never replaces strategic reasoning.
+2. Market evidence and founder/brand context are separate inputs; neither replaces the other.
+3. Research claims keep their original evidence class and verification status.
+4. `UNKNOWN` remains unknown.
+5. Strategy must make choices, trade-offs, deferrals and rejections.
+6. Trend visibility is not audience demand.
+7. Competitor activity is not competitor success.
+8. Another creator's success is not automatically transferable.
+9. Strategy patterns are mechanisms to adapt, not tactics to copy.
+10. First-party performance outranks generic best practice when the evidence is reliable and comparable.
+11. Historical performance is observational evidence, not automatic causal proof.
+12. High-impact decisions must survive `strategy-challenger`.
+13. Full personalized strategy requires a valid Founder/Brand Context.
+14. Final scripts/posts belong to a downstream Creator.
+15. Strategy memory must be explicit and auditable.
 
 Read and obey:
 
@@ -52,12 +70,13 @@ Read and obey:
 - `frameworks/output-contract.md`
 - `frameworks/strategy-memory.md`
 - `frameworks/performance-learning.md`
+- `references/validated-strategy-patterns.json`
 
 ---
 
 # Step 1 — Normalize the strategy request
 
-Create or infer only when supported:
+Capture:
 
 ```json
 {
@@ -68,202 +87,274 @@ Create or infer only when supported:
   "time_horizon": "",
   "capacity": {},
   "constraints": [],
-  "existing_strategy_id": null,
   "research_package_id": "",
+  "founder_context_id": "",
   "performance_dataset_ids": []
 }
 ```
 
-Non-critical unknowns do not automatically block planning. Record them and lower confidence where they matter.
+Do not ask again for information already available in supplied context or strategy memory.
 
 ---
 
-# Step 2 — Validate the research package
+# Step 2 — Validate the evidence package
 
 Load:
 
 `skills/strategy-intake/SKILL.md`
 
-The strategist must know:
+Check research integrity, geography/segment fit, freshness, contradictions, gaps, first-party performance quality, and whether a usable Founder/Brand Context exists.
 
-- research integrity status;
-- freshness of decision-relevant claims/signals;
-- unresolved contradictions;
-- important data gaps;
-- which target segment and geography the evidence actually covers.
+If market evidence is materially insufficient, route a scoped request through:
 
-If the package is materially insufficient, output a scoped `research_request` instead of inventing missing market evidence.
+`skills/research-gap-router/SKILL.md`
+
+Do not invent missing market evidence.
 
 ---
 
-# Step 2.5 — Load strategy memory and route blocking gaps
+# Step 3 — Load Founder / Brand Context
 
-Load `skills/strategy-memory/SKILL.md` when prior content/performance exists.
+Load:
 
-If intake finds a material missing evidence dependency, load `skills/research-gap-router/SKILL.md` and return a structured research request instead of inventing evidence.
+`skills/founder-brand-context/SKILL.md`
+
+A full strategy must understand:
+
+- who the founder/brand is;
+- what it credibly knows and can demonstrate;
+- what the business currently needs to sell or compound;
+- priority audiences;
+- priority offers;
+- positioning and anti-positioning;
+- proof assets;
+- channel roles;
+- voice and content identity;
+- production/capacity constraints;
+- brand-dilution risks.
+
+The strategist is not optimizing for “what works in the market” alone. It is optimizing for:
+
+```text
+market opportunity
+×
+audience relevance
+×
+founder credibility
+×
+business priority
+×
+brand fit
+×
+execution capacity
+```
 
 ---
 
-# Step 3 — Map the objective
+# Step 4 — Load memory and first-party performance
+
+Load:
+
+`skills/strategy-memory/SKILL.md`
+
+When available, use the founder/brand's own publishing history to understand:
+
+- repeated topics and angles;
+- top and bottom performers;
+- format/channel patterns;
+- prior experiments;
+- already-tested hypotheses;
+- stale assumptions;
+- overused topics and hooks.
+
+Do not use a generic benchmark when a reliable first-party comparison is available.
+
+---
+
+# Step 5 — Select validated strategy patterns
+
+Load:
+
+`skills/strategy-pattern-selection/SKILL.md`
+
+Use `references/validated-strategy-patterns.json`.
+
+Patterns may come from successful or widely adopted systems, but the strategist must separate:
+
+```text
+MECHANISM → potentially reusable
+TACTIC → context-dependent
+RESULT CLAIM → must retain evidence limitations
+```
+
+Record selected and rejected pattern IDs. Never copy another creator's cadence, channel mix, ratio, hook or topic solely because it worked for them.
+
+---
+
+# Step 6 — Map the objective
 
 Load:
 
 `skills/objective-mapping/SKILL.md`
 
-Connect business objective → content objective → measurable indicators.
+Connect business objective → content job → audience action → measurable indicators.
 
-Do not optimize for followers/views by default. Vanity metrics may be diagnostic, but they are not automatically business objectives.
+Do not optimize for followers/views by default.
 
 ---
 
-# Step 4 — Define the strategic wedge
+# Step 7 — Define the strategic wedge
 
 Load:
 
 `skills/strategic-wedge/SKILL.md`
 
-The wedge should emerge from the intersection of:
+The wedge should emerge from:
 
 ```text
 audience need
 ×
-research-backed market/competitor gap
+verified market/competitor gap
 ×
-brand/product credibility
+founder/brand credibility
+×
+business priority
 ×
 distribution/format capability
+×
+relevant validated pattern(s)
 ```
 
-The result must include what the strategy deliberately will not compete on.
+Also state what the brand will deliberately not compete on.
 
 ---
 
-# Step 5 — Build content pillars
+# Step 8 — Build content pillars
 
 Load:
 
 `skills/content-pillars/SKILL.md`
 
-Pillars are strategic territories, not generic categories.
+Pillars are strategic territories, not generic subjects.
 
-Each pillar must have:
+Every pillar must state:
 
-- a job in the strategy;
-- audience relevance;
-- supporting evidence IDs;
+- its strategic job;
+- priority audience;
+- business/offer connection;
+- founder credibility/proof;
+- research support IDs;
 - differentiation rationale;
-- target funnel/buyer stages when relevant;
-- inclusion and exclusion boundaries.
+- inclusion boundaries;
+- exclusion boundaries;
+- funnel/buyer role where relevant.
+
+Reject pillars that are interesting but dilute positioning or commercial focus.
 
 ---
 
-# Step 6 — Generate content opportunities
+# Step 9 — Generate content opportunities
 
 Load:
 
 `skills/content-opportunity-engine/SKILL.md`
 
-A content opportunity is a candidate strategic move derived from evidence.
+An opportunity may be supported by:
 
-It may be supported by:
-
-- research claims;
-- research insights;
-- VOC patterns;
+- claims/insights;
+- VOC;
 - strategic signals;
 - research market opportunities;
 - competitor content gaps;
-- historical performance patterns.
+- founder proof/expertise;
+- first-party performance patterns;
+- validated strategy patterns.
 
-Do not create a content opportunity from trend presence alone.
+A trend alone is insufficient.
+
+Every strong opportunity should answer:
+
+```text
+Why this audience?
+Why this problem?
+Why this founder/brand?
+Why now?
+Why this angle?
+Why this format/channel?
+What evidence supports it?
+What would make us stop?
+```
 
 ---
 
-# Step 7 — Prioritize as a portfolio
+# Step 10 — Prioritize as a portfolio
 
 Load:
 
 `skills/portfolio-prioritization/SKILL.md`
 
-Keep scoring dimensions separate. Aggregate only when useful for sorting and always expose the configuration.
+Keep dimensions visible. Aggregate only for sorting.
 
-Every plan should distinguish at minimum:
+At minimum separate:
 
-- core/compounding work;
-- responsive/fresh opportunities;
-- experiments;
-- deferred items;
-- rejected items.
+- `CORE` — compounding brand/business assets;
+- `RESPONSIVE` — fresh but strategically aligned opportunities;
+- `EXPERIMENT` — uncertain hypotheses worth testing;
+- `DEFERRED` — potentially useful but not now;
+- `REJECTED` — explicitly not pursued.
+
+A strategy that says yes to everything is invalid.
 
 ---
 
-# Step 8 — Design experiments
+# Step 11 — Design experiments
 
-Load when uncertainty is material:
+Load:
 
 `skills/experiment-design/SKILL.md`
 
-An experiment must state:
+State hypothesis, changed variable, metric, evaluation window, confounders, and continuation/reversal evidence.
 
-- hypothesis;
-- changed variable or strategic choice;
-- observable metric;
-- evaluation window;
-- success threshold where defensible;
-- kill/stop criterion where defensible;
-- confounders and interpretation limits.
-
-Never fabricate benchmark thresholds just to make an experiment look precise.
+Do not fabricate thresholds.
 
 ---
 
-# Step 9 — Challenge the strategy
+# Step 12 — Challenge the strategy
 
-For full/important strategy work, always load:
+For full/high-impact work always load:
 
 `skills/strategy-challenger/SKILL.md`
 
-The challenger tests:
+Challenge:
 
 - evidence weakness;
-- alternative explanations;
-- contradictory evidence;
-- resource/capacity mismatch;
-- channel assumptions;
-- duplication/cannibalization;
-- stale signals;
-- overfitting to a few historic winners;
-- missing falsification criteria.
+- generic-category thinking;
+- founder credibility mismatch;
+- commercial-priority mismatch;
+- channel/capacity assumptions;
+- conflicting patterns;
+- competitor imitation;
+- brand dilution;
+- overfitting to historic winners;
+- weak reversal criteria.
 
-Output `SURVIVES`, `NARROWED`, or `INVALIDATED` per challenged decision.
+Return `SURVIVES`, `NARROWED`, or `INVALIDATED` per major decision.
 
 ---
 
-# Step 10 — Produce Creator briefs
+# Step 13 — Produce Creator briefs
 
 Load:
 
 `skills/content-briefing/SKILL.md`
 
-The strategist may specify:
+A brief may specify topic, audience, tension, angle, objective, evidence, founder POV/proof, required facts, forbidden unsupported claims, recommended format/channel, CTA intent and success metric.
 
-- topic;
-- audience;
-- problem/tension;
-- angle;
-- objective;
-- evidence package;
-- required facts;
-- forbidden unsupported claims;
-- recommended format;
-- CTA intent;
-- success metric.
-
-It must not write the final content unless a downstream Creator is explicitly invoked outside this repository.
+Do not write the final content here.
 
 ---
 
-# Step 11 — Final synthesis
+# Step 14 — Final synthesis
 
 Load:
 
@@ -271,45 +362,39 @@ Load:
 
 Final output should include:
 
-1. strategy scope and date;
-2. research integrity and limits;
-3. business/content objective;
-4. strategic wedge;
-5. content pillars;
-6. priority portfolio;
-7. content opportunities;
-8. experiments;
-9. items intentionally not pursued;
-10. Creator briefs;
-11. challenger findings;
-12. research requests/data gaps;
-13. measurement and feedback plan.
+1. strategy scope/date;
+2. research integrity/limits;
+3. Founder/Brand Context version and material gaps;
+4. business/content objective;
+5. selected/rejected strategy patterns and adaptations;
+6. strategic wedge;
+7. content pillars;
+8. portfolio decisions;
+9. priority content opportunities;
+10. experiments;
+11. items intentionally not pursued;
+12. Creator briefs;
+13. challenger findings;
+14. research requests;
+15. measurement and feedback plan.
 
 ---
 
-# Step 12 — Learn from performance
+# Step 15 — Learn from performance
 
-When reliable post/content history exists, load:
+Load:
 
 `skills/performance-learning/SKILL.md`
 
-Compare expected reasoning with observed performance without pretending correlation proves causation.
+Compare the strategy's reasoning with observed first-party performance. Update pattern confidence, portfolio allocation and hypotheses without pretending correlation proves causation.
 
-Update:
-
-- performance patterns;
-- confidence in format/topic/hook hypotheses;
-- portfolio allocation;
-- experiments;
-- stale strategy assumptions.
-
-Preserve the old strategy version for auditability.
+Preserve prior strategy versions.
 
 ---
 
 # Strategy integrity status
 
-End a strategy run with one of:
+End with one of:
 
 ```text
 READY
@@ -318,9 +403,6 @@ NEEDS_RESEARCH
 BLOCKED
 ```
 
-The goal is not to maximize the number of ideas. The goal is to make fewer, better, traceable content decisions.
+A full strategy cannot be `READY` when Founder/Brand Context is materially missing.
 
-
-# v0.2 deterministic support
-
-Use `leadux-strategist validate` before final synthesis, `score` only as a transparent ordering aid, `duplicates` before approving repeated topics/angles, and `baseline` when interpreting first-party performance. The CLI never makes the strategic decision.
+The goal is not more ideas. The goal is fewer, more specific, more defensible decisions that this founder/brand can actually win with.
