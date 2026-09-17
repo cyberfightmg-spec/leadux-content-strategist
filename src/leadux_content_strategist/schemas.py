@@ -10,6 +10,7 @@ SCHEMA_DIR = REPO_ROOT / "schemas"
 
 HINTS = [
     ("strategy_id", "strategy-output.schema.json"),
+    ("context_id", "founder-brand-context.schema.json"),
     ("research_package_id", "research-package.schema.json"),
     ("content_opportunity_id", "content-opportunity.schema.json"),
     ("brief_id", "content-brief.schema.json"),
