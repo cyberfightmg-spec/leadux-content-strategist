@@ -1,9 +1,9 @@
 ---
 name: founder-brand-context
 description: >-
-  Merge confirmed identity, business context, and positioning/offer-fit into the strategy context that constrains audiences, offers, proof, channels, voice, and execution choices.
+  Merge confirmed identity, business context, audience/ICP fit, and positioning/offer-fit into the strategy context that constrains audiences, offers, proof, channels, voice, and execution choices.
 metadata:
-  version: 0.5.0
+  version: 0.6.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -19,6 +19,8 @@ identity-profile
 +
 business-context
 +
+audience-icp-fit
++
 positioning-offer-fit
 → founder-brand-context
 ```
@@ -26,89 +28,75 @@ positioning-offer-fit
 For non-founder-led organizations, replace identity-profile with an appropriate confirmed organization/brand identity source.
 
 ## Absolute rule
-Do not invent missing identity, business, positioning, audience, promise, proof, or differentiation fields during the merge.
+Do not invent missing identity, business, audience, positioning, promise, proof, or differentiation fields during the merge.
 
 If a needed field is absent or unsupported, preserve it as `UNKNOWN` and route back to the owning skill.
 
 ## Required inputs
 - `schemas/identity-profile.schema.json` when founder-led;
 - `schemas/business-context.schema.json`;
+- `schemas/audience-icp-fit.schema.json`;
 - `schemas/positioning-offer-fit.schema.json`;
 - explicit brand facts if separately supplied.
 
-Output conforms to:
-
-`schemas/founder-brand-context.schema.json`
+Output conforms to `schemas/founder-brand-context.schema.json`.
 
 ## Merge responsibilities
 
 ### From Identity Profile
-Use only confirmed/self-stated fields for:
-- public identity;
-- expertise boundaries;
-- values/non-negotiables;
-- personal/public-content boundaries;
-- self-definition;
-- credible right-to-speak.
+Use only confirmed/self-stated fields for public identity, expertise boundaries, values/non-negotiables, public/private content boundaries, self-definition, and credible right-to-speak.
 
 ### From Business Context
-Use only confirmed/documented fields for:
-- business model;
-- goals;
-- revenue-model priorities;
-- delivery/resources/capacity;
-- markets not served;
-- operational constraints.
+Use only confirmed/documented fields for business model, goals, revenue-model priorities, delivery/resources/capacity, markets not served, and operational constraints.
+
+### From Audience / ICP Fit
+Use only supported classifications for:
+- primary and secondary ICPs;
+- content-audience-only segments;
+- problem-holder/user/buyer/decision-maker relationships;
+- supported jobs/problems/outcomes;
+- known objections/triggers;
+- rejected/deferred segments;
+- unknown role relationships.
+
+Never upgrade `HYPOTHESIS` or `AUDIENCE_NOT_ICP` to a sales ICP during merge.
 
 ### From Positioning / Offer Fit
-Use only supported/confirmed fields for:
-- primary/secondary offers;
-- priority audiences;
-- main promise and claim status;
-- positioning statement;
-- reasons to choose;
-- proof assets;
-- allowed/qualified/forbidden claims;
-- strengthening/diluting topics;
-- unresolved positioning gaps.
+Use only supported/confirmed fields for primary/secondary offers, main promise and claim status, positioning statement, reasons to choose, proof assets, allowed/qualified/forbidden claims, strengthening/diluting topics, and unresolved positioning gaps.
 
 ## Traceability
-Every derived context field must remain traceable to one or more source fields or research IDs.
+Every derived context field must remain traceable to source fields or research IDs.
 
 Do not silently upgrade:
+- `HYPOTHESIS` → `CONFIRMED_ICP`;
+- `AUDIENCE_NOT_ICP` → buyer target;
 - `PLAUSIBLE_BUT_UNPROVEN` → `SUPPORTED`;
-- `PARTIAL` → `PROVEN`;
 - `POSITIONING_GAP` → invented differentiation.
 
 ## Strategic use
 Every proposed pillar, opportunity, channel role, experiment and Creator brief must pass:
 
 1. **Credibility fit** — can this person/brand credibly speak or demonstrate it?
-2. **Commercial fit** — does it support a primary/secondary offer or stated strategic objective?
-3. **Audience fit** — does it serve a supported priority audience?
-4. **Positioning fit** — does it reinforce the approved promise/reason-to-choose rather than blur it?
-5. **Proof fit** — are content claims within allowed evidence boundaries?
+2. **Commercial fit** — does it support a primary/secondary offer or strategic objective?
+3. **Audience-role fit** — is the content aimed at the right role: ICP, buyer, decision-maker, user, influencer, or audience-only segment?
+4. **Positioning fit** — does it reinforce the approved promise/reason-to-choose?
+5. **Proof fit** — are claims inside allowed evidence boundaries?
 6. **Capability fit** — can it be executed repeatedly with actual resources?
 7. **Channel fit** — does it suit the intended distribution surface?
 8. **Boundary fit** — does it respect ethical, personal, industry and operational exclusions?
 
 ## Anti-generic gate
-Reject or narrow a recommendation when:
-- it could be assigned unchanged to any competitor;
-- it requires expertise/proof the person or brand does not have;
-- it promotes a deferred/rejected offer without explicit strategic reason;
-- it creates audience confusion between unrelated directions;
-- it conflicts with allowed/forbidden claim boundaries;
-- it violates stated values/industry exclusions;
-- it requires unsustainable production;
-- it weakens the approved primary positioning.
+Reject or narrow a recommendation when it could be assigned unchanged to any competitor, relies on unsupported expertise/proof, targets a non-ICP as if it were the buyer, promotes a deferred/rejected offer without reason, creates audience confusion, violates claim boundaries, or weakens the approved positioning.
 
 ## Output
 Return:
 - `active_identity`;
 - `business_model`;
 - `commercial_priorities`;
-- `priority_audiences`;
+- `primary_icps`;
+- `secondary_icps`;
+- `content_audiences`;
+- `audience_role_map`;
 - `priority_offers`;
 - `positioning_non_negotiables`;
 - `supported_promises`;
@@ -124,8 +112,4 @@ Return:
 - `source_field_map`.
 
 ## Quality rule
-A full strategy cannot receive `READY` when:
-- required identity/business context is materially incomplete;
-- positioning-offer-fit is unsafe for strategy;
-- the main promise remains unsupported;
-- no defensible reason-to-choose exists for the selected primary offer.
+A full strategy cannot receive `READY` when required identity/business context is incomplete, Audience / ICP Fit is unsafe, Positioning / Offer Fit is unsafe, the main promise is unsupported, or the primary ICP remains only an unsupported hypothesis.
