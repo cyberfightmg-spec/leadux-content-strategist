@@ -12,6 +12,7 @@ KEY_ALIASES={
  "voc_themes": ("voc_themes","themes"),
  "strategic_signals": ("strategic_signals","signals"),
  "content_footprints": ("content_footprints","content_footprint"),
+ "content_performance_patterns": ("content_performance_patterns","performance_patterns"),
  "contradictions": ("contradictions",),
  "data_gaps": ("data_gaps",),
 }
@@ -27,8 +28,9 @@ def extract(payload: Any, logical_key: str) -> list:
                 if isinstance(value,list): return value
     return []
 
-def build_handoff(research_run: dict, artifacts: dict[str,Any], package_id: str|None=None, producer_version: str="0.2.0") -> dict:
+def build_handoff(research_run: dict, artifacts: dict[str,Any], package_id: str|None=None, producer_version: str="0.4.0") -> dict:
     rid=research_run.get("research_id") or "unknown"
+    now=datetime.now(timezone.utc).isoformat()
     out={
       "research_package_id": package_id or f"rp_{rid}",
       "research_run": research_run,
@@ -39,11 +41,12 @@ def build_handoff(research_run: dict, artifacts: dict[str,Any], package_id: str|
       "voc_themes": extract(artifacts.get("voc_themes"),"voc_themes"),
       "strategic_signals": extract(artifacts.get("strategic_signals"),"strategic_signals"),
       "content_footprints": extract(artifacts.get("content_footprints"),"content_footprints"),
+      "content_performance_patterns": extract(artifacts.get("content_performance_patterns"),"content_performance_patterns"),
       "contradictions": extract(artifacts.get("contradictions"),"contradictions"),
       "data_gaps": extract(artifacts.get("data_gaps"),"data_gaps"),
       "integrity_status": research_run.get("integrity_status","NOT_YET_VERIFIED"),
-      "generated_at": datetime.now(timezone.utc).isoformat(),
-      "handoff": {"generated_at":datetime.now(timezone.utc).isoformat(),"producer_version":producer_version,"selection_notes":[],"omitted_artifact_types":[]},
+      "generated_at": now,
+      "handoff": {"generated_at":now,"producer_version":producer_version,"target_system":"leadux-content-strategist","selection_notes":[],"omitted_artifact_types":[]},
     }
     for k in KEY_ALIASES:
         if k not in artifacts or artifacts.get(k) is None:
