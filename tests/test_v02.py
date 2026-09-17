@@ -28,6 +28,14 @@ def test_audience_icp_fit_schema():
     assert fit['segments'][1]['evidence_status']=='AUDIENCE_NOT_ICP'
     assert fit['safe_for_strategy'] is True
 
+def test_customer_journey_intent_schema():
+    journey=load('examples/customer-journey-intent.example.json')
+    assert validate_schema(journey,'customer-journey-intent.schema.json') == []
+    assert journey['primary_journeys']==['jp_demo_001']
+    assert journey['journeys'][0]['state']=='PROBLEM_AWARE'
+    assert journey['journeys'][1]['state_confidence']=='HYPOTHESIS'
+    assert journey['safe_for_strategy'] is True
+
 def test_positioning_offer_fit_schema():
     fit=load('examples/positioning-offer-fit.example.json')
     assert validate_schema(fit,'positioning-offer-fit.schema.json') == []
