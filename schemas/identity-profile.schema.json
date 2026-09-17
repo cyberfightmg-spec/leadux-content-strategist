@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://leaduxai.id/schemas/content-strategist/identity-profile.schema.json",
-  "title": "LeadUX Identity Profile",
+  "title": "Universal Founder / Expert Identity Profile",
   "type": "object",
   "required": ["profile_id", "personal", "definition", "expertise", "values", "provenance"],
   "properties": {
@@ -61,7 +61,12 @@
       },
       "additionalProperties": true
     },
+    "known_fields": {"type": "array", "items": {"type": "string"}},
+    "ambiguous_fields": {"type": "array", "items": {"type": "string"}},
     "unknown_fields": {"type": "array", "items": {"type": "string"}},
+    "questions_required_before_strategy": {"type": "array", "items": {"type": "string"}},
+    "safe_to_start_strategy": {"type": ["boolean", "null"]},
+    "blocking_reason": {"type": ["string", "null"]},
     "provenance": {
       "type": "array",
       "items": {
@@ -69,7 +74,7 @@
         "required": ["field_path", "source_type"],
         "properties": {
           "field_path": {"type": "string"},
-          "source_type": {"enum": ["USER_STATED", "USER_CONFIRMED", "PUBLIC_SOURCE", "UNKNOWN"]},
+          "source_type": {"enum": ["USER_STATED", "USER_CONFIRMED", "DOCUMENTED", "UNKNOWN"]},
           "source_note": {"type": ["string", "null"]},
           "recorded_at": {"type": ["string", "null"]}
         },
