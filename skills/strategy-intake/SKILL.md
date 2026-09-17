@@ -1,9 +1,9 @@
 ---
 name: strategy-intake
 description: >-
-  Validate upstream market evidence, identity/business context, positioning/offer fit, objectives, constraints, and performance history before any strategic decision is made.
+  Validate upstream market evidence, identity/business context, audience/ICP fit, positioning/offer fit, objectives, constraints, and performance history before strategic decisions.
 metadata:
-  version: 0.5.0
+  version: 0.6.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,9 +12,9 @@ license: MIT
 # Skill: Strategy Intake
 
 ## Mission
-Validate that the strategist has enough evidence about the market, the actual business, and its supported positioning before making content decisions.
+Validate that the strategist has enough evidence about the market, actual business, intended audience/ICP, and supported positioning before making content decisions.
 
-A strong research package without commercial context is insufficient. A complete business profile without market evidence is also insufficient. A content strategy must not proceed as `READY` when the primary promise or reason-to-choose is invented.
+A strong research package without commercial context is insufficient. A business profile without market evidence is insufficient. A content audience is not automatically a buyer. A full strategy must not proceed as `READY` when the primary ICP, promise, or reason-to-choose is invented.
 
 ## Required checks
 
@@ -37,10 +37,18 @@ A strong research package without commercial context is insufficient. A complete
 - resource/delivery constraints are known where material;
 - unresolved commercial conflicts are visible.
 
+### Audience / ICP side
+- `audience-icp-fit` exists and validates;
+- content audience, problem holder, user, buyer and decision-maker are separated when material;
+- primary ICP is `CONFIRMED_ICP` or `SUPPORTED_CANDIDATE`, or an explicit experiment/hypothesis with a strategy integrity downgrade;
+- audience-only segments are not used as sales ICPs without evidence;
+- unknown buyer/decision relationships are visible;
+- `safe_for_strategy` is true for a full `READY` run.
+
 ### Positioning / offer-fit side
 - `positioning-offer-fit` exists and validates;
 - at least one primary commercial/strategic offer is selected;
-- primary audience/buying situation is supported or explicitly partial;
+- primary ICP/buying situation is consistent with Audience / ICP Fit;
 - main promise status is not `UNSUPPORTED`;
 - reason-to-choose is defensible or the gap is explicit;
 - forbidden/qualified claims are preserved;
@@ -48,8 +56,7 @@ A strong research package without commercial context is insufficient. A complete
 
 ### Founder / brand side
 - Founder/Brand Context exists and validates when required;
-- commercial priorities reflect positioning/offer-fit rather than guessed priorities;
-- positioning and anti-positioning are clear enough for content selection;
+- commercial priorities reflect approved ICP and positioning/offer-fit rather than guessed priorities;
 - credible proof assets are known;
 - channel roles and production capacity are known;
 - brand-dilution constraints are explicit.
@@ -72,6 +79,7 @@ Return:
 - `limited_evidence`;
 - `identity_gaps`;
 - `business_context_gaps`;
+- `audience_icp_gaps`;
 - `positioning_gaps`;
 - `usable_brand_context`;
 - `brand_context_gaps`;
@@ -84,10 +92,12 @@ Return:
 ## Integrity ceiling
 For a full commercial strategy:
 - materially incomplete Business Context → cannot receive `READY`;
-- `safe_for_strategy = false` in Positioning / Offer Fit → cannot receive `READY`;
-- unsupported main promise or invented reason-to-choose → `BLOCKED` or `NEEDS_RESEARCH` depending on what is missing;
+- unsafe Audience / ICP Fit → cannot receive `READY`;
+- primary ICP only an unsupported guess → `BLOCKED` or `NEEDS_RESEARCH`;
+- unsafe Positioning / Offer Fit → cannot receive `READY`;
+- unsupported main promise or invented reason-to-choose → `BLOCKED` or `NEEDS_RESEARCH`;
 - missing/materially incomplete founder context for founder-led work → cannot receive `READY`;
 - `INSUFFICIENT_EVIDENCE` research → core market-dependent decisions remain blocked;
 - weak performance history → strategy may proceed, but performance-derived recommendations remain experiments.
 
-Do not repair weak research, weak context, or weak positioning by inventing missing facts.
+Do not repair weak research, weak context, weak ICP, or weak positioning by inventing missing facts.
