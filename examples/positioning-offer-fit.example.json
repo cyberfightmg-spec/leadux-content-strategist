@@ -1,0 +1,69 @@
+{
+  "fit_id": "pof_demo_001",
+  "version": "1.0",
+  "identity_profile_id": "identity_demo_001",
+  "business_context_id": "biz_demo_001",
+  "research_package_id": "rp_demo_001",
+  "primary_offer_ids": ["offer_demo_core"],
+  "secondary_offer_ids": ["offer_demo_secondary"],
+  "experimental_offer_ids": [],
+  "deferred_offer_ids": [],
+  "rejected_offer_ids": [],
+  "priority_audiences": [
+    {
+      "audience_id": "aud_demo_001",
+      "buyer_role": "owner",
+      "problem_or_job": "reduce repetitive operational work",
+      "desired_outcome": "a working integrated workflow with less manual effort",
+      "buying_situation": "the team already uses several tools but the workflow remains fragmented",
+      "alternative_ids": ["manual_process", "single_tool_setup"],
+      "supporting_claim_ids": ["claim_demo_001"],
+      "evidence_status": "SUPPORTED"
+    }
+  ],
+  "supported_promises": [
+    {
+      "promise_id": "promise_demo_001",
+      "text": "Design and implement an integrated automation for a defined business workflow.",
+      "status": "SUPPORTED",
+      "offer_ids": ["offer_demo_core"],
+      "audience_ids": ["aud_demo_001"],
+      "proof_asset_ids": ["proof_demo_001"],
+      "supporting_claim_ids": ["claim_demo_001"],
+      "qualification": "No guarantee of a specific revenue or conversion result."
+    }
+  ],
+  "reasons_to_choose": [
+    {
+      "reason_id": "rtc_demo_001",
+      "text": "The offer combines workflow analysis and implementation instead of recommending an isolated tool.",
+      "status": "DEFENSIBLE",
+      "supporting_identity_paths": ["expertise.skills"],
+      "supporting_business_paths": ["offers[0].delivery_model"],
+      "supporting_claim_ids": [],
+      "proof_asset_ids": ["proof_demo_001"]
+    }
+  ],
+  "positioning_statement": {
+    "audience": "owners with repetitive fragmented workflows",
+    "offer": "workflow automation implementation",
+    "outcome": "a working integrated workflow with less manual effort",
+    "mechanism": "workflow analysis followed by implementation and integration",
+    "alternatives": ["manual workflow", "isolated tool setup"],
+    "difference": "the work starts from the business workflow rather than from a predetermined tool",
+    "proof_status": "SUPPORTED",
+    "internal_statement": "For owners with repetitive fragmented workflows, the offer helps turn a defined process into an integrated automation by analyzing the workflow first and then implementing the required system rather than forcing a single tool."
+  },
+  "proof_assets": ["proof_demo_001"],
+  "allowed_claims": ["workflow analysis before implementation"],
+  "qualified_claims": ["reduced manual effort when the implemented workflow replaces defined repetitive steps"],
+  "forbidden_claims": ["guaranteed revenue growth", "guaranteed conversion increase"],
+  "strengthening_topics": ["workflow breakdowns", "integration design", "before/after process maps"],
+  "diluting_topics": ["generic tool news with no relation to the primary offer"],
+  "positioning_gaps": [],
+  "commercial_conflicts": [],
+  "research_requests": [],
+  "questions_required_from_user": [],
+  "safe_for_strategy": true,
+  "blocking_reason": null
+}
