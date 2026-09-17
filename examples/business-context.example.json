@@ -1,0 +1,87 @@
+{
+  "business_context_id": "biz_demo_001",
+  "version": "1.0",
+  "updated_at": "2026-09-17",
+  "business": {
+    "name": "Example Studio",
+    "business_model": ["services", "subscription products"],
+    "stage": "small founder-led business",
+    "geographies": ["remote"],
+    "languages": ["English"],
+    "current_revenue_model": ["project-based services"],
+    "desired_revenue_model": ["recurring subscriptions", "small digital products"]
+  },
+  "offers": [
+    {
+      "offer_id": "offer_demo_001",
+      "name": "Implementation service",
+      "description": "Custom implementation for a defined business problem",
+      "priority": "CORE",
+      "status": "ACTIVE",
+      "target_audience_ids": ["aud_demo_001"],
+      "problem_solved": "A business process needs implementation expertise",
+      "desired_outcome": "Working implemented system",
+      "pricing_model": null,
+      "delivery_model": "project-based",
+      "proof_assets": [],
+      "capacity_notes": []
+    }
+  ],
+  "audiences": [
+    {
+      "audience_id": "aud_demo_001",
+      "name": "Small business operators",
+      "priority": "PRIMARY",
+      "buyer_roles": ["owner", "operator"],
+      "jobs": ["solve an operational problem"],
+      "known_problems": [],
+      "desired_outcomes": ["working solution"],
+      "evidence_status": "USER_STATED"
+    }
+  ],
+  "economics": {
+    "revenue_priorities": ["increase service revenue"],
+    "recurring_revenue_targets": ["develop subscription revenue"],
+    "one_time_revenue_targets": [],
+    "margin_constraints": [],
+    "price_constraints": [],
+    "financial_unknowns": ["exact revenue target not defined"]
+  },
+  "goals": [
+    {
+      "goal_id": "goal_demo_001",
+      "goal": "Increase qualified commercial demand",
+      "priority": "PRIMARY",
+      "time_horizon": null,
+      "success_definition": null,
+      "measurement_status": "PARTIAL"
+    }
+  ],
+  "resources": {
+    "team": ["founder"],
+    "time_capacity": [],
+    "budget_capacity": [],
+    "tools_and_channels": [],
+    "existing_assets": [],
+    "delivery_constraints": []
+  },
+  "constraints": {
+    "must_do": [],
+    "must_not_do": [],
+    "markets_not_served": [],
+    "offer_constraints": [],
+    "legal_or_operational": []
+  },
+  "unknown_fields": ["goals[0].success_definition"],
+  "questions_required_before_strategy": ["What measurable outcome should define success for the primary goal?"],
+  "safe_to_start_strategy": true,
+  "blocking_reason": null,
+  "provenance": [
+    {
+      "field_path": "business.business_model",
+      "source_type": "USER_STATED",
+      "source_note": "Demo fixture",
+      "recorded_at": "2026-09-17"
+    }
+  ]
+}
