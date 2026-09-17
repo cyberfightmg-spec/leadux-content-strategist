@@ -13,6 +13,7 @@ HINTS = [
     ("profile_id", "identity-profile.schema.json"),
     ("audience_icp_fit_id", "audience-icp-fit.schema.json"),
     ("journey_id", "customer-journey-intent.schema.json"),
+    ("channel_fit_id", "channel-distribution-fit.schema.json"),
     ("fit_id", "positioning-offer-fit.schema.json"),
     ("business_context_id", "business-context.schema.json"),
     ("context_id", "founder-brand-context.schema.json"),
