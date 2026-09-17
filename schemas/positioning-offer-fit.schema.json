@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/positioning-offer-fit.schema.json",
+  "title": "Universal Positioning / Offer Fit",
+  "type": "object",
+  "required": ["fit_id", "primary_offer_ids", "priority_audiences", "supported_promises", "positioning_statement", "safe_for_strategy"],
+  "properties": {
+    "fit_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "identity_profile_id": {"type": ["string", "null"]},
+    "business_context_id": {"type": "string", "minLength": 1},
+    "research_package_id": {"type": ["string", "null"]},
+    "primary_offer_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "secondary_offer_ids": {"type": "array", "items": {"type": "string"}},
+    "experimental_offer_ids": {"type": "array", "items": {"type": "string"}},
+    "deferred_offer_ids": {"type": "array", "items": {"type": "string"}},
+    "rejected_offer_ids": {"type": "array", "items": {"type": "string"}},
+    "priority_audiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["audience_id", "evidence_status"],
+        "properties": {
+          "audience_id": {"type": "string"},
+          "buyer_role": {"type": ["string", "null"]},
+          "problem_or_job": {"type": ["string", "null"]},
+          "desired_outcome": {"type": ["string", "null"]},
+          "buying_situation": {"type": ["string", "null"]},
+          "alternative_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "evidence_status": {"enum": ["SUPPORTED", "PARTIAL", "UNKNOWN"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "supported_promises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["promise_id", "text", "status"],
+        "properties": {
+          "promise_id": {"type": "string"},
+          "text": {"type": "string", "minLength": 1},
+          "status": {"enum": ["PROVEN", "SUPPORTED", "PLAUSIBLE_BUT_UNPROVEN", "UNSUPPORTED"]},
+          "offer_ids": {"type": "array", "items": {"type": "string"}},
+          "audience_ids": {"type": "array", "items": {"type": "string"}},
+          "proof_asset_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "qualification": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "reasons_to_choose": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["reason_id", "text", "status"],
+        "properties": {
+          "reason_id": {"type": "string"},
+          "text": {"type": "string"},
+          "status": {"enum": ["DEFENSIBLE", "PARTIAL", "POSITIONING_GAP"]},
+          "supporting_identity_paths": {"type": "array", "items": {"type": "string"}},
+          "supporting_business_paths": {"type": "array", "items": {"type": "string"}},
+          "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+          "proof_asset_ids": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "positioning_statement": {
+      "type": "object",
+      "required": ["audience", "offer", "outcome", "mechanism", "difference", "proof_status"],
+      "properties": {
+        "audience": {"type": ["string", "null"]},
+        "offer": {"type": ["string", "null"]},
+        "outcome": {"type": ["string", "null"]},
+        "mechanism": {"type": ["string", "null"]},
+        "alternatives": {"type": "array", "items": {"type": "string"}},
+        "difference": {"type": ["string", "null"]},
+        "proof_status": {"enum": ["PROVEN", "SUPPORTED", "PARTIAL", "UNKNOWN"]},
+        "internal_statement": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "proof_assets": {"type": "array", "items": {"type": "string"}},
+    "allowed_claims": {"type": "array", "items": {"type": "string"}},
+    "qualified_claims": {"type": "array", "items": {"type": "string"}},
+    "forbidden_claims": {"type": "array", "items": {"type": "string"}},
+    "strengthening_topics": {"type": "array", "items": {"type": "string"}},
+    "diluting_topics": {"type": "array", "items": {"type": "string"}},
+    "positioning_gaps": {"type": "array", "items": {"type": "string"}},
+    "commercial_conflicts": {"type": "array", "items": {"type": "string"}},
+    "research_requests": {"type": "array", "items": {"type": "object"}},
+    "questions_required_from_user": {"type": "array", "items": {"type": "string"}},
+    "safe_for_strategy": {"type": "boolean"},
+    "blocking_reason": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}
