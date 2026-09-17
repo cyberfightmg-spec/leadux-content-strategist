@@ -1,0 +1,175 @@
+{
+  "channel_fit_id": "channel_fit_demo_001",
+  "version": "0.8.0",
+  "created_at": "2026-09-18",
+  "audience_icp_fit_id": "audience_fit_demo_001",
+  "customer_journey_intent_id": "journey_demo_001",
+  "business_context_id": "business_demo_001",
+  "positioning_offer_fit_id": "fit_demo_001",
+  "channels": [
+    {
+      "channel_id": "channel_long_video",
+      "name": "Long-form video library",
+      "family": "LONG_VIDEO",
+      "ownership": "RENTED",
+      "priority": "PRIMARY",
+      "evidence_status": "SUPPORTED_FIT",
+      "segment_ids": ["segment_primary_001"],
+      "audience_roles": ["ICP", "BUYER", "DECISION_MAKER"],
+      "journey_state_ids": ["journey_state_trust_001"],
+      "journey_states": ["TRUST_VALIDATING"],
+      "primary_jobs": ["PROVE", "BUILD_TRUST", "DE_RISK"],
+      "supported_formats": ["system walkthrough", "case-study breakdown", "demonstration"],
+      "source_asset_types": ["deep demonstration"],
+      "desired_next_actions": ["review proof", "request a relevant implementation discussion"],
+      "cta_strength": "MEDIUM",
+      "evidence": {
+        "research_claim_ids": ["claim_demo_001"],
+        "insight_ids": [],
+        "voc_ids": [],
+        "content_performance_pattern_ids": [],
+        "first_party_performance_pattern_ids": [],
+        "business_context_fields": ["resources.content_production"],
+        "notes": ["Supported as a trust/proof surface; no revenue attribution is assumed."]
+      },
+      "operational_fit": {
+        "production_capability": "MEDIUM",
+        "sustainability": "MEDIUM",
+        "response_burden": "LOW",
+        "paid_budget_required": false,
+        "constraints": ["Production effort is higher than short-form repurposing."]
+      },
+      "measurement": {
+        "distribution_signals": ["qualified views", "watch depth"],
+        "audience_response_signals": ["relevant questions"],
+        "lead_signals": ["qualified inquiries"],
+        "business_outcomes": []
+      },
+      "risks": ["Views must not be interpreted as sales."],
+      "rejection_or_defer_reason": null,
+      "test_plan": null
+    },
+    {
+      "channel_id": "channel_short_video",
+      "name": "Short-form video discovery",
+      "family": "SHORT_VIDEO",
+      "ownership": "RENTED",
+      "priority": "SECONDARY",
+      "evidence_status": "HYPOTHESIS",
+      "segment_ids": ["segment_primary_001", "segment_audience_only_001"],
+      "audience_roles": ["CONTENT_AUDIENCE", "ICP"],
+      "journey_state_ids": ["journey_state_problem_001"],
+      "journey_states": ["PROBLEM_AWARE"],
+      "primary_jobs": ["DISCOVER", "FRAME_PROBLEM"],
+      "supported_formats": ["short problem framing", "proof excerpt"],
+      "source_asset_types": ["long-form demonstration"],
+      "desired_next_actions": ["consume deeper proof asset"],
+      "cta_strength": "SOFT",
+      "evidence": {
+        "research_claim_ids": [],
+        "insight_ids": [],
+        "voc_ids": [],
+        "content_performance_pattern_ids": [],
+        "first_party_performance_pattern_ids": [],
+        "business_context_fields": ["resources.content_production"],
+        "notes": ["Discovery fit is plausible but not yet first-party confirmed."]
+      },
+      "operational_fit": {
+        "production_capability": "HIGH",
+        "sustainability": "HIGH",
+        "response_burden": "LOW",
+        "paid_budget_required": false,
+        "constraints": []
+      },
+      "measurement": {
+        "distribution_signals": ["views", "completion rate", "clicks to deeper asset"],
+        "audience_response_signals": ["relevant saves/shares"],
+        "lead_signals": [],
+        "business_outcomes": []
+      },
+      "risks": ["High reach may come from non-ICP viewers."],
+      "rejection_or_defer_reason": null,
+      "test_plan": {
+        "hypothesis": "Short-form problem framing can move relevant viewers into deeper proof content.",
+        "metric": "qualified clicks to deeper proof asset",
+        "threshold": null,
+        "confounders": ["topic popularity", "distribution volatility"]
+      }
+    },
+    {
+      "channel_id": "channel_owned_site",
+      "name": "Owned website / case-study library",
+      "family": "OWNED_SITE",
+      "ownership": "OWNED",
+      "priority": "PRIMARY",
+      "evidence_status": "SUPPORTED_FIT",
+      "segment_ids": ["segment_primary_001"],
+      "audience_roles": ["BUYER", "DECISION_MAKER", "ICP"],
+      "journey_state_ids": ["journey_state_compare_001", "journey_state_trust_001"],
+      "journey_states": ["VENDOR_COMPARING", "TRUST_VALIDATING"],
+      "primary_jobs": ["PROVE", "COMPARE", "DE_RISK", "CONVERT"],
+      "supported_formats": ["case study", "service page", "proof library", "FAQ"],
+      "source_asset_types": ["case evidence", "implementation documentation"],
+      "desired_next_actions": ["evaluate fit", "submit qualified inquiry"],
+      "cta_strength": "DIRECT",
+      "evidence": {
+        "research_claim_ids": ["claim_demo_001"],
+        "insight_ids": [],
+        "voc_ids": [],
+        "content_performance_pattern_ids": [],
+        "first_party_performance_pattern_ids": [],
+        "business_context_fields": ["assets.website"],
+        "notes": ["Owned evaluation surface; conversion rate is unknown."]
+      },
+      "operational_fit": {
+        "production_capability": "HIGH",
+        "sustainability": "HIGH",
+        "response_burden": "LOW",
+        "paid_budget_required": false,
+        "constraints": []
+      },
+      "measurement": {
+        "distribution_signals": ["qualified visits"],
+        "audience_response_signals": ["case-study depth", "return visits"],
+        "lead_signals": ["qualified inquiries"],
+        "business_outcomes": ["customers when attributable"]
+      },
+      "risks": [],
+      "rejection_or_defer_reason": null,
+      "test_plan": null
+    }
+  ],
+  "primary_channel_ids": ["channel_long_video", "channel_owned_site"],
+  "secondary_channel_ids": ["channel_short_video"],
+  "repurpose_only_channel_ids": [],
+  "experimental_channel_ids": [],
+  "deferred_channel_ids": [],
+  "rejected_channel_ids": [],
+  "repurposing_graph": [
+    {
+      "source_asset": "deep implementation walkthrough",
+      "derived_asset": "short proof excerpt",
+      "channel_id": "channel_short_video",
+      "segment_ids": ["segment_primary_001"],
+      "journey_state_ids": ["journey_state_problem_001"],
+      "content_job": "DISCOVER",
+      "adaptation_notes": ["Keep one problem/tension and route to the deeper proof asset instead of copying the long-form asset unchanged."]
+    }
+  ],
+  "owned_distribution_plan": {
+    "owned_assets": ["website / case-study library"],
+    "rented_to_owned_paths": ["short or long video → relevant case/service page"],
+    "gaps": ["No confirmed owned nurture channel is assumed."]
+  },
+  "measurement_contract": {
+    "distribution_signals": ["views", "qualified visits"],
+    "audience_response_signals": ["relevant questions", "return visits"],
+    "lead_signals": ["qualified inquiries"],
+    "business_outcomes": ["customers when attributable"],
+    "interpretation_limits": ["Reach and engagement are not treated as revenue or lead proof."]
+  },
+  "channel_gaps": ["No first-party evidence yet proves short-form discovery converts into qualified pipeline."],
+  "research_requests": [],
+  "questions_required_from_user": [],
+  "safe_for_strategy": true
+}
