@@ -9,8 +9,10 @@ Business Context
         ↓ confirmed commercial reality
 LeadUX Competitor Research
         ↓ verified market evidence
+Audience / ICP Fit
+        ↓ content audience / user / buyer / decision-maker / ICP map
 Positioning / Offer Fit
-        ↓ supported offer / audience / promise / reason-to-choose
+        ↓ supported offer / ICP / promise / reason-to-choose
 Founder / Brand Context
         ↓ strategy-safe context
 Validated Strategy Patterns
@@ -32,37 +34,36 @@ This repository does **not** generate random ideas and does **not** write final 
 It makes content-strategy decisions from distinct evidence layers:
 
 1. **Identity** — self-stated/confirmed founder identity, expertise, values and public boundaries when founder-led.
-2. **Business Context** — what the business actually sells, to whom, current goals, revenue model, resources and constraints.
+2. **Business Context** — what the business actually sells, current goals, revenue model, resources and constraints.
 3. **Market evidence** — verified competitor/customer/VOC/GTM/signals from LeadUX Competitor Research.
-4. **Positioning / Offer Fit** — which offer to prioritize, which audience/problem is supported, what promise is defensible, and why the customer should choose it.
-5. **Founder/Brand Context** — the merged strategy context used downstream.
-6. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
-7. **First-party learning** — the brand's own historical content and performance patterns.
+4. **Audience / ICP Fit** — separates who consumes content from who has the problem, uses, buys, decides, influences, and actually fits the business commercially.
+5. **Positioning / Offer Fit** — which offer to prioritize, which approved ICP/problem is supported, what promise is defensible, and why the customer should choose it.
+6. **Founder/Brand Context** — the merged strategy context used downstream.
+7. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
+8. **First-party learning** — the brand's own historical content and performance patterns.
 
 The goal is not “what content is popular?” but:
 
 ```text
 What should THIS business say and do,
-for THIS supported audience,
+for THIS supported ICP or content audience,
 around THIS priority offer,
 with THIS defensible promise,
 based on THIS evidence,
 and what should it deliberately not claim or pursue?
 ```
 
-## v0.5 highlights
+## v0.6 highlights
 
-- universal `identity-unpacking` skill with strict no-inference protocol;
-- universal `business-context` skill with commercial conflict handling;
-- new `positioning-offer-fit` skill;
-- strict `positioning-offer-fit.schema.json`;
-- offer statuses: PRIMARY / SECONDARY / EXPERIMENT / DEFERRED / REJECTED;
-- promise statuses: PROVEN / SUPPORTED / PLAUSIBLE_BUT_UNPROVEN / UNSUPPORTED;
-- defensible reason-to-choose or explicit `POSITIONING_GAP`;
-- allowed / qualified / forbidden claim boundaries;
-- Founder/Brand Context now merges identity + business + safe positioning/offer-fit;
-- strategy intake blocks `READY` when the main promise or differentiation is unsupported;
-- first-party evidence and verified market evidence remain separate from generic best practices.
+- new first-class `audience-icp-fit` skill before positioning;
+- strict separation of `CONTENT_AUDIENCE`, `PROBLEM_HOLDER`, `USER`, `BUYER`, `DECISION_MAKER`, `INFLUENCER`, `CHAMPION`, `BLOCKER`, and `ICP`;
+- segment evidence states: `CONFIRMED_ICP`, `SUPPORTED_CANDIDATE`, `HYPOTHESIS`, `AUDIENCE_NOT_ICP`, `REJECTED`, `UNKNOWN`;
+- no fabricated demographic personas;
+- content audience may be useful for reach/community without becoming a sales ICP;
+- positioning now consumes approved Audience / ICP Fit instead of inventing audience roles;
+- strategy intake and quality gates block `READY` when the primary ICP is unsupported;
+- Founder/Brand Context preserves buyer-role relationships and audience-only segments;
+- CLI schema inference and tests cover Audience / ICP Fit objects.
 
 ## Core strategy flow
 
@@ -71,6 +72,7 @@ identity-unpacking
 → business-context
 → research handoff
 → strategy-intake
+→ audience-icp-fit
 → positioning-offer-fit
 → founder-brand-context
 → strategy-memory
@@ -95,6 +97,7 @@ Every material opportunity or decision should be traceable to one or more of:
 - VOC / strategic signal / content-performance evidence;
 - Identity Profile field;
 - Business Context field;
+- Audience / ICP Fit segment/role/evidence status;
 - Positioning / Offer Fit object;
 - first-party `performance_pattern_id`;
 - validated `pattern_id`;
@@ -120,6 +123,7 @@ pytest
 
 ```bash
 leadux-strategist validate examples/business-context.example.json
+leadux-strategist validate examples/audience-icp-fit.example.json
 leadux-strategist validate examples/positioning-offer-fit.example.json
 leadux-strategist validate examples/research-package.example.json
 leadux-strategist preflight --research examples/research-package.example.json
