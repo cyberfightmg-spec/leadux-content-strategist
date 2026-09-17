@@ -1,0 +1,170 @@
+{
+  "context_id": "ctx_leadux_founder_v1",
+  "version": "1.0",
+  "updated_at": "2026-09-17",
+  "identity": {
+    "name": "Viacheslav Bushmakin",
+    "role": "Founder / AI Systems Builder",
+    "public_identity": "Founder of LeadUX AI; solo operator building practical AI and automation systems",
+    "expertise": [
+      "AI systems and agents",
+      "business automation",
+      "lead generation systems",
+      "chatbots and Telegram bots",
+      "CRM and workflow integration",
+      "AI content and visual production",
+      "no-code / low-code / vibe coding"
+    ],
+    "credible_experience": [
+      "building and shipping practical AI/automation systems",
+      "designing end-to-end workflows rather than isolated AI demos",
+      "building LeadUX AI and LeadUX OS in public"
+    ],
+    "point_of_view": [
+      "Business does not need AI for its own sake; it needs a result.",
+      "Automate work and business outcomes, not technology for technology's sake.",
+      "Human approval remains important where mistakes have meaningful business cost.",
+      "Show systems, decisions, limitations and actual implementation rather than generic AI hype."
+    ]
+  },
+  "business": {
+    "name": "LeadUX AI",
+    "business_model": ["services", "white-label implementation", "product experiments"],
+    "commercial_priority": [
+      "predictable service revenue",
+      "AI/automation implementations for business workflows",
+      "white-label production for agencies",
+      "lead generation and sales automation"
+    ],
+    "current_stage": "founder-led solo AI/product studio",
+    "geographies": ["Russia", "international / remote"],
+    "languages": ["Russian", "English"]
+  },
+  "positioning": {
+    "core_promise": "Разбираю бизнес-задачу и собираю под неё работающую AI-систему.",
+    "category": "AI systems / automation studio",
+    "differentiators": [
+      "full workflow thinking instead of isolated AI tools",
+      "business outcome before model/tool choice",
+      "integration with existing stack",
+      "human-in-the-loop where appropriate",
+      "builder/founder perspective with real systems and experiments"
+    ],
+    "proof_assets": [
+      "LeadUX Competitor Research",
+      "LeadUX Content Strategist",
+      "LeadUX OS",
+      "real shipped automation and AI product experiments",
+      "public build-in-public artifacts and repositories"
+    ],
+    "anti_positioning": [
+      "generic AI news account",
+      "infobusiness-style promises",
+      "selling isolated tools instead of outcomes",
+      "unsupported claims about client or competitor internal processes"
+    ]
+  },
+  "audiences": [
+    {
+      "audience_id": "aud_agencies",
+      "name": "Digital and marketing agencies",
+      "priority": "PRIMARY",
+      "buyer_roles": ["founder", "owner", "operations lead", "production lead"],
+      "jobs": ["deliver more client work", "add AI/automation capability", "reduce repetitive production work"],
+      "problems": ["limited internal AI production capacity", "fragmented automation stack", "need for white-label implementation"],
+      "desired_outcomes": ["reliable delivery", "higher leverage", "new service capability"]
+    },
+    {
+      "audience_id": "aud_smb",
+      "name": "SMB owners and operators with repetitive sales/marketing/operations workflows",
+      "priority": "PRIMARY",
+      "buyer_roles": ["owner", "founder", "commercial lead", "operations lead"],
+      "jobs": ["generate and process leads", "automate repetitive workflows", "connect CRM and communications"],
+      "problems": ["manual repetitive work", "fragmented systems", "difficulty turning AI tools into working processes"],
+      "desired_outcomes": ["more predictable operations", "faster lead handling", "less manual work", "working integrated system"]
+    },
+    {
+      "audience_id": "aud_practitioners",
+      "name": "AI automation practitioners and builders",
+      "priority": "SECONDARY",
+      "buyer_roles": ["automation specialist", "developer", "AI builder"],
+      "jobs": ["learn practical architectures", "compare tools and approaches", "reuse open-source systems"],
+      "problems": ["hype", "fragmented examples", "lack of evidence-backed implementation details"],
+      "desired_outcomes": ["working architectures", "reusable skills", "better implementation decisions"]
+    }
+  ],
+  "offers": [
+    {
+      "offer_id": "offer_ai_automation",
+      "name": "AI systems and workflow automation",
+      "priority": "CORE",
+      "target_audience_ids": ["aud_agencies", "aud_smb"],
+      "outcome": "turn a concrete business workflow into an integrated working AI/automation system",
+      "proof_assets": ["working architectures", "repositories", "implementation cases"]
+    },
+    {
+      "offer_id": "offer_lead_systems",
+      "name": "Lead generation, monitoring and sales automation systems",
+      "priority": "CORE",
+      "target_audience_ids": ["aud_agencies", "aud_smb"],
+      "outcome": "build repeatable lead discovery, qualification, routing and follow-up infrastructure",
+      "proof_assets": ["LeadUX internal lead systems", "automation workflows"]
+    },
+    {
+      "offer_id": "offer_white_label",
+      "name": "White-label AI/automation production for agencies",
+      "priority": "GROWTH",
+      "target_audience_ids": ["aud_agencies"],
+      "outcome": "let agencies sell and deliver AI/automation work without building the capability from scratch",
+      "proof_assets": ["cross-functional AI/automation delivery capability"]
+    },
+    {
+      "offer_id": "offer_ai_content",
+      "name": "AI content / visual production systems",
+      "priority": "GROWTH",
+      "target_audience_ids": ["aud_agencies", "aud_smb"],
+      "outcome": "build controlled repeatable AI-assisted content production workflows",
+      "proof_assets": ["LeadUX ART and content-system experiments"]
+    }
+  ],
+  "content_identity": {
+    "content_jobs": [
+      "demonstrate expertise through real systems and breakdowns",
+      "create demand for practical AI/automation implementation",
+      "build founder authority",
+      "show how business problems become working systems",
+      "document experiments, failures and constraints",
+      "generate qualified conversations for services"
+    ],
+    "voice": ["practical", "concrete", "evidence-aware", "technical when useful", "business-outcome-led", "without hype or infobusiness tone"],
+    "preferred_evidence": ["real implementations", "screenshots", "architecture", "code/repos", "business logic", "measured results when available", "verified external sources"],
+    "strong_formats": ["short video", "system breakdown", "case study", "carousel with one clear idea", "Telegram post", "long-form guide / YouTube system walkthrough"],
+    "weak_or_expensive_formats": ["high-volume generic daily posting without a strong evidence base"],
+    "signature_topics": ["AI systems", "automation architecture", "lead generation systems", "AI agents", "business workflow redesign", "building a one-person AI company", "open-source agent systems"],
+    "avoid_topics": ["generic AI news with no LeadUX angle", "tool lists without business relevance", "unsupported claims about competitor/client internals", "content that makes LeadUX look like a narrow single-platform Telegram service"]
+  },
+  "channels": [
+    {"channel": "Telegram", "role": "Russian-language founder channel, lead generation and relationship-building", "priority": "PRIMARY", "audience_ids": ["aud_agencies", "aud_smb", "aud_practitioners"], "constraints": ["content must reinforce broader AI/automation positioning"]},
+    {"channel": "LinkedIn", "role": "English-language project and expertise positioning", "priority": "SECONDARY", "audience_ids": ["aud_agencies", "aud_smb"], "constraints": ["business problem/result first; technology second"]},
+    {"channel": "YouTube", "role": "deeper system breakdowns, experiments and reusable technical/business knowledge", "priority": "SECONDARY", "audience_ids": ["aud_practitioners", "aud_agencies", "aud_smb"], "constraints": []},
+    {"channel": "Threads", "role": "reach and audience acquisition through shorter founder observations", "priority": "EXPERIMENTAL", "audience_ids": ["aud_practitioners", "aud_smb"], "constraints": []}
+  ],
+  "constraints": {
+    "must_do": [
+      "connect content to business outcomes and working systems",
+      "preserve the distinction between fact, estimate, hypothesis and assumption",
+      "show real implementation details where safe",
+      "use first-party performance data when available",
+      "keep founder identity visible rather than publishing as an anonymous corporate brand"
+    ],
+    "must_not_do": [
+      "invent performance numbers",
+      "assume internal client/competitor process failures without evidence",
+      "chase trends that do not fit LeadUX positioning",
+      "copy competitor topics or creator tactics without a differentiated LeadUX angle",
+      "let a secondary offer dominate the overall brand narrative"
+    ],
+    "capacity": {"team_model": "solo founder", "strategy_implication": "prioritize reusable assets, repurposing and sustainable cadence over volume"},
+    "legal_or_market": []
+  }
+}
