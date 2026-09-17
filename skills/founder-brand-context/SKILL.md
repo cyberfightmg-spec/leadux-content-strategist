@@ -1,7 +1,7 @@
 ---
 name: founder-brand-context
 description: >-
-  Convert a confirmed founder identity profile plus explicit business facts into the brand context that constrains and personalizes every strategic decision, without filling gaps by inference.
+  Merge confirmed identity and business context into the strategy context that constrains positioning, audiences, offers, proof, channels, voice, and execution choices.
 metadata:
   version: 0.4.0
   category: content-strategy
@@ -12,98 +12,91 @@ license: MIT
 # Skill: Founder / Brand Context
 
 ## Mission
-Make strategy specific to the actual founder, brand, offers, audiences, credibility, channels, voice, constraints, and commercial priorities.
+Create the context layer that the Strategist actually reasons over by combining separate confirmed inputs:
 
-A market can support many valid strategies. This skill determines which of them are valid for this founder/brand.
+```text
+identity-profile
++
+business-context
+→ founder-brand-context
+```
 
-## Required upstream input
-For founder-led strategy, first load a **confirmed** object conforming to:
+For non-founder-led organizations, replace identity-profile with an appropriate confirmed organization/brand identity source. Business Context remains separate and required for full commercial strategy.
 
-`schemas/identity-profile.schema.json`
+## Absolute rule
+Do not invent missing identity or business fields during the merge.
 
-Then combine it only with explicit business/offer/channel facts.
+If a field is needed but absent, preserve it as `UNKNOWN` and route back to the owning context skill.
 
-Output must conform to:
+## Required inputs
+- `schemas/identity-profile.schema.json` when founder-led;
+- `schemas/business-context.schema.json`;
+- explicit brand/positioning facts if separately supplied.
+
+Output conforms to:
 
 `schemas/founder-brand-context.schema.json`
 
-## No-inference rule
-Do not convert:
-- interest → expertise;
-- project → commercial priority;
-- frequent topic → personal value;
-- current revenue need → long-term identity;
-- public biography → self-definition;
-- audience engagement → desired audience;
-- a temporary experiment → core offer.
+## Merge responsibilities
 
-If a mapping is unclear, ask the founder.
+### From Identity Profile
+Use only confirmed/self-stated fields for:
+- public identity;
+- expertise boundaries;
+- values/non-negotiables;
+- personal/public-content boundaries;
+- self-definition;
+- credible right-to-speak.
 
-## Required dimensions
-At minimum establish, when relevant:
-- confirmed founder identity and expertise;
-- business model and current commercial priority;
-- positioning and anti-positioning;
+### From Business Context
+Use only confirmed/documented fields for:
+- business model;
+- commercial priorities;
+- priority offers;
 - priority audiences;
-- active offers and their relative importance;
-- credible proof assets;
-- channel roles;
+- current/desired revenue model;
+- goals and horizons;
+- delivery/resources/capacity;
+- markets not served;
+- operational constraints.
+
+### Derived strategic context
+You may normalize, but not invent:
+- positioning inputs;
+- proof map;
 - content jobs;
-- tone/voice;
-- signature topics;
-- topics/angles that dilute the brand;
-- production/capacity constraints.
+- channel roles;
+- brand-dilution risks;
+- execution constraints.
 
-## Mapping protocol
-For every material context field record its origin as one of:
-
-```text
-IDENTITY_PROFILE
-EXPLICIT_BUSINESS_FACT
-FOUNDER_CONFIRMATION
-PUBLIC_FACT
-UNKNOWN
-```
-
-Do not silently manufacture a bridge between identity and business.
+Every derived field must remain traceable to one or more source fields.
 
 ## Strategic use
-Every proposed pillar, content opportunity, channel role, experiment, and Creator brief must pass:
+Every proposed pillar, opportunity, channel role, experiment and Creator brief must pass:
 
-1. **Credibility fit** — can this founder/brand speak about it with believable authority?
-2. **Commercial fit** — does it support an active objective, offer, or strategic asset?
-3. **Audience fit** — is it relevant to a priority audience?
-4. **Positioning fit** — does it reinforce rather than blur the point of view?
-5. **Capability fit** — can the founder/team execute it repeatedly?
-6. **Channel fit** — does it make sense for the intended distribution surface?
-7. **Identity fit** — does it conflict with explicitly stated values, boundaries, or rejected labels?
-
-## Founder-led strategy rule
-
-```text
-what the market cares about
-×
-what the founder can prove / demonstrate / explain uniquely
-×
-what the business needs to sell or compound
-×
-what the founder is willing to represent publicly
-```
-
-Do not optimize for market demand alone.
+1. **Credibility fit** — can this person/brand credibly speak or demonstrate it?
+2. **Commercial fit** — does it support a confirmed business objective, offer or strategic asset?
+3. **Audience fit** — does it serve a confirmed/research-supported priority audience?
+4. **Positioning fit** — does it reinforce rather than blur the intended market position?
+5. **Capability fit** — can it be executed repeatedly with real resources?
+6. **Channel fit** — does it suit the intended distribution surface?
+7. **Boundary fit** — does it respect stated ethical, personal, industry and operational exclusions?
 
 ## Anti-generic gate
 Reject or narrow a recommendation when:
 - it could be assigned unchanged to any competitor;
-- it depends on expertise the founder does not credibly possess;
-- it promotes a low-priority offer at the expense of a core priority;
+- it requires expertise/proof the person or brand does not have;
+- it promotes a lower-priority offer over a confirmed commercial priority without justification;
 - it creates audience confusion between unrelated directions;
-- it conflicts with stated identity/values/boundaries;
-- it requires an unsustainable format or cadence.
+- it violates stated boundaries;
+- it requires an unsustainable format/cadence;
+- it conflicts with the confirmed revenue model or business stage.
 
 ## Output
 Return:
 - `active_identity`;
+- `business_model`;
+- `commercial_priorities`;
 - `priority_audiences`;
 - `priority_offers`;
 - `positioning_non_negotiables`;
@@ -113,7 +106,7 @@ Return:
 - `brand_dilution_risks`;
 - `capacity_constraints`;
 - `context_gaps`;
-- `mapping_provenance`.
+- `source_field_map`.
 
 ## Quality rule
-A founder-led full strategy cannot receive the highest integrity status when either the Identity Profile is unconfirmed or Founder/Brand Context is materially incomplete.
+A full strategy cannot receive the highest integrity status when the required identity or Business Context is materially incomplete.
