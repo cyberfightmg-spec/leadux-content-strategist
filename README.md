@@ -15,6 +15,8 @@ Customer Journey / Funnel Intent
         ↓ supported decision states / objections / proof needs / CTA boundaries
 Positioning / Offer Fit
         ↓ supported offer / ICP / promise / reason-to-choose
+Channel / Distribution Fit
+        ↓ supported channel roles / formats / repurposing / measurement boundaries
 Founder / Brand Context
         ↓ strategy-safe context
 Validated Strategy Patterns
@@ -31,7 +33,7 @@ Performance observations
 
 ## What it is
 
-This repository does **not** generate random ideas and does **not** write final posts by default.
+This repository does **not** generate random ideas, does **not** recommend platforms merely because they are popular, and does **not** write final posts by default.
 
 It makes content-strategy decisions from distinct evidence layers:
 
@@ -41,9 +43,10 @@ It makes content-strategy decisions from distinct evidence layers:
 4. **Audience / ICP Fit** — separates who consumes content from who has the problem, uses, buys, decides, influences, and actually fits the business commercially.
 5. **Customer Journey / Funnel Intent** — maps supported roles to decision states, objections, trust/proof needs, triggers, next decisions and CTA boundaries without equating engagement with purchase intent.
 6. **Positioning / Offer Fit** — which offer to prioritize, which approved ICP/problem is supported, what promise is defensible, and why the customer should choose it.
-7. **Founder/Brand Context** — the merged strategy context used downstream.
-8. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
-9. **First-party learning** — the brand's own historical content and performance patterns.
+7. **Channel / Distribution Fit** — decides where content should be distributed, what job each channel performs, what format fits, and whether the business can execute it sustainably.
+8. **Founder/Brand Context** — merged strategy context used downstream.
+9. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
+10. **First-party learning** — the brand's own historical content and performance patterns.
 
 The goal is not “what content is popular?” but:
 
@@ -52,23 +55,26 @@ What should THIS business say and do,
 for THIS supported audience role,
 at THIS supported decision state,
 around THIS priority offer,
+on THIS supportable distribution surface,
 with THIS defensible promise,
 based on THIS evidence,
 and what should it deliberately not claim or pursue?
 ```
 
-## v0.7 highlights
+## v0.8 highlights
 
-- new first-class `customer-journey-intent` skill between Audience / ICP Fit and Positioning / Offer Fit;
-- explicit journey states from `UNAWARE` through `PURCHASE_READY`, onboarding, adoption, retention/expansion and advocacy;
-- journey state and buying role are modeled as separate axes;
-- engagement is never treated as purchase intent by default;
-- TOFU/MOFU/BOFU cannot substitute for evidence-backed customer-state reasoning;
-- objections, trust needs, proof needs, triggers and switching friction remain evidence-bound;
-- CTA strength must match supported intent;
-- non-linear and unknown journeys are allowed;
-- positioning, Founder/Brand Context, strategy intake and quality gates now consume journey evidence;
-- CLI schema inference and tests cover Customer Journey / Funnel Intent objects.
+- new first-class `channel-distribution-fit` skill after Positioning / Offer Fit;
+- channel families cover owned site, search, email, messaging, social, short/long video, communities, marketplaces/directories, partners, PR, paid, outbound and events;
+- channel evidence states: `CONFIRMED_FIT`, `SUPPORTED_FIT`, `HYPOTHESIS`, `INSUFFICIENT_EVIDENCE`, `REJECTED`;
+- channel priorities: `PRIMARY`, `SECONDARY`, `REPURPOSE_ONLY`, `EXPERIMENTAL`, `DEFERRED`, `REJECTED`;
+- explicit separation of WHO / STATE / JOB / WHERE / FORMAT / ACTION / OUTCOME;
+- platform popularity and competitor presence do not prove fit;
+- views/reach/engagement are not leads or revenue by default;
+- owned vs rented distribution is modeled explicitly;
+- repurposing graph preserves strategic intent while adapting packaging per channel;
+- operational capacity, response burden, budget and compliance are part of channel selection;
+- Creator briefs now preserve approved channel role, format adaptation, CTA and measurement level;
+- CLI schema inference and tests cover Channel / Distribution Fit objects.
 
 ## Core strategy flow
 
@@ -80,6 +86,7 @@ identity-unpacking
 → audience-icp-fit
 → customer-journey-intent
 → positioning-offer-fit
+→ channel-distribution-fit
 → founder-brand-context
 → strategy-memory
 → strategy-pattern-selection
@@ -106,6 +113,7 @@ Every material opportunity or decision should be traceable to one or more of:
 - Audience / ICP Fit segment/role/evidence status;
 - Customer Journey / Funnel Intent path/state/confidence;
 - Positioning / Offer Fit object;
+- Channel / Distribution Fit channel/evidence/job mapping;
 - first-party `performance_pattern_id`;
 - validated `pattern_id`;
 - explicit business constraint.
@@ -133,6 +141,7 @@ leadux-strategist validate examples/business-context.example.json
 leadux-strategist validate examples/audience-icp-fit.example.json
 leadux-strategist validate examples/customer-journey-intent.example.json
 leadux-strategist validate examples/positioning-offer-fit.example.json
+leadux-strategist validate examples/channel-distribution-fit.example.json
 leadux-strategist validate examples/research-package.example.json
 leadux-strategist preflight --research examples/research-package.example.json
 leadux-strategist score examples/content-opportunity.example.json
