@@ -1,9 +1,9 @@
 ---
 name: leadux-content-strategist
 description: >-
-  Evidence-first founder-aware content strategy router that combines verified market research,
-  founder/brand context, validated strategy patterns, strategy memory, and first-party performance
-  into traceable strategic choices, experiments, and Creator briefs.
+  Evidence-first founder-aware content strategy router that starts with strict identity unpacking,
+  then combines verified market research, founder/brand context, validated strategy patterns,
+  strategy memory, and first-party performance into traceable strategic choices and Creator briefs.
 metadata:
   version: 0.4.0
   role: router
@@ -15,17 +15,19 @@ license: MIT
 
 ## Purpose
 
-Transform verified market evidence into a strategy that is not merely correct for the category, but specific to the actual founder/brand that must execute it.
+Transform verified market evidence into a strategy that is specific to the actual founder/brand that must execute it.
 
-This repository sits between research and creation:
+For founder-led brands, strategy begins with **identity unpacking before planning**.
 
 ```text
-RESEARCH EVIDENCE
-+
+IDENTITY UNPACKING
+        ↓ confirmed founder profile
 FOUNDER / BRAND CONTEXT
-+
+        +
+RESEARCH EVIDENCE
+        +
 VALIDATED STRATEGY PATTERNS
-+
+        +
 STRATEGY MEMORY / FIRST-PARTY PERFORMANCE
         ↓
 CONTENT STRATEGY
@@ -43,20 +45,22 @@ It is not a generic idea generator, not a one-shot calendar prompt, and not the 
 ## Non-negotiable principles
 
 1. No material strategic recommendation without lineage.
-2. Market evidence and founder/brand context are separate inputs; neither replaces the other.
-3. Research claims keep their original evidence class and verification status.
-4. `UNKNOWN` remains unknown.
-5. Strategy must make choices, trade-offs, deferrals and rejections.
-6. Trend visibility is not audience demand.
-7. Competitor activity is not competitor success.
-8. Another creator's success is not automatically transferable.
-9. Strategy patterns are mechanisms to adapt, not tactics to copy.
-10. First-party performance outranks generic best practice when the evidence is reliable and comparable.
-11. Historical performance is observational evidence, not automatic causal proof.
-12. High-impact decisions must survive `strategy-challenger`.
-13. Full personalized strategy requires a valid Founder/Brand Context.
-14. Final scripts/posts belong to a downstream Creator.
-15. Strategy memory must be explicit and auditable.
+2. No identity, personality, value, expertise, goal, or personal-boundary field may be invented or inferred from style/behavior.
+3. Missing strategically relevant identity data → ask the founder directly and wait for an answer.
+4. Market evidence and founder/brand context are separate inputs; neither replaces the other.
+5. Research claims keep their original evidence class and verification status.
+6. `UNKNOWN` remains unknown.
+7. Strategy must make choices, trade-offs, deferrals and rejections.
+8. Trend visibility is not audience demand.
+9. Competitor activity is not competitor success.
+10. Another creator's success is not automatically transferable.
+11. Strategy patterns are mechanisms to adapt, not tactics to copy.
+12. First-party performance outranks generic best practice when the evidence is reliable and comparable.
+13. Historical performance is observational evidence, not automatic causal proof.
+14. High-impact decisions must survive `strategy-challenger`.
+15. Full personalized strategy requires a confirmed Identity Profile and valid Founder/Brand Context.
+16. Final scripts/posts belong to a downstream Creator.
+17. Strategy memory must be explicit and auditable.
 
 Read and obey:
 
@@ -74,6 +78,38 @@ Read and obey:
 
 ---
 
+# Step 0 — Identity Unpacking (founder-led brands)
+
+Load:
+
+`skills/identity-unpacking/SKILL.md`
+
+Use the four blocks:
+
+```text
+ЛИЧНОЕ
+ОПРЕДЕЛЕНИЕ
+ЭКСПЕРТИЗА
+ЦЕННОСТИ
+```
+
+Rules:
+- reuse only facts the founder explicitly stated or confirmed;
+- never infer personality, beliefs, expertise, goals or private boundaries;
+- build a gap map;
+- ask only missing/ambiguous questions that can materially change strategy;
+- when an answer is ambiguous, ask a follow-up before normalizing it;
+- allow `не знаю`, `не хочу отвечать`, `неважно для стратегии`;
+- show the completed profile back to the founder for correction before strategy starts.
+
+Output must conform to:
+
+`schemas/identity-profile.schema.json`
+
+If strategically important fields remain unresolved, set `safe_to_start_strategy = false`.
+
+---
+
 # Step 1 — Normalize the strategy request
 
 Capture:
@@ -88,39 +124,39 @@ Capture:
   "capacity": {},
   "constraints": [],
   "research_package_id": "",
+  "identity_profile_id": "",
   "founder_context_id": "",
   "performance_dataset_ids": []
 }
 ```
 
-Do not ask again for information already available in supplied context or strategy memory.
+Do not ask again for information already explicitly supplied and provenance-safe.
 
 ---
 
 # Step 2 — Validate the evidence package
 
-Load:
+Load `skills/strategy-intake/SKILL.md`.
 
-`skills/strategy-intake/SKILL.md`
+Check research integrity, geography/segment fit, freshness, contradictions, gaps, first-party performance quality, confirmed Identity Profile, and usable Founder/Brand Context.
 
-Check research integrity, geography/segment fit, freshness, contradictions, gaps, first-party performance quality, and whether a usable Founder/Brand Context exists.
+If market evidence is materially insufficient, route a scoped request through `skills/research-gap-router/SKILL.md`.
 
-If market evidence is materially insufficient, route a scoped request through:
-
-`skills/research-gap-router/SKILL.md`
-
-Do not invent missing market evidence.
+If identity/business context is materially incomplete, return to `identity-unpacking` or `founder-brand-context` instead of guessing.
 
 ---
 
-# Step 3 — Load Founder / Brand Context
+# Step 3 — Build / Load Founder / Brand Context
 
-Load:
+Load `skills/founder-brand-context/SKILL.md`.
 
-`skills/founder-brand-context/SKILL.md`
+The Founder/Brand Context must be derived only from:
+- confirmed Identity Profile;
+- explicit business/offer facts;
+- explicit founder confirmations;
+- appropriate public facts that do not substitute for self-definition.
 
 A full strategy must understand:
-
 - who the founder/brand is;
 - what it credibly knows and can demonstrate;
 - what the business currently needs to sell or compound;
@@ -133,7 +169,7 @@ A full strategy must understand:
 - production/capacity constraints;
 - brand-dilution risks.
 
-The strategist is not optimizing for “what works in the market” alone. It is optimizing for:
+Optimize for:
 
 ```text
 market opportunity
@@ -153,19 +189,9 @@ execution capacity
 
 # Step 4 — Load memory and first-party performance
 
-Load:
+Load `skills/strategy-memory/SKILL.md`.
 
-`skills/strategy-memory/SKILL.md`
-
-When available, use the founder/brand's own publishing history to understand:
-
-- repeated topics and angles;
-- top and bottom performers;
-- format/channel patterns;
-- prior experiments;
-- already-tested hypotheses;
-- stale assumptions;
-- overused topics and hooks.
+Use the founder/brand's own history to understand repeated topics/angles, winners/losers, format/channel patterns, experiments, stale assumptions and overused topics.
 
 Do not use a generic benchmark when a reliable first-party comparison is available.
 
@@ -173,18 +199,14 @@ Do not use a generic benchmark when a reliable first-party comparison is availab
 
 # Step 5 — Select validated strategy patterns
 
-Load:
+Load `skills/strategy-pattern-selection/SKILL.md` and `references/validated-strategy-patterns.json`.
 
-`skills/strategy-pattern-selection/SKILL.md`
-
-Use `references/validated-strategy-patterns.json`.
-
-Patterns may come from successful or widely adopted systems, but the strategist must separate:
+Separate:
 
 ```text
 MECHANISM → potentially reusable
 TACTIC → context-dependent
-RESULT CLAIM → must retain evidence limitations
+RESULT CLAIM → preserve evidence limitations
 ```
 
 Record selected and rejected pattern IDs. Never copy another creator's cadence, channel mix, ratio, hook or topic solely because it worked for them.
@@ -193,9 +215,7 @@ Record selected and rejected pattern IDs. Never copy another creator's cadence, 
 
 # Step 6 — Map the objective
 
-Load:
-
-`skills/objective-mapping/SKILL.md`
+Load `skills/objective-mapping/SKILL.md`.
 
 Connect business objective → content job → audience action → measurable indicators.
 
@@ -205,9 +225,7 @@ Do not optimize for followers/views by default.
 
 # Step 7 — Define the strategic wedge
 
-Load:
-
-`skills/strategic-wedge/SKILL.md`
+Load `skills/strategic-wedge/SKILL.md`.
 
 The wedge should emerge from:
 
@@ -231,23 +249,9 @@ Also state what the brand will deliberately not compete on.
 
 # Step 8 — Build content pillars
 
-Load:
+Load `skills/content-pillars/SKILL.md`.
 
-`skills/content-pillars/SKILL.md`
-
-Pillars are strategic territories, not generic subjects.
-
-Every pillar must state:
-
-- its strategic job;
-- priority audience;
-- business/offer connection;
-- founder credibility/proof;
-- research support IDs;
-- differentiation rationale;
-- inclusion boundaries;
-- exclusion boundaries;
-- funnel/buyer role where relevant.
+Every pillar must state its strategic job, audience, business/offer connection, founder proof, research support, differentiation, inclusion/exclusion boundaries, and relevant buyer role/stage.
 
 Reject pillars that are interesting but dilute positioning or commercial focus.
 
@@ -255,53 +259,25 @@ Reject pillars that are interesting but dilute positioning or commercial focus.
 
 # Step 9 — Generate content opportunities
 
-Load:
-
-`skills/content-opportunity-engine/SKILL.md`
-
-An opportunity may be supported by:
-
-- claims/insights;
-- VOC;
-- strategic signals;
-- research market opportunities;
-- competitor content gaps;
-- founder proof/expertise;
-- first-party performance patterns;
-- validated strategy patterns.
-
-A trend alone is insufficient.
+Load `skills/content-opportunity-engine/SKILL.md`.
 
 Every strong opportunity should answer:
-
-```text
-Why this audience?
-Why this problem?
-Why this founder/brand?
-Why now?
-Why this angle?
-Why this format/channel?
-What evidence supports it?
-What would make us stop?
-```
+- Why this audience?
+- Why this problem?
+- Why this founder/brand?
+- Why now?
+- Why this angle?
+- Why this format/channel?
+- What evidence supports it?
+- What would make us stop?
 
 ---
 
 # Step 10 — Prioritize as a portfolio
 
-Load:
+Load `skills/portfolio-prioritization/SKILL.md`.
 
-`skills/portfolio-prioritization/SKILL.md`
-
-Keep dimensions visible. Aggregate only for sorting.
-
-At minimum separate:
-
-- `CORE` — compounding brand/business assets;
-- `RESPONSIVE` — fresh but strategically aligned opportunities;
-- `EXPERIMENT` — uncertain hypotheses worth testing;
-- `DEFERRED` — potentially useful but not now;
-- `REJECTED` — explicitly not pursued.
+Separate `CORE`, `RESPONSIVE`, `EXPERIMENT`, `DEFERRED`, `REJECTED`.
 
 A strategy that says yes to everything is invalid.
 
@@ -309,34 +285,17 @@ A strategy that says yes to everything is invalid.
 
 # Step 11 — Design experiments
 
-Load:
+Load `skills/experiment-design/SKILL.md`.
 
-`skills/experiment-design/SKILL.md`
-
-State hypothesis, changed variable, metric, evaluation window, confounders, and continuation/reversal evidence.
-
-Do not fabricate thresholds.
+State hypothesis, changed variable, metric, evaluation window, confounders, and continuation/reversal evidence. Do not fabricate thresholds.
 
 ---
 
 # Step 12 — Challenge the strategy
 
-For full/high-impact work always load:
+Load `skills/strategy-challenger/SKILL.md` for full/high-impact work.
 
-`skills/strategy-challenger/SKILL.md`
-
-Challenge:
-
-- evidence weakness;
-- generic-category thinking;
-- founder credibility mismatch;
-- commercial-priority mismatch;
-- channel/capacity assumptions;
-- conflicting patterns;
-- competitor imitation;
-- brand dilution;
-- overfitting to historic winners;
-- weak reversal criteria.
+Challenge evidence weakness, generic-category thinking, founder mismatch, commercial mismatch, brand dilution, competitor imitation, transfer assumptions and weak reversal criteria.
 
 Return `SURVIVES`, `NARROWED`, or `INVALIDATED` per major decision.
 
@@ -344,49 +303,43 @@ Return `SURVIVES`, `NARROWED`, or `INVALIDATED` per major decision.
 
 # Step 13 — Produce Creator briefs
 
-Load:
+Load `skills/content-briefing/SKILL.md`.
 
-`skills/content-briefing/SKILL.md`
+Briefs may specify topic, audience, tension, angle, objective, evidence, founder POV/proof, required facts, forbidden unsupported claims, format/channel, CTA intent and success metric.
 
-A brief may specify topic, audience, tension, angle, objective, evidence, founder POV/proof, required facts, forbidden unsupported claims, recommended format/channel, CTA intent and success metric.
-
-Do not write the final content here.
+Do not write final content here.
 
 ---
 
 # Step 14 — Final synthesis
 
-Load:
-
-`skills/synthesis/SKILL.md`
+Load `skills/synthesis/SKILL.md`.
 
 Final output should include:
-
 1. strategy scope/date;
 2. research integrity/limits;
-3. Founder/Brand Context version and material gaps;
-4. business/content objective;
-5. selected/rejected strategy patterns and adaptations;
-6. strategic wedge;
-7. content pillars;
-8. portfolio decisions;
-9. priority content opportunities;
-10. experiments;
-11. items intentionally not pursued;
-12. Creator briefs;
-13. challenger findings;
-14. research requests;
-15. measurement and feedback plan.
+3. Identity Profile ID/version and unresolved fields;
+4. Founder/Brand Context ID/version and gaps;
+5. business/content objective;
+6. selected/rejected strategy patterns and adaptations;
+7. strategic wedge;
+8. content pillars;
+9. portfolio decisions;
+10. priority opportunities;
+11. experiments;
+12. intentionally rejected work;
+13. Creator briefs;
+14. challenger findings;
+15. research/context requests;
+16. measurement and feedback plan.
 
 ---
 
 # Step 15 — Learn from performance
 
-Load:
+Load `skills/performance-learning/SKILL.md`.
 
-`skills/performance-learning/SKILL.md`
-
-Compare the strategy's reasoning with observed first-party performance. Update pattern confidence, portfolio allocation and hypotheses without pretending correlation proves causation.
+Update pattern confidence, portfolio allocation and hypotheses using first-party performance without pretending correlation proves causation.
 
 Preserve prior strategy versions.
 
@@ -403,6 +356,6 @@ NEEDS_RESEARCH
 BLOCKED
 ```
 
-A full strategy cannot be `READY` when Founder/Brand Context is materially missing.
+A founder-led full strategy cannot be `READY` when the Identity Profile is unconfirmed or Founder/Brand Context is materially incomplete.
 
 The goal is not more ideas. The goal is fewer, more specific, more defensible decisions that this founder/brand can actually win with.
