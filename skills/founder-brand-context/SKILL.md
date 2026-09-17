@@ -1,9 +1,9 @@
 ---
 name: founder-brand-context
 description: >-
-  Merge confirmed identity and business context into the strategy context that constrains positioning, audiences, offers, proof, channels, voice, and execution choices.
+  Merge confirmed identity, business context, and positioning/offer-fit into the strategy context that constrains audiences, offers, proof, channels, voice, and execution choices.
 metadata:
-  version: 0.4.0
+  version: 0.5.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,26 +12,29 @@ license: MIT
 # Skill: Founder / Brand Context
 
 ## Mission
-Create the context layer that the Strategist actually reasons over by combining separate confirmed inputs:
+Create the context layer that the Strategist reasons over by combining separate confirmed inputs:
 
 ```text
 identity-profile
 +
 business-context
++
+positioning-offer-fit
 → founder-brand-context
 ```
 
-For non-founder-led organizations, replace identity-profile with an appropriate confirmed organization/brand identity source. Business Context remains separate and required for full commercial strategy.
+For non-founder-led organizations, replace identity-profile with an appropriate confirmed organization/brand identity source.
 
 ## Absolute rule
-Do not invent missing identity or business fields during the merge.
+Do not invent missing identity, business, positioning, audience, promise, proof, or differentiation fields during the merge.
 
-If a field is needed but absent, preserve it as `UNKNOWN` and route back to the owning context skill.
+If a needed field is absent or unsupported, preserve it as `UNKNOWN` and route back to the owning skill.
 
 ## Required inputs
 - `schemas/identity-profile.schema.json` when founder-led;
 - `schemas/business-context.schema.json`;
-- explicit brand/positioning facts if separately supplied.
+- `schemas/positioning-offer-fit.schema.json`;
+- explicit brand facts if separately supplied.
 
 Output conforms to:
 
@@ -51,46 +54,54 @@ Use only confirmed/self-stated fields for:
 ### From Business Context
 Use only confirmed/documented fields for:
 - business model;
-- commercial priorities;
-- priority offers;
-- priority audiences;
-- current/desired revenue model;
-- goals and horizons;
+- goals;
+- revenue-model priorities;
 - delivery/resources/capacity;
 - markets not served;
 - operational constraints.
 
-### Derived strategic context
-You may normalize, but not invent:
-- positioning inputs;
-- proof map;
-- content jobs;
-- channel roles;
-- brand-dilution risks;
-- execution constraints.
+### From Positioning / Offer Fit
+Use only supported/confirmed fields for:
+- primary/secondary offers;
+- priority audiences;
+- main promise and claim status;
+- positioning statement;
+- reasons to choose;
+- proof assets;
+- allowed/qualified/forbidden claims;
+- strengthening/diluting topics;
+- unresolved positioning gaps.
 
-Every derived field must remain traceable to one or more source fields.
+## Traceability
+Every derived context field must remain traceable to one or more source fields or research IDs.
+
+Do not silently upgrade:
+- `PLAUSIBLE_BUT_UNPROVEN` → `SUPPORTED`;
+- `PARTIAL` → `PROVEN`;
+- `POSITIONING_GAP` → invented differentiation.
 
 ## Strategic use
 Every proposed pillar, opportunity, channel role, experiment and Creator brief must pass:
 
 1. **Credibility fit** — can this person/brand credibly speak or demonstrate it?
-2. **Commercial fit** — does it support a confirmed business objective, offer or strategic asset?
-3. **Audience fit** — does it serve a confirmed/research-supported priority audience?
-4. **Positioning fit** — does it reinforce rather than blur the intended market position?
-5. **Capability fit** — can it be executed repeatedly with real resources?
-6. **Channel fit** — does it suit the intended distribution surface?
-7. **Boundary fit** — does it respect stated ethical, personal, industry and operational exclusions?
+2. **Commercial fit** — does it support a primary/secondary offer or stated strategic objective?
+3. **Audience fit** — does it serve a supported priority audience?
+4. **Positioning fit** — does it reinforce the approved promise/reason-to-choose rather than blur it?
+5. **Proof fit** — are content claims within allowed evidence boundaries?
+6. **Capability fit** — can it be executed repeatedly with actual resources?
+7. **Channel fit** — does it suit the intended distribution surface?
+8. **Boundary fit** — does it respect ethical, personal, industry and operational exclusions?
 
 ## Anti-generic gate
 Reject or narrow a recommendation when:
 - it could be assigned unchanged to any competitor;
 - it requires expertise/proof the person or brand does not have;
-- it promotes a lower-priority offer over a confirmed commercial priority without justification;
+- it promotes a deferred/rejected offer without explicit strategic reason;
 - it creates audience confusion between unrelated directions;
-- it violates stated boundaries;
-- it requires an unsustainable format/cadence;
-- it conflicts with the confirmed revenue model or business stage.
+- it conflicts with allowed/forbidden claim boundaries;
+- it violates stated values/industry exclusions;
+- it requires unsustainable production;
+- it weakens the approved primary positioning.
 
 ## Output
 Return:
@@ -100,7 +111,11 @@ Return:
 - `priority_audiences`;
 - `priority_offers`;
 - `positioning_non_negotiables`;
+- `supported_promises`;
+- `reasons_to_choose`;
 - `proof_assets`;
+- `allowed_claims`;
+- `forbidden_claims`;
 - `content_strengths`;
 - `channel_roles`;
 - `brand_dilution_risks`;
@@ -109,4 +124,8 @@ Return:
 - `source_field_map`.
 
 ## Quality rule
-A full strategy cannot receive the highest integrity status when the required identity or Business Context is materially incomplete.
+A full strategy cannot receive `READY` when:
+- required identity/business context is materially incomplete;
+- positioning-offer-fit is unsafe for strategy;
+- the main promise remains unsupported;
+- no defensible reason-to-choose exists for the selected primary offer.
