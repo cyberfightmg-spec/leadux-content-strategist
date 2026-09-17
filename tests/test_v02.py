@@ -36,6 +36,14 @@ def test_customer_journey_intent_schema():
     assert journey['journeys'][1]['state_confidence']=='HYPOTHESIS'
     assert journey['safe_for_strategy'] is True
 
+def test_channel_distribution_fit_schema():
+    fit=load('examples/channel-distribution-fit.example.json')
+    assert validate_schema(fit,'channel-distribution-fit.schema.json') == []
+    assert fit['primary_channel_ids']
+    assert any(c['priority']=='PRIMARY' for c in fit['channels'])
+    assert any(c['evidence_status']=='HYPOTHESIS' for c in fit['channels'])
+    assert fit['safe_for_strategy'] is True
+
 def test_positioning_offer_fit_schema():
     fit=load('examples/positioning-offer-fit.example.json')
     assert validate_schema(fit,'positioning-offer-fit.schema.json') == []
