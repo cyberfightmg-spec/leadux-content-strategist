@@ -1,12 +1,18 @@
 # LeadUX Content Strategist
 
-Open-source founder-aware, evidence-first strategy layer between market research and content creation.
+Open-source universal, founder-aware, evidence-first strategy layer between market research and content creation.
 
 ```text
+Identity Unpacking (when founder-led)
+        ↓ confirmed identity
+Business Context
+        ↓ confirmed commercial reality
 LeadUX Competitor Research
         ↓ verified market evidence
+Positioning / Offer Fit
+        ↓ supported offer / audience / promise / reason-to-choose
 Founder / Brand Context
-        ↓ identity / offers / audiences / proof / constraints
+        ↓ strategy-safe context
 Validated Strategy Patterns
         ↓ reusable mechanisms with evidence grades
 Strategy Memory + First-party Performance
@@ -23,41 +29,49 @@ Performance observations
 
 This repository does **not** generate random ideas and does **not** write final posts by default.
 
-It makes content-strategy decisions from four distinct evidence layers:
+It makes content-strategy decisions from distinct evidence layers:
 
-1. **Market evidence** — verified competitor/customer/VOC/GTM/signals from LeadUX Competitor Research.
-2. **Founder/Brand Context** — who the founder is, what the business sells, priority audiences/offers, positioning, proof, channel roles and constraints.
-3. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
-4. **First-party learning** — the brand's own historical content and performance patterns.
+1. **Identity** — self-stated/confirmed founder identity, expertise, values and public boundaries when founder-led.
+2. **Business Context** — what the business actually sells, to whom, current goals, revenue model, resources and constraints.
+3. **Market evidence** — verified competitor/customer/VOC/GTM/signals from LeadUX Competitor Research.
+4. **Positioning / Offer Fit** — which offer to prioritize, which audience/problem is supported, what promise is defensible, and why the customer should choose it.
+5. **Founder/Brand Context** — the merged strategy context used downstream.
+6. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
+7. **First-party learning** — the brand's own historical content and performance patterns.
 
 The goal is not “what content is popular?” but:
 
 ```text
-What should THIS founder/brand do,
-for THIS audience,
-for THIS business objective,
+What should THIS business say and do,
+for THIS supported audience,
+around THIS priority offer,
+with THIS defensible promise,
 based on THIS evidence,
-and what should it deliberately not do?
+and what should it deliberately not claim or pursue?
 ```
 
-## v0.4 highlights
+## v0.5 highlights
 
-- `founder-brand-context` is now a first-class strategy skill;
-- strict `founder-brand-context.schema.json`;
-- public LeadUX founder/brand context example;
-- `strategy-pattern-selection` skill;
-- evidence-graded reusable strategy pattern library;
-- source audit separating adoption from result evidence and independent replication;
-- anti-generic and brand-dilution gates;
-- explicit credibility-fit and commercial-fit checks;
-- external patterns are adapted mechanisms, never automatic tactics;
-- first-party evidence may override generic best practice;
-- Research Agent ↔ Strategist boundary remains explicit and auditable.
+- universal `identity-unpacking` skill with strict no-inference protocol;
+- universal `business-context` skill with commercial conflict handling;
+- new `positioning-offer-fit` skill;
+- strict `positioning-offer-fit.schema.json`;
+- offer statuses: PRIMARY / SECONDARY / EXPERIMENT / DEFERRED / REJECTED;
+- promise statuses: PROVEN / SUPPORTED / PLAUSIBLE_BUT_UNPROVEN / UNSUPPORTED;
+- defensible reason-to-choose or explicit `POSITIONING_GAP`;
+- allowed / qualified / forbidden claim boundaries;
+- Founder/Brand Context now merges identity + business + safe positioning/offer-fit;
+- strategy intake blocks `READY` when the main promise or differentiation is unsupported;
+- first-party evidence and verified market evidence remain separate from generic best practices.
 
 ## Core strategy flow
 
 ```text
-strategy-intake
+identity-unpacking
+→ business-context
+→ research handoff
+→ strategy-intake
+→ positioning-offer-fit
 → founder-brand-context
 → strategy-memory
 → strategy-pattern-selection
@@ -78,8 +92,10 @@ strategy-intake
 Every material opportunity or decision should be traceable to one or more of:
 
 - research `claim_id` / `insight_id` / `market_opportunity_id`;
-- VOC / strategic signal / content-footprint evidence;
-- Founder/Brand Context field;
+- VOC / strategic signal / content-performance evidence;
+- Identity Profile field;
+- Business Context field;
+- Positioning / Offer Fit object;
 - first-party `performance_pattern_id`;
 - validated `pattern_id`;
 - explicit business constraint.
@@ -103,8 +119,9 @@ pytest
 ## Quick start
 
 ```bash
+leadux-strategist validate examples/business-context.example.json
+leadux-strategist validate examples/positioning-offer-fit.example.json
 leadux-strategist validate examples/research-package.example.json
-leadux-strategist validate examples/founder-brand-context.leadux.example.json
 leadux-strategist preflight --research examples/research-package.example.json
 leadux-strategist score examples/content-opportunity.example.json
 ```
