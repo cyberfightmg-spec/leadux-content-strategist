@@ -1,0 +1,83 @@
+{
+  "profile_id": "identity_leadux_founder_v1",
+  "version": "1.0",
+  "updated_at": "2026-09-17",
+  "personal": {
+    "relationships": [],
+    "family_roles": [],
+    "important_people": [],
+    "life_context": [],
+    "personal_interests": [],
+    "personal_topics_allowed_in_content": ["expertise-focused content", "limited everyday-life context"],
+    "personal_topics_private": ["personal problems"]
+  },
+  "definition": {
+    "gender": null,
+    "age_or_age_range": null,
+    "origin": null,
+    "current_location_context": null,
+    "self_definition": ["архитектор ботов", "разнорабочий в AI", "креатор", "автоматизатор", "вайбкодер"],
+    "public_roles": ["экспертная роль"],
+    "identity_labels_accepted": ["архитектор ботов", "разнорабочий в AI", "креатор", "автоматизатор", "вайбкодер"],
+    "identity_labels_rejected": []
+  },
+  "expertise": {
+    "businesses": [],
+    "activities": ["создание ботов", "автоматизации", "анализ бизнеса для внедрения", "консультации", "воронки в чат-ботах", "создание видео-контента"],
+    "skills": ["создание ботов", "автоматизация", "анализ бизнеса по внедрению", "консультации", "воронки в чат-ботах", "создание видео-контента"],
+    "strong_topics": [],
+    "weak_or_nonexpert_topics": ["пользователь прямо указал, что во всех направлениях оценивает себя как средний уровень"],
+    "proof_assets": [],
+    "money_context_for_strategy": ["цель — заработать денег", "цель — выстроить пассивный доход", "предпочтительные модели пассивного дохода: платная подписка, микропродукты, партнерка"],
+    "goals": ["заработать денег", "выстроить пассивный доход"]
+  },
+  "values": {
+    "principles": ["не обманывать клиента", "не обещать результат без доказательств", "не делать мошеннические проекты"],
+    "personality_traits_self_described": [],
+    "says_no_to": ["gambling-проекты"],
+    "evergreen_beliefs": [],
+    "non_negotiables": ["не работать с gambling-проектами"],
+    "content_ethics": ["не обещать результат без доказательств"]
+  },
+  "unknown_fields": [
+    "personal.personal_interests",
+    "definition.identity_labels_rejected",
+    "expertise.strong_topics",
+    "expertise.proof_assets",
+    "values.personality_traits_self_described",
+    "values.evergreen_beliefs"
+  ],
+  "provenance": [
+    {"field_path": "definition.self_definition", "source_type": "USER_STATED", "source_note": "User explicitly self-described with these roles.", "recorded_at": "2026-09-17"},
+    {"field_path": "personal.personal_topics_allowed_in_content", "source_type": "USER_STATED", "source_note": "User wants expertise to dominate and everyday-life content to be limited.", "recorded_at": "2026-09-17"},
+    {"field_path": "personal.personal_topics_private", "source_type": "USER_STATED", "source_note": "User said they would not show personal problems.", "recorded_at": "2026-09-17"},
+    {"field_path": "expertise.activities", "source_type": "USER_STATED", "source_note": "User listed paid work and areas from bots/automation to video content.", "recorded_at": "2026-09-17"},
+    {"field_path": "expertise.weak_or_nonexpert_topics", "source_type": "USER_STATED", "source_note": "User explicitly said they are medium-level across the board.", "recorded_at": "2026-09-17"},
+    {"field_path": "expertise.money_context_for_strategy", "source_type": "USER_STATED", "source_note": "User identified paid subscriptions, microproducts and affiliate income as preferred passive-income models.", "recorded_at": "2026-09-17"},
+    {"field_path": "expertise.goals", "source_type": "USER_STATED", "source_note": "User stated goals: earn money and build passive income.", "recorded_at": "2026-09-17"},
+    {"field_path": "values.principles", "source_type": "USER_STATED", "source_note": "User explicitly stated these ethical principles.", "recorded_at": "2026-09-17"},
+    {"field_path": "values.says_no_to", "source_type": "USER_STATED", "source_note": "User explicitly excludes gambling projects.", "recorded_at": "2026-09-17"}
+  ],
+  "known_fields": [
+    "definition.self_definition",
+    "personal.personal_topics_allowed_in_content",
+    "personal.personal_topics_private",
+    "expertise.activities",
+    "expertise.skills",
+    "expertise.weak_or_nonexpert_topics",
+    "expertise.money_context_for_strategy",
+    "expertise.goals",
+    "values.principles",
+    "values.says_no_to",
+    "values.non_negotiables",
+    "values.content_ethics"
+  ],
+  "questions_required_before_strategy": [
+    "Какие реальные кейсы, продукты, репозитории или результаты можно использовать как доказательство компетентности?",
+    "Какие темы, кроме работы, пользователь сам хочет считать частью публичного образа?",
+    "Какие черты личности пользователь сам считает важными для бренда?"
+  ],
+  "safe_to_start_strategy": true,
+  "blocking_reason": null,
+  "desired_audience_memory": "Вячеслав точно решит мою проблему и доведет до результата"
+}
