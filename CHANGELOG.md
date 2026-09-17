@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.6.0 — Audience / ICP fit
+- Added first-class `audience-icp-fit` skill before positioning.
+- Added strict separation between content audience, problem holder, user, buyer, decision-maker, influencer, champion, blocker and ICP.
+- Added segment evidence states: `CONFIRMED_ICP`, `SUPPORTED_CANDIDATE`, `HYPOTHESIS`, `AUDIENCE_NOT_ICP`, `REJECTED`, `UNKNOWN`.
+- Added segment priority states: `PRIMARY`, `SECONDARY`, `EXPERIMENTAL`, `DEFERRED`, `REJECTED`.
+- Added `audience-icp-fit.schema.json` and generic example.
+- Added explicit commercial-fit dimensions without imputing unknowns.
+- Positioning / Offer Fit now consumes Audience / ICP Fit rather than inventing audience roles internally.
+- Founder / Brand Context now preserves ICP, content-audience-only segments and buyer-role relationships.
+- Strategy Intake and Quality Gates now block `READY` when the primary ICP is unsupported or content audience is confused with buyer ICP.
+- Root router, registry, CLI schema inference and tests updated for the new stage.
+
 ## 0.5.0 — Universal context + positioning / offer fit
 - Added universal `identity-unpacking` skill with strict no-inference interview protocol.
 - Added universal `business-context` skill and schema.
