@@ -1,0 +1,71 @@
+{
+  "version": "0.4.0",
+  "purpose": "Pattern library for strategy reasoning. Patterns are inputs, not authority. Evidence grades describe support for the pattern/source, not guaranteed business outcomes.",
+  "evidence_grades": {
+    "A": "mature adoption plus multiple independent usage signals and/or strong external empirical basis",
+    "B": "strong open-source adoption or coherent implementation with some external usage evidence, but limited independent outcome evidence",
+    "C": "promising architecture, author case, or emerging project; use as hypothesis/pattern only"
+  },
+  "patterns": [
+    {
+      "pattern_id": "PAT_CONTEXT_BEFORE_STRATEGY",
+      "name": "Load product/founder context before content planning",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "evidence_grade": "A",
+      "mechanism": "Strategy starts from business, customer, current-state and competitive context instead of generic topic generation.",
+      "use_when": ["initial_strategy", "refresh", "campaign"],
+      "limitations": ["High repository adoption does not by itself prove revenue lift from this exact pattern."]
+    },
+    {
+      "pattern_id": "PAT_SEARCHABLE_SHAREABLE_PORTFOLIO",
+      "name": "Balance demand capture and demand creation",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/SKILL.md",
+      "evidence_grade": "A",
+      "mechanism": "Separate content jobs that capture existing demand from content that creates attention, opinion, sharing and category authority.",
+      "use_when": ["portfolio", "pillar_design", "channel_plan"],
+      "limitations": ["Default ratios are starting hypotheses, not universal laws."]
+    },
+    {
+      "pattern_id": "PAT_STRATEGY_MEANS_TRADEOFFS",
+      "name": "Strategy explicitly states what not to do",
+      "source": "social-media-skills/skills",
+      "source_url": "https://github.com/social-media-skills/skills/blob/main/skills/social-strategy/SKILL.md",
+      "evidence_grade": "B",
+      "mechanism": "Choose a small number of channels/objectives/wedges and explicitly defer or reject the rest.",
+      "use_when": ["initial_strategy", "channel_plan", "portfolio"],
+      "limitations": ["Project is newer and has limited independent outcome evidence."]
+    },
+    {
+      "pattern_id": "PAT_DECISION_COUNTERWEIGHT",
+      "name": "Pair every important strategic decision with a skeptical counterweight",
+      "source": "imMamdouhaboammar/marketing-council-pack",
+      "source_url": "https://github.com/imMamdouhaboammar/marketing-council-pack",
+      "evidence_grade": "B",
+      "mechanism": "A primary strategist proposes a decision; a skeptical role challenges assumptions, evidence quality, alternatives, measurement and reversal criteria before tactics.",
+      "use_when": ["high_impact_decision", "full_strategy", "replan"],
+      "limitations": ["Architecture is sophisticated, but public evidence of repeated downstream business outcomes remains limited."]
+    },
+    {
+      "pattern_id": "PAT_PERFORMANCE_RELATIVE_TO_SELF",
+      "name": "Learn from the creator's own top and bottom performers",
+      "source": "charlie947/social-media-skills",
+      "source_url": "https://github.com/charlie947/social-media-skills",
+      "evidence_grade": "B",
+      "mechanism": "Compare future decisions with first-party historical winners and losers rather than generic benchmarks.",
+      "use_when": ["refresh", "weekly_plan", "postmortem", "performance_learning"],
+      "limitations": ["Author-reported success is meaningful but independent outcome replication is not yet strong; observational performance is not causal proof."]
+    },
+    {
+      "pattern_id": "PAT_EXPLICIT_REVERSAL_CRITERIA",
+      "name": "Define measurement and reversal evidence before execution",
+      "source": "imMamdouhaboammar/marketing-council-pack",
+      "source_url": "https://github.com/imMamdouhaboammar/marketing-council-pack",
+      "evidence_grade": "B",
+      "mechanism": "Strategic choices specify what evidence would cause continuation, narrowing, reversal or additional research.",
+      "use_when": ["experiment", "campaign", "channel_plan", "replan"],
+      "limitations": ["Thresholds must come from real baselines or be explicitly labeled exploratory."]
+    }
+  ]
+}
