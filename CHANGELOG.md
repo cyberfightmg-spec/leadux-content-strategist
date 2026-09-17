@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.0 — Customer journey / funnel intent
+- Added first-class `customer-journey-intent` skill between Audience / ICP Fit and Positioning / Offer Fit.
+- Added evidence-backed journey states: `UNAWARE`, `PROBLEM_AWARE`, `SOLUTION_AWARE`, `CATEGORY_EXPLORING`, `VENDOR_COMPARING`, `TRUST_VALIDATING`, `PURCHASE_READY`, onboarding, adoption, retention/expansion, advocacy and `UNKNOWN`.
+- Added strict separation between buying role and journey state.
+- Added journey-state confidence: `CONFIRMED`, `SUPPORTED`, `HYPOTHESIS`, `UNKNOWN`.
+- Added objections, perceived risks, trust requirements, proof needs, triggers, switching friction, next decisions and CTA-strength boundaries.
+- Added explicit rule that engagement does not imply purchase intent.
+- Added non-linear journey support; TOFU/MOFU/BOFU cannot replace actual customer-state reasoning.
+- Added `customer-journey-intent.schema.json` and generic example.
+- Positioning / Offer Fit now consumes journey evidence and cannot use a purchase-ready CTA without support.
+- Founder / Brand Context now preserves role × journey-state mappings and journey confidence.
+- Strategy Intake and Quality Gates now block `READY` when critical messaging/conversion decisions depend on invented journey intent.
+- Root router, registry, CLI schema inference and tests updated for the new stage.
+
 ## 0.6.0 — Audience / ICP fit
 - Added first-class `audience-icp-fit` skill before positioning.
 - Added strict separation between content audience, problem holder, user, buyer, decision-maker, influencer, champion, blocker and ICP.
