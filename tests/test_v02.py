@@ -14,6 +14,12 @@ def load(rel): return json.loads((ROOT/rel).read_text())
 def test_strategy_request_schema():
     assert validate_schema(load('examples/strategy-request.example.json'),'strategy-request.schema.json') == []
 
+def test_business_context_schema():
+    ctx=load('examples/business-context.example.json')
+    assert validate_schema(ctx,'business-context.schema.json') == []
+    assert ctx['offers'][0]['priority']=='CORE'
+    assert ctx['safe_to_start_strategy'] is True
+
 def test_founder_brand_context_schema():
     ctx=load('examples/founder-brand-context.leadux.example.json')
     assert validate_schema(ctx,'founder-brand-context.schema.json') == []
