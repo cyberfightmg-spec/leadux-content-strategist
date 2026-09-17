@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/channel-distribution-fit.schema.json",
+  "title": "LeadUX Channel / Distribution Fit",
+  "type": "object",
+  "required": [
+    "channel_fit_id",
+    "audience_icp_fit_id",
+    "customer_journey_intent_id",
+    "channels",
+    "primary_channel_ids",
+    "safe_for_strategy"
+  ],
+  "properties": {
+    "channel_fit_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "created_at": {"type": ["string", "null"]},
+    "audience_icp_fit_id": {"type": "string", "minLength": 1},
+    "customer_journey_intent_id": {"type": "string", "minLength": 1},
+    "business_context_id": {"type": ["string", "null"]},
+    "positioning_offer_fit_id": {"type": ["string", "null"]},
+    "channels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["channel_id", "name", "family", "priority", "evidence_status", "primary_jobs"],
+        "properties": {
+          "channel_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "family": {
+            "enum": [
+              "OWNED_SITE",
+              "SEARCH",
+              "EMAIL",
+              "MESSAGING",
+              "SOCIAL_FEED",
+              "SHORT_VIDEO",
+              "LONG_VIDEO",
+              "COMMUNITY",
+              "MARKETPLACE_DIRECTORY",
+              "PARTNER",
+              "PR_EARNED",
+              "PAID",
+              "OUTBOUND",
+              "EVENT",
+              "OTHER"
+            ]
+          },
+          "ownership": {"enum": ["OWNED", "RENTED", "EARNED", "PAID", "MIXED", "UNKNOWN"]},
+          "priority": {"enum": ["PRIMARY", "SECONDARY", "REPURPOSE_ONLY", "EXPERIMENTAL", "DEFERRED", "REJECTED"]},
+          "evidence_status": {"enum": ["CONFIRMED_FIT", "SUPPORTED_FIT", "HYPOTHESIS", "INSUFFICIENT_EVIDENCE", "REJECTED"]},
+          "segment_ids": {"type": "array", "items": {"type": "string"}},
+          "audience_roles": {
+            "type": "array",
+            "items": {"enum": ["CONTENT_AUDIENCE", "PROBLEM_HOLDER", "USER", "BUYER", "DECISION_MAKER", "INFLUENCER", "CHAMPION", "BLOCKER", "ICP"]}
+          },
+          "journey_state_ids": {"type": "array", "items": {"type": "string"}},
+          "journey_states": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "UNAWARE",
+                "PROBLEM_AWARE",
+                "SOLUTION_AWARE",
+                "CATEGORY_EXPLORING",
+                "VENDOR_COMPARING",
+                "TRUST_VALIDATING",
+                "PURCHASE_READY",
+                "CUSTOMER_ONBOARDING",
+                "CUSTOMER_ADOPTION",
+                "RETENTION_EXPANSION",
+                "ADVOCACY",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "primary_jobs": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "DISCOVER",
+                "EDUCATE",
+                "FRAME_PROBLEM",
+                "BUILD_TRUST",
+                "PROVE",
+                "COMPARE",
+                "DE_RISK",
+                "QUALIFY",
+                "CONVERT",
+                "NURTURE",
+                "ONBOARD",
+                "ADOPT",
+                "RETAIN",
+                "EXPAND",
+                "ADVOCATE",
+                "COMMUNITY",
+                "RECAPTURE"
+              ]
+            },
+            "minItems": 1
+          },
+          "supported_formats": {"type": "array", "items": {"type": "string"}},
+          "source_asset_types": {"type": "array", "items": {"type": "string"}},
+          "desired_next_actions": {"type": "array", "items": {"type": "string"}},
+          "cta_strength": {"enum": ["NONE", "SOFT", "MEDIUM", "DIRECT", "UNKNOWN"]},
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "research_claim_ids": {"type": "array", "items": {"type": "string"}},
+              "insight_ids": {"type": "array", "items": {"type": "string"}},
+              "voc_ids": {"type": "array", "items": {"type": "string"}},
+              "content_performance_pattern_ids": {"type": "array", "items": {"type": "string"}},
+              "first_party_performance_pattern_ids": {"type": "array", "items": {"type": "string"}},
+              "business_context_fields": {"type": "array", "items": {"type": "string"}},
+              "notes": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          },
+          "operational_fit": {
+            "type": "object",
+            "properties": {
+              "production_capability": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "sustainability": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "response_burden": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+              "paid_budget_required": {"type": ["boolean", "null"]},
+              "constraints": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          },
+          "measurement": {
+            "type": "object",
+            "properties": {
+              "distribution_signals": {"type": "array", "items": {"type": "string"}},
+              "audience_response_signals": {"type": "array", "items": {"type": "string"}},
+              "lead_signals": {"type": "array", "items": {"type": "string"}},
+              "business_outcomes": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          },
+          "risks": {"type": "array", "items": {"type": "string"}},
+          "rejection_or_defer_reason": {"type": ["string", "null"]},
+          "test_plan": {"type": ["object", "null"], "additionalProperties": true}
+        },
+        "additionalProperties": true
+      }
+    },
+    "primary_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "secondary_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "repurpose_only_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "experimental_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "deferred_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "rejected_channel_ids": {"type": "array", "items": {"type": "string"}},
+    "repurposing_graph": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_asset", "derived_asset", "channel_id", "content_job"],
+        "properties": {
+          "source_asset": {"type": "string"},
+          "derived_asset": {"type": "string"},
+          "channel_id": {"type": "string"},
+          "segment_ids": {"type": "array", "items": {"type": "string"}},
+          "journey_state_ids": {"type": "array", "items": {"type": "string"}},
+          "content_job": {"type": "string"},
+          "adaptation_notes": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "owned_distribution_plan": {
+      "type": "object",
+      "properties": {
+        "owned_assets": {"type": "array", "items": {"type": "string"}},
+        "rented_to_owned_paths": {"type": "array", "items": {"type": "string"}},
+        "gaps": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "measurement_contract": {
+      "type": "object",
+      "properties": {
+        "distribution_signals": {"type": "array", "items": {"type": "string"}},
+        "audience_response_signals": {"type": "array", "items": {"type": "string"}},
+        "lead_signals": {"type": "array", "items": {"type": "string"}},
+        "business_outcomes": {"type": "array", "items": {"type": "string"}},
+        "interpretation_limits": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "channel_gaps": {"type": "array", "items": {"type": "string"}},
+    "research_requests": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "questions_required_from_user": {"type": "array", "items": {"type": "string"}},
+    "safe_for_strategy": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
