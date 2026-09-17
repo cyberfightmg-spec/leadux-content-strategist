@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/identity-profile.schema.json",
+  "title": "LeadUX Identity Profile",
+  "type": "object",
+  "required": ["profile_id", "personal", "definition", "expertise", "values", "provenance"],
+  "properties": {
+    "profile_id": {"type": "string", "minLength": 1},
+    "version": {"type": ["string", "null"]},
+    "updated_at": {"type": ["string", "null"]},
+    "personal": {
+      "type": "object",
+      "properties": {
+        "relationships": {"type": "array", "items": {"type": "string"}},
+        "family_roles": {"type": "array", "items": {"type": "string"}},
+        "important_people": {"type": "array", "items": {"type": "string"}},
+        "life_context": {"type": "array", "items": {"type": "string"}},
+        "personal_interests": {"type": "array", "items": {"type": "string"}},
+        "personal_topics_allowed_in_content": {"type": "array", "items": {"type": "string"}},
+        "personal_topics_private": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "definition": {
+      "type": "object",
+      "properties": {
+        "gender": {"type": ["string", "null"]},
+        "age_or_age_range": {"type": ["string", "null"]},
+        "origin": {"type": ["string", "null"]},
+        "current_location_context": {"type": ["string", "null"]},
+        "self_definition": {"type": "array", "items": {"type": "string"}},
+        "public_roles": {"type": "array", "items": {"type": "string"}},
+        "identity_labels_accepted": {"type": "array", "items": {"type": "string"}},
+        "identity_labels_rejected": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "expertise": {
+      "type": "object",
+      "properties": {
+        "businesses": {"type": "array", "items": {"type": "string"}},
+        "activities": {"type": "array", "items": {"type": "string"}},
+        "skills": {"type": "array", "items": {"type": "string"}},
+        "strong_topics": {"type": "array", "items": {"type": "string"}},
+        "weak_or_nonexpert_topics": {"type": "array", "items": {"type": "string"}},
+        "proof_assets": {"type": "array", "items": {"type": "string"}},
+        "money_context_for_strategy": {"type": "array", "items": {"type": "string"}},
+        "goals": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "values": {
+      "type": "object",
+      "properties": {
+        "principles": {"type": "array", "items": {"type": "string"}},
+        "personality_traits_self_described": {"type": "array", "items": {"type": "string"}},
+        "says_no_to": {"type": "array", "items": {"type": "string"}},
+        "evergreen_beliefs": {"type": "array", "items": {"type": "string"}},
+        "non_negotiables": {"type": "array", "items": {"type": "string"}},
+        "content_ethics": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "unknown_fields": {"type": "array", "items": {"type": "string"}},
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field_path", "source_type"],
+        "properties": {
+          "field_path": {"type": "string"},
+          "source_type": {"enum": ["USER_STATED", "USER_CONFIRMED", "PUBLIC_SOURCE", "UNKNOWN"]},
+          "source_note": {"type": ["string", "null"]},
+          "recorded_at": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
