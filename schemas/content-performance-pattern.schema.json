@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/content-performance-pattern.schema.json",
+  "title": "LeadUX External Content Performance Pattern",
+  "type": "object",
+  "required": ["pattern_id", "platform", "pattern_class", "accounts", "evidence_level", "confidence"],
+  "properties": {
+    "pattern_id": {"type": "string", "minLength": 1},
+    "platform": {"type": "string", "minLength": 1},
+    "pattern_class": {"enum": ["SINGLE_OUTLIER", "REPEATED_ACCOUNT_PATTERN", "CROSS_ACCOUNT_PATTERN", "FIRST_PARTY_CONFIRMED_PATTERN"]},
+    "accounts": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "sample": {"type": "object", "additionalProperties": true},
+    "outlier_examples": {"type": "array", "items": {"type": "object"}},
+    "mechanism": {"type": "object", "additionalProperties": true},
+    "evidence_level": {"enum": ["CONTENT_SIGNAL", "AUDIENCE_RESPONSE", "LEAD_SIGNAL", "BUSINESS_OUTCOME"]},
+    "supporting_claim_ids": {"type": "array", "items": {"type": "string"}},
+    "contradicting_claim_ids": {"type": "array", "items": {"type": "string"}},
+    "transfer_assumptions": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["HIGH", "MEDIUM", "LOW"]},
+    "observed_at": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}
