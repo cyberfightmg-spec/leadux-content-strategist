@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.5.0 — Universal context + positioning / offer fit
+- Added universal `identity-unpacking` skill with strict no-inference interview protocol.
+- Added universal `business-context` skill and schema.
+- Added `positioning-offer-fit` as a first-class pre-strategy decision layer.
+- Added `positioning-offer-fit.schema.json` and generic example.
+- Added explicit offer buckets: PRIMARY / SECONDARY / EXPERIMENT / DEFERRED / REJECTED.
+- Added promise evidence states: PROVEN / SUPPORTED / PLAUSIBLE_BUT_UNPROVEN / UNSUPPORTED.
+- Added explicit `POSITIONING_GAP` instead of inventing differentiation.
+- Added allowed / qualified / forbidden claim boundaries.
+- Founder/Brand Context now merges confirmed identity + business + safe positioning/offer-fit.
+- Strategy intake now blocks `READY` when the primary promise, audience, or reason-to-choose is materially unsupported.
+- Root router and registry updated to run positioning/offer fit before downstream content strategy.
+- CLI schema inference and tests now support positioning/offer-fit objects.
+
 ## 0.4.0 — Founder-aware validated-strategy architecture
 - Added first-class `founder-brand-context` skill and JSON schema.
 - Added public LeadUX founder/brand context example.
