@@ -1,9 +1,9 @@
 ---
 name: positioning-offer-fit
 description: >-
-  Select which offer and audience should drive content strategy, define a defensible positioning and promise, and reject unsupported differentiation using identity, business context, and verified market evidence.
+  Select which offer should drive strategy and define a defensible promise and positioning using confirmed identity, business context, audience/ICP fit, and verified market evidence.
 metadata:
-  version: 0.5.0
+  version: 0.6.0
   category: positioning
   evidence_mode: required
 license: MIT
@@ -14,12 +14,12 @@ license: MIT
 ## Mission
 Decide what the brand should primarily sell through content, to whom, with what promise, and why that promise is credible.
 
-This skill sits between context collection/research and content strategy.
-
 ```text
 identity-profile
 +
 business-context
++
+audience-icp-fit
 +
 research-package
 → positioning-offer-fit
@@ -28,28 +28,30 @@ research-package
 ```
 
 ## Absolute rule: no invented differentiation
+Never invent an ICP, pain, demand, offer priority, unique advantage, category leadership, proof, result, competitor weakness, guarantee, price/value advantage, or reason to choose.
 
-Never invent:
-- an ICP;
-- customer pain;
-- demand;
-- offer priority;
-- unique advantage;
-- category leadership;
-- proof;
-- customer result;
-- competitor weakness;
-- guarantee;
-- price/value advantage;
-- reason to choose.
-
-If an attractive positioning claim lacks evidence or explicit business truth, mark it `UNSUPPORTED` and either narrow it or request evidence.
+If an attractive positioning claim lacks evidence or explicit business truth, mark it `UNSUPPORTED`, narrow it, or request evidence.
 
 ## Required inputs
 - confirmed `identity-profile` when founder-led;
 - confirmed `business-context`;
-- verified `research-package` when the decision depends on market/customer/competitor facts;
+- `audience-icp-fit`;
+- verified `research-package` when market/customer/competitor facts matter;
 - first-party proof assets when available.
+
+## Audience rule
+Use `audience-icp-fit` as the source of truth for segment role and ICP status.
+
+Do not collapse:
+- content audience;
+- user;
+- problem holder;
+- buyer;
+- decision-maker;
+- influencer;
+- ICP.
+
+If a content audience is explicitly `AUDIENCE_NOT_ICP`, it may still support reach/community strategy but cannot silently become the primary sales target.
 
 ## Step 1 — Offer eligibility
 For every material offer classify:
@@ -63,62 +65,45 @@ UNAVAILABLE
 UNKNOWN
 ```
 
-Then test:
-- is it actually deliverable now?
-- is it commercially important now?
-- is there a known target audience?
-- is the customer outcome stated?
-- is there proof or at least credible capability?
-- can content realistically create or capture demand for it?
-
-Do not automatically choose the highest-priced, newest, most scalable, or most exciting offer.
+Then test deliverability, commercial importance, ICP fit, customer outcome, proof/capability, and whether content can realistically create or capture demand.
 
 ## Step 2 — Offer priority
-Prioritize offers using visible dimensions, not a hidden score:
-
+Prioritize using visible dimensions:
 - current revenue relevance;
 - strategic/future revenue relevance;
-- recurring/scalable potential when explicitly stated;
-- audience evidence;
+- recurring/scalable potential when stated;
+- ICP evidence;
 - founder/brand credibility;
 - proof strength;
 - delivery capacity;
-- margin/economics only when known;
-- market whitespace/differentiation evidence;
+- known economics;
+- whitespace/differentiation evidence;
 - fit with stated goals.
 
-Unknown dimensions remain unknown.
+Unknown remains unknown.
 
-Output:
-
-```text
-PRIMARY
-SECONDARY
-EXPERIMENT
-DEFERRED
-REJECTED
-```
+Classify:
+`PRIMARY / SECONDARY / EXPERIMENT / DEFERRED / REJECTED`.
 
 ## Step 3 — Audience / problem fit
-For each priority offer identify only supported:
-- target segment;
-- buyer role;
+For each priority offer use only supported segment information from `audience-icp-fit` and research:
+- segment;
+- problem holder;
+- buyer/decision-maker when relevant;
 - job/problem;
 - desired outcome;
 - objections;
 - switching trigger;
-- current alternatives/substitutes;
+- alternatives;
 - buying situation.
 
-Evidence may come from explicit business context or verified research.
-
-Do not turn broad audience labels into invented personas.
+Do not fabricate personas.
 
 ## Step 4 — Promise design
 Build candidate promises from:
 
 ```text
-problem / desired outcome
+supported problem / desired outcome
 +
 offer capability
 +
@@ -127,117 +112,50 @@ proof level
 brand/founder credibility
 ```
 
-Every promise must be assigned one status:
+Classify each promise:
+`PROVEN / SUPPORTED / PLAUSIBLE_BUT_UNPROVEN / UNSUPPORTED`.
 
-```text
-PROVEN
-SUPPORTED
-PLAUSIBLE_BUT_UNPROVEN
-UNSUPPORTED
-```
-
-Rules:
-- `PROVEN` requires direct first-party evidence appropriate to the claim;
-- `SUPPORTED` may use strong capability + evidence without implying guaranteed outcome;
-- `PLAUSIBLE_BUT_UNPROVEN` is allowed only as a hypothesis/test, not as confident marketing copy;
-- `UNSUPPORTED` cannot enter the final positioning.
+`UNSUPPORTED` cannot enter final positioning.
 
 ## Step 5 — Differentiation
-Evaluate differentiation against real alternatives, including substitutes and DIY/manual options.
+Evaluate against real alternatives, substitutes and DIY/manual options.
 
-Potential differentiation may come from:
-- workflow/approach;
-- specialization;
-- proof;
-- speed/process only when evidenced;
-- integration capability;
-- delivery model;
-- business model;
-- founder perspective;
-- category framing;
-- customer experience;
-- offer architecture.
+Potential differentiation may come from workflow/approach, specialization, proof, evidenced speed/process, integration capability, delivery model, business model, founder perspective, category framing, customer experience, or offer architecture.
 
-Do not use empty claims such as:
-- “high quality”;
-- “individual approach”;
-- “innovative”;
-- “best”;
-- “AI-powered”;
-- “full-cycle”
-without concrete meaning and evidence.
+Reject empty claims such as “high quality”, “individual approach”, “innovative”, “best”, “AI-powered”, or “full-cycle” without concrete evidence.
 
 ## Step 6 — Reason to choose
 A valid reason-to-choose must answer:
 
-> Why would this target customer choose this offer instead of the alternatives?
+> Why would this supported ICP choose this offer instead of the alternatives?
 
-Every answer must cite one or more of:
-- business truth;
-- identity/capability fact;
-- proof asset;
-- research claim/insight/VOC;
-- verified competitor/substitute gap.
+Cite business truth, identity/capability fact, proof asset, research/VOC, or verified market gap.
 
-If no defensible answer exists, return `POSITIONING_GAP` instead of inventing one.
+If no defensible answer exists, return `POSITIONING_GAP`.
 
 ## Step 7 — Positioning statement
-Produce an internal positioning statement, not necessarily final copy:
+Produce an internal statement:
 
 ```text
-For [supported audience / buying situation],
+For [supported ICP / buying situation],
 [brand/offer] helps [supported outcome]
-by [credible mechanism / capability],
+by [credible mechanism],
 unlike [real alternatives],
 because [defensible proof / difference].
 ```
 
-Do not force every field when evidence is missing. Mark gaps.
+Mark missing fields instead of forcing precision.
 
 ## Step 8 — Message boundaries
-Define:
-- claims allowed;
-- claims requiring qualification;
-- claims forbidden until evidence exists;
-- topics that strengthen positioning;
-- topics that dilute positioning;
-- secondary offers that must not dominate the narrative.
+Define claims allowed, claims requiring qualification, claims forbidden until evidence exists, topics that strengthen positioning, topics that dilute it, and secondary offers that must not dominate the narrative.
 
 ## Step 9 — Conflict handling
-Surface rather than resolve silently:
-- service revenue vs scalable/passive product priority;
-- broad expertise vs narrow market positioning;
-- audience with demand vs audience founder does not want to serve;
-- strong market opportunity vs weak brand proof;
-- strong founder capability vs weak buyer demand evidence.
+Surface conflicts such as service revenue vs passive products, broad expertise vs narrow positioning, high-engagement audience vs weak ICP, strong market demand vs weak proof, and strong capability vs weak buyer evidence.
 
-Ask the user when the conflict changes strategic priority.
+Ask the user when the conflict changes priority.
 
 ## Output
-Produce one object conforming to:
-
-`schemas/positioning-offer-fit.schema.json`
-
-Also output:
-- `primary_offer_ids`;
-- `secondary_offer_ids`;
-- `deferred_offer_ids`;
-- `priority_audiences`;
-- `supported_promises`;
-- `positioning_statement`;
-- `reasons_to_choose`;
-- `proof_assets`;
-- `allowed_claims`;
-- `forbidden_claims`;
-- `positioning_gaps`;
-- `research_requests`;
-- `questions_required_from_user`;
-- `safe_for_strategy`.
+Produce one object conforming to `schemas/positioning-offer-fit.schema.json` and include primary/secondary/deferred offers, priority ICPs, supported promises, positioning statement, reasons to choose, proof assets, allowed/forbidden claims, gaps, research requests, user questions, and `safe_for_strategy`.
 
 ## Quality gate
-A full content strategy should not proceed as `READY` when:
-- no primary offer or strategic commercial focus exists;
-- the primary audience is unknown;
-- the main promise is unsupported;
-- the reason-to-choose is invented;
-- a central positioning conflict remains unresolved.
+A full strategy cannot be `READY` when there is no primary offer, the primary ICP is unsupported, the main promise is unsupported, the reason-to-choose is invented, or a central positioning conflict remains unresolved.
