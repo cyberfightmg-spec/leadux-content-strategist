@@ -2,10 +2,10 @@
 name: leadux-content-strategist
 description: >-
   Universal evidence-first content strategy router that captures identity and business context,
-  validates audience/ICP fit and positioning, then combines verified research, strategy patterns,
-  memory, and first-party performance into traceable strategic choices and Creator briefs.
+  validates audience/ICP fit, customer journey intent, and positioning, then combines verified research,
+  strategy patterns, memory, and first-party performance into traceable strategic choices and Creator briefs.
 metadata:
-  version: 0.6.0
+  version: 0.7.0
   role: router
   evidence_mode: required
 license: MIT
@@ -14,9 +14,9 @@ license: MIT
 # LeadUX Content Strategist — Root Skill Router
 
 ## Purpose
-Transform verified market evidence into a strategy specific to the actual person, brand, business, buyer, and commercial objective that must execute it.
+Transform verified market evidence into a strategy specific to the actual person, brand, business, buyer, buying state, and commercial objective that must execute it.
 
-The system must not jump directly from “market research” to “content ideas”. It first establishes identity, business context, audience/ICP fit, and positioning.
+The system must not jump directly from market research to content ideas. It first establishes identity, business context, audience/ICP fit, journey intent, and positioning.
 
 ```text
 IDENTITY UNPACKING (when founder-led)
@@ -26,6 +26,8 @@ BUSINESS CONTEXT
 RESEARCH EVIDENCE
         ↓
 AUDIENCE / ICP FIT
+        ↓
+CUSTOMER JOURNEY / FUNNEL INTENT
         ↓
 POSITIONING / OFFER FIT
         ↓
@@ -47,20 +49,22 @@ PERFORMANCE
 
 ## Non-negotiable principles
 1. No material strategic recommendation without lineage.
-2. Never invent identity, values, expertise, goals, business facts, pricing, revenue, resources, audience, ICP, buyer role, positioning, promise, proof, differentiation, or performance.
+2. Never invent identity, values, expertise, goals, business facts, pricing, revenue, resources, audience, ICP, buying role, journey stage, objection, trigger, positioning, promise, proof, differentiation, or performance.
 3. `UNKNOWN` remains unknown.
-4. Missing decision-relevant context must trigger a question, research request, or integrity downgrade.
+4. Missing decision-relevant context must trigger a question, research request, hypothesis label, or integrity downgrade.
 5. Content audience is not automatically the buyer or ICP.
-6. Problem holder, user, buyer, decision-maker, influencer, and ICP must be separated when materially different.
-7. Market visibility is not demand; competitor activity is not success.
-8. Another creator's success is not automatically transferable.
-9. Strategy patterns are mechanisms to adapt, not tactics to copy.
-10. First-party performance outranks generic best practice when reliable and comparable.
-11. Historical performance is observational evidence, not automatic causal proof.
-12. Strategy must explicitly choose, defer, experiment, and reject.
-13. High-impact decisions must survive `strategy-challenger`.
-14. Final scripts/posts belong to a downstream Creator.
-15. Strategy memory must remain explicit and auditable.
+6. Problem holder, user, buyer, decision-maker, influencer, champion, blocker, and ICP must be separated when materially different.
+7. Journey state and buying role are separate axes.
+8. Engagement is not purchase intent.
+9. Market visibility is not demand; competitor activity is not success.
+10. Another creator's success is not automatically transferable.
+11. Strategy patterns are mechanisms to adapt, not tactics to copy.
+12. First-party performance outranks generic best practice when reliable and comparable.
+13. Historical performance is observational evidence, not automatic causal proof.
+14. Strategy must explicitly choose, defer, experiment, and reject.
+15. High-impact decisions must survive `strategy-challenger`.
+16. Final scripts/posts belong to a downstream Creator.
+17. Strategy memory must remain explicit and auditable.
 
 Read and obey:
 - `AGENTS.md`
@@ -100,12 +104,7 @@ Output: `schemas/business-context.schema.json`.
 # Step 1 — Strategy Intake
 Load `skills/strategy-intake/SKILL.md`.
 
-Validate:
-- research integrity and freshness;
-- Identity Profile when founder-led;
-- Business Context;
-- known first-party performance/history;
-- material gaps and contradictions.
+Validate research integrity/freshness, Identity Profile when founder-led, Business Context, known first-party performance/history, and material gaps/contradictions.
 
 If context is missing, route back to the owning skill. If market evidence is missing, use `research-gap-router`.
 
@@ -114,7 +113,7 @@ If context is missing, route back to the owning skill. If market evidence is mis
 # Step 1.25 — Audience / ICP Fit
 Load `skills/audience-icp-fit/SKILL.md`.
 
-This stage must distinguish:
+Distinguish:
 
 ```text
 CONTENT_AUDIENCE
@@ -141,21 +140,46 @@ REJECTED
 UNKNOWN
 ```
 
-And priority:
-
-```text
-PRIMARY
-SECONDARY
-EXPERIMENTAL
-DEFERRED
-REJECTED
-```
-
 Never create synthetic demographic personas merely to make the strategy look complete.
 
 Output: `schemas/audience-icp-fit.schema.json`.
 
-A full commercial strategy cannot be `READY` when its primary sales target is only an unsupported persona guess.
+---
+
+# Step 1.4 — Customer Journey / Funnel Intent
+Load `skills/customer-journey-intent/SKILL.md`.
+
+Map supported audiences/ICPs and buying roles to evidence-backed decision states:
+
+```text
+UNAWARE
+PROBLEM_AWARE
+SOLUTION_AWARE
+CATEGORY_EXPLORING
+VENDOR_COMPARING
+TRUST_VALIDATING
+PURCHASE_READY
+CUSTOMER_ONBOARDING
+CUSTOMER_ADOPTION
+RETENTION_EXPANSION
+ADVOCACY
+UNKNOWN
+```
+
+Do not infer stage from platform engagement, demographics, or generic TOFU/MOFU/BOFU assumptions.
+
+For each material role/state capture only supported:
+- current question/decision;
+- objections and perceived risks;
+- trust/proof requirements;
+- triggers and switching friction;
+- appropriate content jobs;
+- desired next action;
+- CTA strength.
+
+Journey state and buying role are separate axes. A USER and DECISION_MAKER may occupy different states for the same offer.
+
+Output: `schemas/customer-journey-intent.schema.json`.
 
 ---
 
@@ -170,6 +194,8 @@ identity-profile
 business-context
 +
 audience-icp-fit
++
+customer-journey-intent
 +
 research-package
 → positioning-offer-fit
@@ -203,11 +229,13 @@ business-context
 +
 audience-icp-fit
 +
+customer-journey-intent
++
 positioning-offer-fit
 → founder-brand-context
 ```
 
-Preserve source-field lineage and all unresolved gaps.
+Preserve source-field lineage and unresolved gaps.
 
 ---
 
@@ -221,15 +249,7 @@ Understand historical topics, angles, formats, channels, experiments, winners, l
 # Step 4 — Strategy Pattern Selection
 Load `skills/strategy-pattern-selection/SKILL.md` and `references/validated-strategy-patterns.json`.
 
-Separate:
-
-```text
-MECHANISM → potentially reusable
-TACTIC → context-dependent
-RESULT CLAIM → preserve evidence limitations
-```
-
-Record selected/rejected pattern IDs and transfer assumptions.
+Separate reusable mechanism, context-dependent tactic, and claimed result. Record selected/rejected pattern IDs and transfer assumptions.
 
 ---
 
@@ -242,6 +262,7 @@ Connect:
 business objective
 → content job
 → approved ICP/content audience
+→ journey state / next decision
 → desired audience action
 → measurable indicator
 ```
@@ -253,23 +274,7 @@ Do not optimize for followers/views by default.
 # Step 6 — Strategic Wedge
 Load `skills/strategic-wedge/SKILL.md`.
 
-The wedge should emerge from:
-
-```text
-approved ICP need
-×
-verified market gap
-×
-founder/brand credibility
-×
-positioning/offer fit
-×
-business priority
-×
-distribution capability
-×
-relevant strategy pattern(s)
-```
+The wedge should emerge from approved ICP need × verified market gap × founder/brand credibility × positioning/offer fit × business priority × distribution capability × relevant strategy patterns.
 
 Also state what the brand will not compete on.
 
@@ -278,15 +283,7 @@ Also state what the brand will not compete on.
 # Step 7 — Content Pillars
 Load `skills/content-pillars/SKILL.md`.
 
-Every pillar must state:
-- strategic job;
-- audience role (`ICP`, content audience, buyer, etc.);
-- business/offer connection;
-- research support;
-- brand proof;
-- positioning contribution;
-- inclusion/exclusion boundaries;
-- dilution risk.
+Every pillar must state strategic job, audience role, relevant journey state(s), business/offer connection, research support, brand proof, positioning contribution, inclusion/exclusion boundaries, and dilution risk.
 
 ---
 
@@ -295,6 +292,7 @@ Load `skills/content-opportunity-engine/SKILL.md`.
 
 Every strong opportunity should answer:
 - Why this audience role?
+- Why this journey state / next decision?
 - Why this problem?
 - Why this founder/brand?
 - Why this offer/objective?
@@ -310,35 +308,23 @@ Do not target a high-engagement non-ICP as if it were the buyer unless the conte
 # Step 9 — Portfolio Prioritization
 Load `skills/portfolio-prioritization/SKILL.md`.
 
-Separate:
-`CORE / RESPONSIVE / EXPERIMENT / DEFERRED / REJECTED`.
+Separate `CORE / RESPONSIVE / EXPERIMENT / DEFERRED / REJECTED`.
 
-Consider business fit, ICP fit, evidence, proof, differentiation, historical fit, timing, channel fit, production cost and brand dilution.
+Consider business fit, ICP fit, journey coverage, evidence, proof, differentiation, historical fit, timing, channel fit, production cost and brand dilution.
 
 ---
 
 # Step 10 — Experiment Design
 Load `skills/experiment-design/SKILL.md`.
 
-State hypothesis, variable, audience/segment, metric, window, confounders, continuation/reversal evidence and kill criterion. Do not fabricate thresholds.
+State hypothesis, variable, audience/segment, journey state, metric, window, confounders, continuation/reversal evidence and kill criterion. Do not fabricate thresholds.
 
 ---
 
 # Step 11 — Strategy Challenger
 For full/high-impact work load `skills/strategy-challenger/SKILL.md`.
 
-Challenge:
-- weak evidence;
-- ICP/buyer confusion;
-- generic category thinking;
-- founder mismatch;
-- commercial mismatch;
-- unsupported positioning;
-- brand dilution;
-- competitor imitation;
-- transfer assumptions;
-- overfitting to historical winners;
-- missing reversal criteria.
+Challenge weak evidence, ICP/buyer confusion, journey-stage guessing, engagement-as-intent assumptions, generic category thinking, founder mismatch, commercial mismatch, unsupported positioning, brand dilution, competitor imitation, transfer assumptions, overfitting, and missing reversal criteria.
 
 Return `SURVIVES`, `NARROWED`, or `INVALIDATED` for major decisions.
 
@@ -347,7 +333,7 @@ Return `SURVIVES`, `NARROWED`, or `INVALIDATED` for major decisions.
 # Step 12 — Creator Briefs
 Load `skills/content-briefing/SKILL.md`.
 
-Briefs preserve audience role, objective, evidence, positioning job, founder/brand POV/proof, required facts, forbidden claims, channel/format recommendation, CTA intent and metric.
+Briefs preserve audience role, journey state, next decision, content job, objective, evidence, positioning job, founder/brand POV/proof, required facts, forbidden claims, CTA strength/intent, channel/format recommendation, and metric.
 
 Do not write final posts/scripts by default.
 
@@ -361,28 +347,29 @@ Final strategy should include:
 2. research integrity/limits;
 3. Identity Profile status when relevant;
 4. Business Context status/conflicts;
-5. Audience / ICP Fit: primary ICPs, secondary audiences, content-audience-only segments, unknown role relationships;
-6. Positioning / Offer Fit: primary offers, supported promises, reason-to-choose and gaps;
-7. Founder/Brand Context;
-8. objective;
-9. selected/rejected strategy patterns;
-10. strategic wedge;
-11. content pillars;
-12. portfolio;
-13. priority opportunities;
-14. experiments;
-15. rejected work;
-16. Creator briefs;
-17. challenger findings;
-18. research/context requests;
-19. measurement/feedback plan.
+5. Audience / ICP Fit;
+6. Customer Journey / Funnel Intent: primary paths, role-state differences, objections, proof needs, journey gaps;
+7. Positioning / Offer Fit;
+8. Founder/Brand Context;
+9. objective;
+10. selected/rejected strategy patterns;
+11. strategic wedge;
+12. content pillars;
+13. portfolio;
+14. priority opportunities;
+15. experiments;
+16. rejected work;
+17. Creator briefs;
+18. challenger findings;
+19. research/context requests;
+20. measurement/feedback plan.
 
 ---
 
 # Step 14 — Performance Learning
 Load `skills/performance-learning/SKILL.md`.
 
-Update hypotheses and portfolio allocation using first-party performance, preserving the distinction between content response, lead signals and business outcomes.
+Update hypotheses and portfolio allocation using first-party performance, preserving distinctions among content response, journey progression, lead signals and business outcomes.
 
 ---
 
@@ -396,6 +383,6 @@ NEEDS_RESEARCH
 BLOCKED
 ```
 
-`READY` requires sufficiently complete Business Context, safe Audience / ICP Fit, safe Positioning / Offer Fit, and — for founder-led brands — confirmed identity/context.
+`READY` requires sufficiently complete Business Context, safe Audience / ICP Fit, journey assumptions appropriate to the decisions being made, safe Positioning / Offer Fit, and — for founder-led brands — confirmed identity/context.
 
-The goal is not more ideas. The goal is fewer, more specific, commercially relevant and defensible strategic decisions.
+The goal is not more ideas. The goal is fewer, more specific, commercially relevant and defensible strategic decisions matched to the actual buyer state.
