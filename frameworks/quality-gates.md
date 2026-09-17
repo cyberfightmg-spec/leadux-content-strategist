@@ -59,31 +59,48 @@ A strategy cannot be `READY` when a critical conversion path depends on an inven
 
 Never invent a USP merely to pass this gate.
 
-## 7. Founder / Brand Context Gate
+## 7. Channel / Distribution Fit Gate
+- each primary channel has an explicit audience/role and journey-state relationship;
+- each primary channel has a defined distribution/content job;
+- platform popularity is not treated as evidence of fit;
+- competitor channel presence is not treated as proof of competitor channel success;
+- first-party performance is preferred over generic benchmark claims when comparable;
+- format recommendations fit the channel rather than copying one asset everywhere unchanged;
+- the plan fits known production, response, budget, language and compliance constraints;
+- views/reach/engagement are not presented as leads or revenue;
+- owned, rented, earned and paid surfaces are distinguished where material;
+- experimental channels are explicitly labeled hypotheses with a measurement plan;
+- deferred/rejected channels have reasons when they appear attractive but do not fit;
+- `safe_for_strategy = true` for a full `READY` distribution plan.
+
+A full strategy cannot be `READY` when its primary distribution plan is based only on popularity, unsupported audience presence, or capacity the business does not have.
+
+## 8. Founder / Brand Context Gate
 - founder/brand identity is explicit when relevant;
 - priority audiences and offers match approved Audience / ICP Fit and Positioning / Offer Fit;
 - customer-state assumptions used in strategy are preserved with their confidence;
+- channel roles match Channel / Distribution Fit rather than guessed platform priorities;
 - positioning and anti-positioning are explicit;
 - credible proof assets are known;
-- channel roles and capacity are known;
+- capacity constraints are known;
 - brand-dilution constraints are known.
 
 A full strategy cannot be `READY` when this context is materially incomplete.
 
-## 8. Objective Traceability Gate
-Every major content job connects to a current business/content objective, audience role, relevant journey state or decision, and intended audience action.
+## 9. Objective Traceability Gate
+Every major content job connects to a current business/content objective, audience role, relevant journey state or decision, approved channel role, and intended audience action.
 
-## 9. Evidence Lineage Gate
-Every material decision is traceable to research evidence, Identity/Business Context, Audience / ICP Fit, Customer Journey / Funnel Intent, Positioning / Offer Fit, Founder/Brand Context, first-party performance, a validated pattern, or an explicit constraint.
+## 10. Evidence Lineage Gate
+Every material decision is traceable to research evidence, Identity/Business Context, Audience / ICP Fit, Customer Journey / Funnel Intent, Positioning / Offer Fit, Channel / Distribution Fit, Founder/Brand Context, first-party performance, a validated pattern, or an explicit constraint.
 
-## 10. Anti-Generic Gate
+## 11. Anti-Generic Gate
 For every major recommendation ask:
 
 > Could this recommendation be given unchanged to a direct competitor?
 
 If yes, narrow or reject it unless the generic element is intentionally infrastructural.
 
-## 11. Validated Pattern Gate
+## 12. Validated Pattern Gate
 When an external strategy pattern influences a decision:
 - record its `pattern_id`;
 - preserve its evidence grade and limitations;
@@ -91,34 +108,36 @@ When an external strategy pattern influences a decision:
 - adapt the mechanism to the brand/business;
 - do not copy tactics by default.
 
-## 12. Trade-off Gate
+## 13. Trade-off Gate
 The strategy states what is `CORE`, `RESPONSIVE`, `EXPERIMENT`, `DEFERRED`, and `REJECTED`.
 
-## 13. Credibility / Proof Gate
+The channel plan separately states `PRIMARY`, `SECONDARY`, `REPURPOSE_ONLY`, `EXPERIMENTAL`, `DEFERRED`, and `REJECTED` channel roles.
+
+## 14. Credibility / Proof Gate
 The founder/brand can credibly explain, demonstrate, document or prove the proposed territory and content claims remain inside approved evidence boundaries.
 
-## 14. Commercial Fit Gate
-Priority work supports a primary/secondary offer, strategic asset, approved ICP or business objective. Interesting but commercially distracting topics are downgraded or rejected.
+## 15. Commercial Fit Gate
+Priority work supports a primary/secondary offer, strategic asset, approved ICP or business objective. Interesting but commercially distracting topics and channels are downgraded or rejected.
 
-## 15. Feasibility Gate
-Cadence, format and production requirements fit actual capacity.
+## 16. Feasibility Gate
+Cadence, format, channel count, moderation/response load, and production requirements fit actual capacity.
 
-## 16. Challenger Gate
+## 17. Challenger Gate
 High-impact decisions have a skeptical counterweight, credible alternative, failure mode and reversal evidence.
 
-## 17. Creator Handoff Gate
-Creator briefs preserve strategic intent, evidence, approved positioning, ICP role, journey state/next decision, proof, CTA boundary and forbidden unsupported claims without prematurely writing final content.
+## 18. Creator Handoff Gate
+Creator briefs preserve strategic intent, evidence, approved positioning, ICP role, journey state/next decision, approved channel role, proof, CTA boundary and forbidden unsupported claims without prematurely writing final content.
 
-## 18. Measurement Gate
-The strategy defines observable indicators and interpretation limits. Unknown thresholds remain unknown. Content response, journey progression, lead signals and business outcomes are not conflated.
+## 19. Measurement Gate
+The strategy defines observable indicators and interpretation limits. Unknown thresholds remain unknown. Distribution signals, audience response, journey progression, lead signals and business outcomes are not conflated.
 
-## 19. Learning Gate
-Where first-party performance exists, the strategy compares against relevant internal baselines and avoids causal overclaiming.
+## 20. Learning Gate
+Where first-party performance exists, the strategy compares against relevant internal baselines and avoids causal overclaiming. Channel fit can be upgraded or downgraded only from actual evidence, not preference.
 
 ## Status rules
 
-Use `NEEDS_RESEARCH` when a central market-dependent, audience-dependent, journey-dependent or positioning-dependent decision lacks adequate evidence.
+Use `NEEDS_RESEARCH` when a central market-dependent, audience-dependent, journey-dependent, positioning-dependent or channel-dependent decision lacks adequate evidence.
 
-Use `READY_WITH_GAPS` when the strategy can proceed but material context, ICP, journey, positioning, research, performance or pattern-transfer uncertainty remains.
+Use `READY_WITH_GAPS` when the strategy can proceed but material context, ICP, journey, positioning, distribution, research, performance or pattern-transfer uncertainty remains.
 
-Use `BLOCKED` when missing evidence/context, unsupported ICP, invented journey intent, or unsupported positioning prevents safe or useful strategic selection.
+Use `BLOCKED` when missing evidence/context, unsupported ICP, invented journey intent, unsupported positioning, or an unusable distribution plan prevents safe or useful strategic selection.
