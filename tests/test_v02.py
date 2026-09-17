@@ -20,6 +20,14 @@ def test_business_context_schema():
     assert ctx['offers'][0]['priority']=='CORE'
     assert ctx['safe_to_start_strategy'] is True
 
+def test_audience_icp_fit_schema():
+    fit=load('examples/audience-icp-fit.example.json')
+    assert validate_schema(fit,'audience-icp-fit.schema.json') == []
+    assert fit['primary_icp_ids']
+    assert fit['segments'][0]['evidence_status']=='SUPPORTED_CANDIDATE'
+    assert fit['segments'][1]['evidence_status']=='AUDIENCE_NOT_ICP'
+    assert fit['safe_for_strategy'] is True
+
 def test_positioning_offer_fit_schema():
     fit=load('examples/positioning-offer-fit.example.json')
     assert validate_schema(fit,'positioning-offer-fit.schema.json') == []
