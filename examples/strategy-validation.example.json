@@ -1,0 +1,72 @@
+{
+  "validation_id": "val_demo_001",
+  "created_at": "2026-09-18T00:20:00Z",
+  "formulation_id": "form_demo_001",
+  "thesis_id": "thesis_demo_a",
+  "hard_gate_review": [
+    {
+      "gate": "EVIDENCE_VIABILITY",
+      "status": "PASS",
+      "notes": "Evidence is sufficient for a bounded strategy."
+    },
+    {
+      "gate": "COMMERCIAL_FIT",
+      "status": "PASS",
+      "notes": "The thesis supports the primary business objective."
+    },
+    {
+      "gate": "CREDIBILITY_PROOF",
+      "status": "CONDITIONAL",
+      "notes": "Proof exists but remains limited."
+    },
+    {
+      "gate": "CAPABILITY_CAPACITY",
+      "status": "PASS",
+      "notes": "The operating burden fits known capacity."
+    },
+    {
+      "gate": "ETHICAL_LEGAL_FIT",
+      "status": "PASS",
+      "notes": "No known ethical or legal conflict."
+    }
+  ],
+  "coherence_checks": [
+    {
+      "item": "Primary content pillar must center on the selected buying problem.",
+      "status": "COHERENT",
+      "thesis_link": "where_to_play + content_trust_mechanism",
+      "required_change": null
+    },
+    {
+      "item": "Generic AI/news commentary.",
+      "status": "GENERIC",
+      "thesis_link": "No direct thesis link.",
+      "required_change": "Remove from core portfolio or justify as an experiment."
+    }
+  ],
+  "strongest_alternative_review": {
+    "alternative_thesis_id": "thesis_demo_b",
+    "why_not_selected": "It requires broader capacity and has weaker direct linkage to the current commercial objective.",
+    "evidence_that_would_reverse_choice": [
+      "Repeated evidence that broad category content produces more qualified demand than the narrow proof-led territory."
+    ]
+  },
+  "premortem": [
+    {
+      "failure_mode": "The selected problem attracts interest but not buyers.",
+      "warning_sign": "Engagement rises while qualified inquiries remain unrelated.",
+      "mitigation": "Narrow the buying situation or revise the proof mechanism."
+    }
+  ],
+  "challenger_summary": {
+    "result": "SURVIVES",
+    "strongest_objection": "Commercial movement remains unproven."
+  },
+  "required_changes": [
+    "Keep commercial outcome as an explicit experiment rather than a guaranteed result."
+  ],
+  "reversal_triggers": [
+    "Repeated qualified conversations indicate a different problem is more commercially important."
+  ],
+  "result": "SURVIVES"
+}
