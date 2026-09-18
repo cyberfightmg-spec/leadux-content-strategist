@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.0 — Strategy Formulation Engine
+- Added first-class `strategy-diagnosis`, `strategy-formulation`, and `strategy-validation` skills.
+- Added `strategic-thesis.schema.json` as the central strategy object.
+- Full strategy now requires 2–4 materially distinct candidate theses plus exactly one `STATUS_QUO` baseline.
+- Added non-compensatory hard gates: `EVIDENCE_VIABILITY`, `COMMERCIAL_FIT`, `CREDIBILITY_PROOF`, `CAPABILITY_CAPACITY`, and `ETHICAL_LEGAL_FIT`.
+- A critical hard-gate failure can no longer be averaged away by a strong score elsewhere.
+- Added strongest-alternative comparison and explicit selection rationale.
+- Added explicit thesis trade-offs / `will_not_do`, strategic bets, critical assumptions, and reversal conditions.
+- Added Strategy Validation with hard-gate recheck, coherence test, strongest-alternative review, pre-mortem, and reversal triggers.
+- Refactored Strategy Challenger to attack the selected thesis rather than only downstream content decisions.
+- Refactored Strategic Wedge, Content Pillars, Content Opportunities, Portfolio Prioritization, Experiments, Creator Briefs, and Synthesis to trace to the selected `thesis_id`.
+- Added counterfactual coherence rule: if a recommendation would remain unchanged under the strongest alternative thesis, it is likely generic.
+- Added deterministic semantic checks for one status quo, one selected thesis, hard-gate completeness, selected-thesis viability, validation consistency, and downstream thesis lineage.
+- Strategy output schema now preserves diagnosis/formulation/validation IDs, all strategic options, selected thesis, strongest alternative, explicit trade-offs, and reversal triggers.
+- CLI schema inference and tests updated for all v0.9 strategy-formulation objects.
+
 ## 0.8.0 — Channel / distribution fit
 - Added first-class `channel-distribution-fit` skill after Positioning / Offer Fit.
 - Added channel evidence states: `CONFIRMED_FIT`, `SUPPORTED_FIT`, `HYPOTHESIS`, `INSUFFICIENT_EVIDENCE`, `REJECTED`.
