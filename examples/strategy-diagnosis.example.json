@@ -1,0 +1,82 @@
+{
+  "diagnosis_id": "diag_demo_001",
+  "created_at": "2026-09-18T00:00:00Z",
+  "research_package_id": "rp_demo_001",
+  "founder_context_id": "ctx_demo_001",
+  "primary_objective": "Generate qualified demand for the priority offer.",
+  "decision_statement": "Given limited capacity and mixed audience demand, what strategic approach should the brand use to generate qualified demand for the priority offer without diluting positioning?",
+  "situation_summary": "The brand has multiple plausible content directions but limited capacity and uneven proof across them.",
+  "decisive_evidence": [
+    {
+      "item_id": "de_001",
+      "classification": "DECISIVE_FACT",
+      "statement": "A recurring buyer problem appears in verified VOC.",
+      "why_it_matters": "It can anchor a focused strategy.",
+      "source_ids": [
+        "voc_demo_001"
+      ]
+    },
+    {
+      "item_id": "de_002",
+      "classification": "CONSTRAINT",
+      "statement": "Production capacity is limited.",
+      "why_it_matters": "The strategy cannot support many independent content systems.",
+      "source_ids": [
+        "capacity_demo_001"
+      ]
+    }
+  ],
+  "strategic_tensions": [
+    {
+      "tension_id": "t_001",
+      "side_a": "Broad audience reach",
+      "side_b": "Narrow commercial relevance",
+      "why_material": "Capacity does not allow optimizing both equally.",
+      "source_ids": [
+        "voc_demo_001",
+        "capacity_demo_001"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "c_001",
+      "statement": "Limited production capacity.",
+      "constraint_type": "CAPACITY",
+      "source_ids": [
+        "capacity_demo_001"
+      ]
+    }
+  ],
+  "opportunity_signals": [
+    {
+      "opportunity_id": "opp_demo_001",
+      "statement": "Proof-led education around the recurring buyer problem may create differentiated trust."
+    }
+  ],
+  "risks": [
+    {
+      "risk_id": "risk_demo_001",
+      "statement": "Broad educational content may attract non-buyers."
+    }
+  ],
+  "uncertainties": [
+    {
+      "uncertainty_id": "u_001",
+      "question": "Will the proof-led territory generate qualified conversations, not only engagement?",
+      "resolution_route": "EXPERIMENT",
+      "source_ids": [
+        "voc_demo_001"
+      ]
+    }
+  ],
+  "choice_questions": [
+    "Should scarce attention focus on a narrow buying problem or broad category education?",
+    "Should the strategy optimize first for demand capture or trust creation?"
+  ],
+  "evidence_lineage": [
+    "voc_demo_001",
+    "capacity_demo_001"
+  ],
+  "readiness_status": "READY_WITH_UNCERTAINTY"
+}
