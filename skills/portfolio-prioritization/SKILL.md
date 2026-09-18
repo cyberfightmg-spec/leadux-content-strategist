@@ -1,9 +1,10 @@
 ---
 name: portfolio-prioritization
 description: >-
-  Prioritize founder-fit content opportunities into core, responsive, experiment, deferred, and rejected buckets under real business and capacity constraints.
+  Allocate thesis-linked content opportunities into core, responsive, experiment, deferred, and
+  rejected buckets under real business, strategic, and capacity constraints.
 metadata:
-  version: 0.4.0
+  version: 0.9.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,47 +13,58 @@ license: MIT
 # Skill: Portfolio Prioritization
 
 ## Mission
-Choose what this founder/brand should do, test, defer and reject under real business priorities, brand constraints and production capacity.
+Allocate scarce attention and production capacity **inside the selected Strategic Thesis**.
+
+The portfolio must not quietly reintroduce rejected strategic directions.
+
+## Required inputs
+- selected `strategic-thesis`;
+- validated strategy result;
+- thesis-linked content opportunities;
+- capacity;
+- Founder/Brand Context;
+- Channel / Distribution Fit;
+- first-party performance where available.
 
 ## Decision dimensions
 Evaluate separately:
+- thesis coherence;
 - audience evidence;
 - business / offer relevance;
-- founder credibility and proof strength;
-- differentiation / whitespace;
+- founder credibility / proof;
+- differentiation;
 - first-party historical fit;
-- timing / freshness;
-- channel/format fit;
-- strategic compounding value;
-- brand-dilution risk;
-- production cost / capacity;
-- evidence confidence.
+- timing;
+- channel fit;
+- compounding value;
+- production cost/capacity;
+- evidence confidence;
+- brand dilution;
+- opportunity cost.
 
 Unknown dimensions remain unknown.
 
-## Method
-1. evaluate visible dimensions;
-2. optionally calculate a transparent sortable score;
-3. inspect Founder/Brand Context conflicts;
-4. account for dependencies, audience confusion and content cannibalization;
-5. compare against first-party winners/losers when available;
-6. enforce realistic capacity limits;
-7. protect a small experimental allocation rather than overfitting to past winners;
-8. allocate candidates to `CORE`, `RESPONSIVE`, `EXPERIMENT`, `DEFERRED`, or `REJECTED`.
+## Buckets
+- `CORE`
+- `RESPONSIVE`
+- `EXPERIMENT`
+- `DEFERRED`
+- `REJECTED`
 
-## Core rule
-`CORE` should favor compounding territories that strengthen both market position and business relevance, not merely posts expected to get high reach.
+## Core rules
+1. `CORE` must strengthen the selected thesis, not merely promise reach.
+2. An opportunity that contradicts thesis trade-offs cannot be `CORE`.
+3. A strong idea aligned to a rejected strategic option is still deferred/rejected unless explicitly run as a bounded experiment.
+4. Protect a small experimental allocation when assumptions remain uncertain.
+5. Do not let an aggregate score override a coherence failure or capacity conflict.
+6. Every high-interest deferred/rejected item needs a reason.
 
-## Rejection/defer rule
-A high-interest candidate may still be deferred or rejected because:
-- it attracts the wrong audience;
-- it promotes a secondary offer too heavily;
-- founder proof is weak;
-- it is strategically generic;
-- the brand already overuses the angle;
-- capacity is insufficient;
-- timing is weak;
-- external success does not transfer cleanly.
+## Counterfactual test
+Ask:
 
-## Required output
-Prioritized portfolio plus reasons for every deferred/rejected high-interest candidate, with visible decision dimensions and relevant evidence/context/pattern IDs.
+> Would this portfolio allocation look essentially the same if the strongest alternative thesis had been selected?
+
+If yes, strategic allocation is too generic.
+
+## Output
+Return thesis-linked portfolio allocation, visible decision dimensions, opportunity costs, and reasons for every material defer/reject decision.
