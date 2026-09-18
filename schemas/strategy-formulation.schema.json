@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/strategy-formulation.schema.json",
+  "title": "LeadUX Strategy Formulation",
+  "type": "object",
+  "required": [
+    "formulation_id",
+    "created_at",
+    "diagnosis_id",
+    "options",
+    "selected_thesis_id",
+    "strongest_alternative_id",
+    "selection_rationale",
+    "explicit_tradeoffs",
+    "integrity_status"
+  ],
+  "properties": {
+    "formulation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "diagnosis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "options": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "$ref": "strategic-thesis.schema.json"
+      },
+      "contains": {
+        "type": "object",
+        "properties": {
+          "option_type": {
+            "const": "STATUS_QUO"
+          }
+        },
+        "required": [
+          "option_type"
+        ]
+      }
+    },
+    "selected_thesis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strongest_alternative_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selection_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "comparison": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "thesis_id",
+          "strengths",
+          "weaknesses",
+          "opportunity_cost"
+        ],
+        "properties": {
+          "thesis_id": {
+            "type": "string"
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "opportunity_cost": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "explicit_tradeoffs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_pattern_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_pattern_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "integrity_status": {
+      "enum": [
+        "READY_FOR_VALIDATION",
+        "READY_WITH_GAPS",
+        "NEEDS_REFORMULATION",
+        "BLOCKED"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
