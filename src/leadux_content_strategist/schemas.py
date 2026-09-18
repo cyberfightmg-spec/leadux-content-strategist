@@ -10,6 +10,10 @@ SCHEMA_DIR = REPO_ROOT / "schemas"
 
 HINTS = [
     ("strategy_id", "strategy-output.schema.json"),
+    ("diagnosis_id", "strategy-diagnosis.schema.json"),
+    ("formulation_id", "strategy-formulation.schema.json"),
+    ("validation_id", "strategy-validation.schema.json"),
+    ("thesis_id", "strategic-thesis.schema.json"),
     ("profile_id", "identity-profile.schema.json"),
     ("audience_icp_fit_id", "audience-icp-fit.schema.json"),
     ("journey_id", "customer-journey-intent.schema.json"),
