@@ -1,1 +1,96 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://leaduxai.id/schemas/content-strategist/strategy-decision.schema.json","title":"LeadUX Strategy Decision","type":"object","required":["decision_id","action","why","supporting_content_opportunity_ids","confidence","portfolio_bucket"],"properties":{"decision_id":{"type":"string"},"action":{"type":"string"},"why":{"type":"string"},"supporting_claim_ids":{"type":"array","items":{"type":"string"}},"supporting_insight_ids":{"type":"array","items":{"type":"string"}},"supporting_content_opportunity_ids":{"type":"array","items":{"type":"string"}},"contradicting_ids":{"type":"array","items":{"type":"string"}},"confidence":{"enum":["HIGH","MEDIUM","LOW"]},"portfolio_bucket":{"enum":["core","responsive","experiment","deferred","rejected"]},"validation_step":{"type":["string","null"]},"success_metric":{"type":["string","null"]},"stop_or_review_condition":{"type":["string","null"]}},"additionalProperties":true}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/strategy-decision.schema.json",
+  "title": "LeadUX Strategy Decision",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "action",
+    "why",
+    "supporting_content_opportunity_ids",
+    "confidence",
+    "portfolio_bucket"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "why": {
+      "type": "string"
+    },
+    "supporting_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_insight_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_content_opportunity_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradicting_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "portfolio_bucket": {
+      "enum": [
+        "core",
+        "responsive",
+        "experiment",
+        "deferred",
+        "rejected"
+      ]
+    },
+    "validation_step": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "success_metric": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stop_or_review_condition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "strategic_thesis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "thesis_link": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
