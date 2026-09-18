@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/strategy-diagnosis.schema.json",
+  "title": "LeadUX Strategy Diagnosis",
+  "type": "object",
+  "required": [
+    "diagnosis_id",
+    "created_at",
+    "primary_objective",
+    "decision_statement",
+    "decisive_evidence",
+    "strategic_tensions",
+    "constraints",
+    "uncertainties",
+    "choice_questions",
+    "readiness_status"
+  ],
+  "properties": {
+    "diagnosis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "research_package_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "founder_context_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "primary_objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "situation_summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decisive_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item_id",
+          "classification",
+          "statement",
+          "source_ids"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string"
+          },
+          "classification": {
+            "enum": [
+              "DECISIVE_FACT",
+              "CONSTRAINT",
+              "TENSION",
+              "OPPORTUNITY_SIGNAL",
+              "RISK",
+              "UNCERTAINTY"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why_it_matters": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "strategic_tensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "tension_id",
+          "side_a",
+          "side_b"
+        ],
+        "properties": {
+          "tension_id": {
+            "type": "string"
+          },
+          "side_a": {
+            "type": "string"
+          },
+          "side_b": {
+            "type": "string"
+          },
+          "why_material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "constraint_id",
+          "statement"
+        ],
+        "properties": {
+          "constraint_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "constraint_type": {
+            "enum": [
+              "CAPACITY",
+              "PROOF",
+              "COMMERCIAL",
+              "ETHICAL",
+              "LEGAL",
+              "CHANNEL",
+              "TIME",
+              "OTHER"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "opportunity_signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "uncertainty_id",
+          "question"
+        ],
+        "properties": {
+          "uncertainty_id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "resolution_route": {
+            "enum": [
+              "USER_INPUT",
+              "RESEARCH",
+              "EXPERIMENT",
+              "OBSERVE",
+              "UNKNOWN"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "choice_questions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidence_lineage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "readiness_status": {
+      "enum": [
+        "READY_FOR_FORMULATION",
+        "READY_WITH_UNCERTAINTY",
+        "NEEDS_INPUT",
+        "BLOCKED"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
