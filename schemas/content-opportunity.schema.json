@@ -3,38 +3,335 @@
   "$id": "https://leaduxai.id/schemas/content-strategist/content-opportunity.schema.json",
   "title": "LeadUX Content Opportunity",
   "type": "object",
-  "required": ["content_opportunity_id","title","objective","research_lineage","dimensions","confidence","portfolio_candidate"],
+  "required": [
+    "content_opportunity_id",
+    "title",
+    "objective",
+    "research_lineage",
+    "dimensions",
+    "confidence",
+    "portfolio_candidate"
+  ],
   "properties": {
-    "content_opportunity_id":{"type":"string","minLength":1},
-    "title":{"type":"string","minLength":1},
-    "target_segment":{"type":["string","null"]},
-    "target_segment_ids":{"type":"array","items":{"type":"string"}},
-    "audience_roles":{"type":"array","items":{"type":"string"}},
-    "journey_state_ids":{"type":"array","items":{"type":"string"}},
-    "content_jobs":{"type":"array","items":{"type":"string"}},
-    "objective":{"type":"string","minLength":1},
-    "pillar_id":{"type":["string","null"]},
-    "topic":{"type":["string","null"]},
-    "angle":{"type":["string","null"]},
-    "why_now":{"type":["string","null"]},
-    "channel_fit_id":{"type":["string","null"]},
-    "recommended_channel_ids":{"type":"array","items":{"type":"string"}},
-    "recommended_formats":{"type":"array","items":{"type":"string"}},
-    "desired_next_actions":{"type":"array","items":{"type":"string"}},
-    "research_lineage":{"type":"object","required":["claim_ids","insight_ids","market_opportunity_ids","voc_ids","signal_ids","content_footprint_ids"],"properties":{"claim_ids":{"type":"array","items":{"type":"string"}},"insight_ids":{"type":"array","items":{"type":"string"}},"market_opportunity_ids":{"type":"array","items":{"type":"string"}},"voc_ids":{"type":"array","items":{"type":"string"}},"signal_ids":{"type":"array","items":{"type":"string"}},"performance_pattern_ids":{"type":"array","items":{"type":"string"}},"content_footprint_ids":{"type":"array","items":{"type":"string"}}},"additionalProperties":false},
-    "dimensions":{"type":"object","properties":{"audience_evidence":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"business_relevance":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"competitive_whitespace":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"freshness":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"historical_fit":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"differentiation":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"production_feasibility":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},"evidence_confidence":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]}},"additionalProperties":false},
-    "aggregate_score":{"type":["number","null"],"minimum":0,"maximum":100},
-    "scoring_version":{"type":["string","null"]},
-    "missing_dimensions":{"type":"array","items":{"type":"string"}},
-    "contradicting_ids":{"type":"array","items":{"type":"string"}},
-    "risks":{"type":"array","items":{"type":"string"}},
-    "unknowns":{"type":"array","items":{"type":"string"}},
-    "confidence":{"enum":["HIGH","MEDIUM","LOW"]},
-    "validation_step":{"type":["string","null"]},
-    "portfolio_candidate":{"enum":["core","responsive","experiment","deferred","rejected"]},
-    "duplicate_risk":{"enum":["HIGH","MEDIUM","LOW","UNKNOWN"]},
-    "duplicate_matches":{"type":"array","items":{"type":"object"}},
-    "score_coverage":{"type":["number","null"],"minimum":0,"maximum":1}
+    "content_opportunity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_segment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_segment_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "journey_state_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "content_jobs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pillar_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "topic": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "angle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "why_now": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "channel_fit_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recommended_channel_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_formats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "desired_next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "research_lineage": {
+      "type": "object",
+      "required": [
+        "claim_ids",
+        "insight_ids",
+        "market_opportunity_ids",
+        "voc_ids",
+        "signal_ids",
+        "content_footprint_ids"
+      ],
+      "properties": {
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "insight_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "market_opportunity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "voc_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "performance_pattern_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_footprint_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "audience_evidence": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "business_relevance": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "competitive_whitespace": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "historical_fit": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "differentiation": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "production_feasibility": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "evidence_confidence": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "aggregate_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "scoring_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "missing_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradicting_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "validation_step": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "portfolio_candidate": {
+      "enum": [
+        "core",
+        "responsive",
+        "experiment",
+        "deferred",
+        "rejected"
+      ]
+    },
+    "duplicate_risk": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    },
+    "duplicate_matches": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "score_coverage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "strategic_thesis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "thesis_link": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "coherence_status": {
+      "enum": [
+        "COHERENT",
+        "WEAKLY_LINKED",
+        "GENERIC",
+        "CONTRADICTORY",
+        "UNKNOWN"
+      ]
+    }
   },
   "additionalProperties": true
 }
