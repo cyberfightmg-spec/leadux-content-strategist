@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "leadux-content-strategist"
-version = "0.8.0"
+version = "0.9.0"
 description = "Universal evidence-first strategy layer between market research and content creation."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "LeadUX AI"}]
 dependencies = ["jsonschema>=4.21", "referencing>=0.33"]
-keywords = ["ai-agents", "content-strategy", "marketing", "research", "open-source", "founder-led", "positioning", "icp", "audience", "customer-journey", "funnel", "distribution", "channel-strategy"]
+keywords = ["ai-agents", "content-strategy", "marketing", "research", "open-source", "founder-led", "positioning", "icp", "audience", "customer-journey", "funnel", "distribution", "channel-strategy", "strategy-formulation", "strategic-thesis"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
