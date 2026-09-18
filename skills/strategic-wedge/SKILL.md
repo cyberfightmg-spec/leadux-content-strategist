@@ -1,9 +1,10 @@
 ---
 name: strategic-wedge
 description: >-
-  Define a differentiated, evidence-backed founder-fit strategic wedge and explicitly state what the brand will not compete on.
+  Derive the content-facing strategic wedge from a validated selected strategic thesis without
+  changing the thesis or inventing a new strategy.
 metadata:
-  version: 0.4.0
+  version: 0.9.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,48 +13,52 @@ license: MIT
 # Skill: Strategic Wedge
 
 ## Mission
-Define the differentiated way this specific founder/brand can win attention, trust, and commercial relevance in a chosen content territory.
+Translate the validated Strategic Thesis into the differentiated **content-facing way to compete**.
 
-## Inputs
+The wedge is downstream of strategy. It must not replace or silently rewrite the selected thesis.
+
+## Required inputs
+- selected `strategic-thesis`;
+- `strategy-validation` result;
 - audience/VOC evidence;
-- competitor/market gaps;
 - Founder/Brand Context;
-- proof assets and right-to-speak;
-- business objective and priority offers;
-- channel/capability constraints;
-- selected strategy pattern IDs.
+- proof assets/right-to-speak;
+- channel/distribution constraints.
 
 ## Method
-Generate candidate wedges and test each for:
+Derive the wedge from:
+- thesis `where_to_play`;
+- thesis `how_to_win`;
+- thesis `advantage_source`;
+- thesis `content_trust_mechanism`;
+- thesis `tradeoffs`;
+- thesis `will_not_do`.
 
-1. **Audience relevance** — is the problem/tension important to a priority audience?
-2. **Whitespace** — is there verified room for a differentiated view or execution?
-3. **Founder credibility** — can this founder explain, demonstrate or prove the territory?
-4. **Commercial fit** — does the wedge support an active offer, strategic asset, or desired market position?
-5. **Distinctiveness** — would a direct competitor plausibly use the exact same wedge unchanged?
-6. **Repeatability** — can this territory support repeated strong content, not one clever post?
-7. **Distribution fit** — does it match the channels and formats the founder can execute well?
-8. **Pattern fit** — which validated strategic mechanisms support this choice, and what transfer assumptions exist?
-9. **Risk** — what could make the wedge misleading, too narrow, too broad, or brand-diluting?
+Test:
+1. **Thesis fidelity** — does the wedge clearly come from the selected thesis?
+2. **Audience relevance** — is it meaningful to the priority buying situation?
+3. **Founder credibility** — can this brand explain, demonstrate, or prove it?
+4. **Distinctiveness** — could a direct competitor use it unchanged?
+5. **Repeatability** — can it support repeated content?
+6. **Distribution fit** — can it work through approved channel roles?
+7. **Proof fit** — are claims inside approved boundaries?
 
-## Anti-generic test
+## Coherence rule
+Complete:
 
-Complete this sentence:
+> This wedge exists because thesis [thesis_id] chose ______ over ______.
 
-> This works specifically for [founder/brand] because ________.
-
-If the answer is generic, the wedge is not ready.
+If this cannot be answered, the wedge is generic.
 
 ## Output
 Return:
+- `thesis_id`;
 - selected wedge;
-- rejected alternatives;
-- supporting research IDs;
-- supporting Founder/Brand Context fields;
-- supporting/rejected `pattern_id`s;
+- supporting evidence/context IDs;
 - proof assets;
 - commercial connection;
-- confidence;
-- transfer assumptions;
 - risks;
-- explicit `will_not_compete_on` list.
+- explicit `will_not_compete_on`;
+- downstream implications.
+
+Do not generate a second strategy here.
