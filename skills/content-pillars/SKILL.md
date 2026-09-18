@@ -1,9 +1,10 @@
 ---
 name: content-pillars
 description: >-
-  Define bounded founder-fit content pillars that operationalize the strategic wedge and remain traceable to market evidence, brand context, proof assets, and business priorities.
+  Derive bounded content territories from the validated strategic thesis so every pillar has a
+  specific strategic job and cannot exist independently of the chosen strategy.
 metadata:
-  version: 0.4.0
+  version: 0.9.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -12,38 +13,51 @@ license: MIT
 # Skill: Content Pillars
 
 ## Mission
-Define 3–5 strategic content territories that this founder/brand can credibly own and repeatedly produce in service of real business objectives.
+Turn the selected Strategic Thesis and wedge into a small set of bounded content territories.
 
-## Each pillar must include
-- `pillar_id` and name;
+Pillars are **not the strategy**. They are consequences of the strategy.
+
+## Required inputs
+- selected `strategic-thesis`;
+- validated `strategic-wedge`;
+- Founder/Brand Context;
+- Audience / ICP Fit;
+- Customer Journey / Funnel Intent;
+- Channel / Distribution Fit;
+- research evidence.
+
+## Required pillar fields
+Every pillar must state:
+- `thesis_id`;
 - strategic job;
-- priority audience/segment;
-- active offer or strategic-asset connection;
-- supporting research IDs;
-- founder credibility / proof assets;
+- audience/buying role;
+- relevant journey state(s);
+- business/offer connection;
+- thesis connection: which where-to-play/how-to-win/bet it supports;
+- research evidence;
+- brand proof/right-to-speak;
+- positioning contribution;
+- suitable channel roles;
 - inclusion boundary;
 - exclusion boundary;
-- differentiated POV/advantage;
-- relevant buyer/funnel stages;
-- likely formats/channels without forcing execution;
-- brand-dilution risk;
-- reason this pillar belongs to this founder/brand rather than any competitor.
+- dilution risk;
+- stop/review condition.
 
-## Pillar acceptance tests
-A pillar survives only if:
-1. the audience need is evidenced or explicitly hypothesized;
-2. the founder has a believable right-to-speak;
-3. the pillar supports current positioning or a deliberate positioning move;
-4. it can produce multiple strong subtopics without becoming generic;
-5. it connects to a commercial priority, strategic asset, or audience-building job;
-6. its boundaries prevent topic drift;
-7. the founder can execute it repeatedly with available capacity.
+## Coherence test
 
-## Rejection rules
-Reject or demote pillars that are:
-- broad category labels such as `AI`, `marketing`, or `automation` without a bounded strategic job;
-- interesting but commercially distracting;
-- dependent on expertise/proof the founder does not have;
-- mostly competitor imitation;
-- likely to attract an audience that does not support the brand's target market;
-- expensive to sustain relative to expected strategic value.
+Ask:
+
+> If the selected thesis were replaced by the strongest alternative, would this pillar remain unchanged?
+
+If yes, the pillar is likely generic. Narrow, experimentally justify, or reject it.
+
+## Rules
+- prefer fewer stronger pillars;
+- do not create a pillar solely because a topic is popular;
+- do not use a broad expertise category as a pillar without a strategic job;
+- protect selected-thesis trade-offs;
+- a pillar that violates `will_not_do` is invalid;
+- preserve evidence lineage.
+
+## Output
+Objects conforming to `schemas/content-pillar.schema.json` plus thesis/coherence fields where supported.
