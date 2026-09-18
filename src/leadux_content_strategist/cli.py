@@ -2,7 +2,7 @@ from __future__ import annotations
 import argparse, json
 from .io import load_json, dump_json
 from .schemas import validate_schema
-from .integrity import research_integrity_errors, strategy_integrity_errors
+from .integrity import research_integrity_errors, strategy_integrity_errors, strategy_formulation_integrity_errors, strategy_validation_integrity_errors
 from .scoring import score_dimensions
 from .memory import find_near_duplicates
 from .performance import build_baseline, compare_to_baseline
@@ -14,7 +14,9 @@ def emit(data): print(json.dumps(data,ensure_ascii=False,indent=2))
 
 def cmd_validate(a):
     data=load_json(a.file); errs=validate_schema(data)
-    if "research_package_id" in data and "strategy_id" not in data: errs += research_integrity_errors(data)
+    if "research_package_id" in data and "strategy_id" not in data and "diagnosis_id" not in data: errs += research_integrity_errors(data)
+    if "formulation_id" in data and "validation_id" not in data: errs += strategy_formulation_integrity_errors(data)
+    if "validation_id" in data: errs += strategy_validation_integrity_errors(data)
     if "strategy_id" in data: errs += strategy_integrity_errors(data,load_json(a.research) if a.research else None)
     if errs:
         for e in errs: print(f"ERROR: {e}")
