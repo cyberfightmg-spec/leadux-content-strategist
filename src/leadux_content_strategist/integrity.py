@@ -59,3 +59,62 @@ def strategy_integrity_errors(data: dict, research: dict | None = None) -> list[
         did=b.get("decision_id")
         if did and did not in dec_ids: errors.append(f"creator brief {b.get('brief_id')} references missing decision {did}")
     return errors
+
+
+HARD_GATES={"EVIDENCE_VIABILITY","COMMERCIAL_FIT","CREDIBILITY_PROOF","CAPABILITY_CAPACITY","ETHICAL_LEGAL_FIT"}
+
+def strategy_formulation_integrity_errors(data: dict) -> list[str]:
+    errors=[]
+    options=data.get("options",[])
+    ids=[x.get("thesis_id") for x in options]
+    for d in _dupes(ids):
+        errors.append(f"duplicate thesis_id: {d}")
+    status_quo=[x for x in options if x.get("option_type")=="STATUS_QUO"]
+    if len(status_quo)!=1:
+        errors.append(f"strategy formulation must contain exactly one STATUS_QUO option, found {len(status_quo)}")
+    selected=[x for x in options if x.get("status")=="SELECTED"]
+    if len(selected)!=1:
+        errors.append(f"strategy formulation must contain exactly one SELECTED thesis, found {len(selected)}")
+    selected_id=data.get("selected_thesis_id")
+    if selected_id not in ids:
+        errors.append(f"selected_thesis_id references missing thesis {selected_id}")
+    elif len(selected)==1 and selected[0].get("thesis_id")!=selected_id:
+        errors.append("selected_thesis_id does not match thesis with status SELECTED")
+    alt=data.get("strongest_alternative_id")
+    if alt not in ids:
+        errors.append(f"strongest_alternative_id references missing thesis {alt}")
+    if alt and alt==selected_id:
+        errors.append("strongest alternative cannot equal selected thesis")
+    for opt in options:
+        oid=opt.get("thesis_id","<unknown>")
+        gates=opt.get("hard_gates",[])
+        names=[g.get("gate") for g in gates]
+        if set(names)!=HARD_GATES or len(names)!=len(HARD_GATES):
+            errors.append(f"thesis {oid} must contain each hard gate exactly once")
+    if len(selected)==1:
+        for gate in selected[0].get("hard_gates",[]):
+            if gate.get("status") in {"FAIL","UNKNOWN"}:
+                errors.append(f"selected thesis {selected_id} has non-viable hard gate {gate.get('gate')}={gate.get('status')}")
+    return errors
+
+def strategy_validation_integrity_errors(data: dict, formulation: dict | None = None) -> list[str]:
+    errors=[]
+    result=data.get("result")
+    gates=data.get("hard_gate_review",[])
+    if result in {"SURVIVES","NARROWED"}:
+        for gate in gates:
+            if gate.get("status") in {"FAIL","UNKNOWN"}:
+                errors.append(f"validation {result} cannot retain hard gate {gate.get('gate')}={gate.get('status')}")
+    if result=="SURVIVES":
+        for c in data.get("coherence_checks",[]):
+            if c.get("status")=="CONTRADICTORY":
+                errors.append("SURVIVES validation cannot contain CONTRADICTORY coherence item")
+    if formulation:
+        if data.get("formulation_id")!=formulation.get("formulation_id"):
+            errors.append("validation formulation_id does not match formulation")
+        if data.get("thesis_id")!=formulation.get("selected_thesis_id"):
+            errors.append("validation thesis_id does not match selected thesis")
+        alt=(data.get("strongest_alternative_review") or {}).get("alternative_thesis_id")
+        if alt and alt!=formulation.get("strongest_alternative_id"):
+            errors.append("validation strongest alternative does not match formulation")
+    return errors
