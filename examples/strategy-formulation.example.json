@@ -1,0 +1,376 @@
+{
+  "formulation_id": "form_demo_001",
+  "created_at": "2026-09-18T00:10:00Z",
+  "diagnosis_id": "diag_demo_001",
+  "options": [
+    {
+      "thesis_id": "thesis_demo_a",
+      "option_type": "CANDIDATE",
+      "name": "Proof-led narrow buying problem",
+      "status": "SELECTED",
+      "objective": "Generate qualified demand for the priority offer.",
+      "where_to_play": {
+        "audience_ids": [
+          "seg_demo_001"
+        ],
+        "buying_situation": "Teams actively evaluating ways to solve a recurring workflow problem."
+      },
+      "how_to_win": "Own one high-value buying problem through diagnosis, demonstrations and proof.",
+      "advantage_source": "Documented ability to explain and demonstrate the problem-to-solution path.",
+      "economic_logic": "Concentrate content around problems linked to the priority paid offer and measurable lead signals.",
+      "content_trust_mechanism": "Use evidence-backed demonstrations, diagnosis and proof rather than generic advice.",
+      "distribution_logic": "Use only channels already classified as supported or experimental for the target audience/state.",
+      "strategic_bets": [
+        {
+          "bet_id": "bet_thesis_demo_a",
+          "statement": "Focused proof-led content will produce higher-quality commercial conversations than broad generic content.",
+          "supporting_evidence_ids": [
+            "claim_demo_001"
+          ],
+          "uncertainty": "Lead quality is not yet confirmed by enough first-party data.",
+          "first_signal": "Relevant qualified inquiries reference the demonstrated problem or proof.",
+          "reversal_trigger": "Repeated qualified conversations do not connect the content territory to the buying problem."
+        }
+      ],
+      "tradeoffs": [
+        "Deprioritize broad category education."
+      ],
+      "will_not_do": [
+        "Broad category commentary with no link to the selected buying situation."
+      ],
+      "capabilities_required": [
+        "Produce evidence-backed demonstrations consistently."
+      ],
+      "critical_assumptions": [
+        {
+          "assumption_id": "assump_thesis_demo_a",
+          "statement": "The selected audience values concrete proof before purchase.",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "voc_demo_001"
+          ]
+        }
+      ],
+      "hard_gates": [
+        {
+          "gate": "EVIDENCE_VIABILITY",
+          "status": "PASS",
+          "rationale": "Evidence is sufficient for a bounded strategy.",
+          "evidence_ids": [
+            "claim_demo_001"
+          ]
+        },
+        {
+          "gate": "COMMERCIAL_FIT",
+          "status": "PASS",
+          "rationale": "The thesis supports the primary business objective.",
+          "evidence_ids": [
+            "business_demo_001"
+          ]
+        },
+        {
+          "gate": "CREDIBILITY_PROOF",
+          "status": "CONDITIONAL",
+          "rationale": "Proof exists but remains limited.",
+          "evidence_ids": [
+            "proof_demo_001"
+          ]
+        },
+        {
+          "gate": "CAPABILITY_CAPACITY",
+          "status": "PASS",
+          "rationale": "The operating burden fits known capacity.",
+          "evidence_ids": [
+            "capacity_demo_001"
+          ]
+        },
+        {
+          "gate": "ETHICAL_LEGAL_FIT",
+          "status": "PASS",
+          "rationale": "No known ethical or legal conflict.",
+          "evidence_ids": [
+            "constraint_demo_001"
+          ]
+        }
+      ],
+      "comparison_dimensions": {
+        "strategic_leverage": "HIGH",
+        "commercial_relevance": "HIGH",
+        "credibility": "MEDIUM",
+        "reversibility": "MEDIUM"
+      },
+      "evidence_lineage": [
+        "claim_demo_001",
+        "voc_demo_001"
+      ],
+      "time_horizon": "90 days",
+      "reversal_conditions": [
+        "New evidence shows a different buying situation consistently produces stronger qualified demand."
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "thesis_id": "thesis_demo_b",
+      "option_type": "CANDIDATE",
+      "name": "Broad category authority",
+      "status": "REJECTED",
+      "objective": "Generate qualified demand for the priority offer.",
+      "where_to_play": {
+        "audience_ids": [
+          "seg_demo_001"
+        ],
+        "buying_situation": "Teams actively evaluating ways to solve a recurring workflow problem."
+      },
+      "how_to_win": "Build authority across the category with broad educational coverage and later route demand to the offer.",
+      "advantage_source": "Documented ability to explain and demonstrate the problem-to-solution path.",
+      "economic_logic": "Concentrate content around problems linked to the priority paid offer and measurable lead signals.",
+      "content_trust_mechanism": "Use evidence-backed demonstrations, diagnosis and proof rather than generic advice.",
+      "distribution_logic": "Use only channels already classified as supported or experimental for the target audience/state.",
+      "strategic_bets": [
+        {
+          "bet_id": "bet_thesis_demo_b",
+          "statement": "Focused proof-led content will produce higher-quality commercial conversations than broad generic content.",
+          "supporting_evidence_ids": [
+            "claim_demo_001"
+          ],
+          "uncertainty": "Lead quality is not yet confirmed by enough first-party data.",
+          "first_signal": "Relevant qualified inquiries reference the demonstrated problem or proof.",
+          "reversal_trigger": "Repeated qualified conversations do not connect the content territory to the buying problem."
+        }
+      ],
+      "tradeoffs": [
+        "Accept slower proof of commercial relevance."
+      ],
+      "will_not_do": [
+        "Broad category commentary with no link to the selected buying situation."
+      ],
+      "capabilities_required": [
+        "Produce evidence-backed demonstrations consistently."
+      ],
+      "critical_assumptions": [
+        {
+          "assumption_id": "assump_thesis_demo_b",
+          "statement": "The selected audience values concrete proof before purchase.",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "voc_demo_001"
+          ]
+        }
+      ],
+      "hard_gates": [
+        {
+          "gate": "EVIDENCE_VIABILITY",
+          "status": "PASS",
+          "rationale": "Evidence is sufficient for a bounded strategy.",
+          "evidence_ids": [
+            "claim_demo_001"
+          ]
+        },
+        {
+          "gate": "COMMERCIAL_FIT",
+          "status": "PASS",
+          "rationale": "The thesis supports the primary business objective.",
+          "evidence_ids": [
+            "business_demo_001"
+          ]
+        },
+        {
+          "gate": "CREDIBILITY_PROOF",
+          "status": "CONDITIONAL",
+          "rationale": "Proof exists but remains limited.",
+          "evidence_ids": [
+            "proof_demo_001"
+          ]
+        },
+        {
+          "gate": "CAPABILITY_CAPACITY",
+          "status": "PASS",
+          "rationale": "The operating burden fits known capacity.",
+          "evidence_ids": [
+            "capacity_demo_001"
+          ]
+        },
+        {
+          "gate": "ETHICAL_LEGAL_FIT",
+          "status": "PASS",
+          "rationale": "No known ethical or legal conflict.",
+          "evidence_ids": [
+            "constraint_demo_001"
+          ]
+        }
+      ],
+      "comparison_dimensions": {
+        "strategic_leverage": "HIGH",
+        "commercial_relevance": "HIGH",
+        "credibility": "MEDIUM",
+        "reversibility": "MEDIUM"
+      },
+      "evidence_lineage": [
+        "claim_demo_001",
+        "voc_demo_001"
+      ],
+      "time_horizon": "90 days",
+      "reversal_conditions": [
+        "New evidence shows a different buying situation consistently produces stronger qualified demand."
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "thesis_id": "thesis_demo_statusquo",
+      "option_type": "STATUS_QUO",
+      "name": "Maintain current mixed approach",
+      "status": "DEFERRED",
+      "objective": "Generate qualified demand for the priority offer.",
+      "where_to_play": {
+        "audience_ids": [
+          "seg_demo_001"
+        ],
+        "buying_situation": "Teams actively evaluating ways to solve a recurring workflow problem."
+      },
+      "how_to_win": "Continue the current mixed set of themes without concentrating resources around one thesis.",
+      "advantage_source": "Documented ability to explain and demonstrate the problem-to-solution path.",
+      "economic_logic": "Concentrate content around problems linked to the priority paid offer and measurable lead signals.",
+      "content_trust_mechanism": "Use evidence-backed demonstrations, diagnosis and proof rather than generic advice.",
+      "distribution_logic": "Use only channels already classified as supported or experimental for the target audience/state.",
+      "strategic_bets": [
+        {
+          "bet_id": "bet_thesis_demo_statusquo",
+          "statement": "Focused proof-led content will produce higher-quality commercial conversations than broad generic content.",
+          "supporting_evidence_ids": [
+            "claim_demo_001"
+          ],
+          "uncertainty": "Lead quality is not yet confirmed by enough first-party data.",
+          "first_signal": "Relevant qualified inquiries reference the demonstrated problem or proof.",
+          "reversal_trigger": "Repeated qualified conversations do not connect the content territory to the buying problem."
+        }
+      ],
+      "tradeoffs": [
+        "Accept weaker strategic focus in exchange for low transition cost."
+      ],
+      "will_not_do": [
+        "Broad category commentary with no link to the selected buying situation."
+      ],
+      "capabilities_required": [
+        "Produce evidence-backed demonstrations consistently."
+      ],
+      "critical_assumptions": [
+        {
+          "assumption_id": "assump_thesis_demo_statusquo",
+          "statement": "The selected audience values concrete proof before purchase.",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "voc_demo_001"
+          ]
+        }
+      ],
+      "hard_gates": [
+        {
+          "gate": "EVIDENCE_VIABILITY",
+          "status": "PASS",
+          "rationale": "Evidence is sufficient for a bounded strategy.",
+          "evidence_ids": [
+            "claim_demo_001"
+          ]
+        },
+        {
+          "gate": "COMMERCIAL_FIT",
+          "status": "PASS",
+          "rationale": "The thesis supports the primary business objective.",
+          "evidence_ids": [
+            "business_demo_001"
+          ]
+        },
+        {
+          "gate": "CREDIBILITY_PROOF",
+          "status": "CONDITIONAL",
+          "rationale": "Proof exists but remains limited.",
+          "evidence_ids": [
+            "proof_demo_001"
+          ]
+        },
+        {
+          "gate": "CAPABILITY_CAPACITY",
+          "status": "PASS",
+          "rationale": "The operating burden fits known capacity.",
+          "evidence_ids": [
+            "capacity_demo_001"
+          ]
+        },
+        {
+          "gate": "ETHICAL_LEGAL_FIT",
+          "status": "PASS",
+          "rationale": "No known ethical or legal conflict.",
+          "evidence_ids": [
+            "constraint_demo_001"
+          ]
+        }
+      ],
+      "comparison_dimensions": {
+        "strategic_leverage": "HIGH",
+        "commercial_relevance": "HIGH",
+        "credibility": "MEDIUM",
+        "reversibility": "MEDIUM"
+      },
+      "evidence_lineage": [
+        "claim_demo_001",
+        "voc_demo_001"
+      ],
+      "time_horizon": "90 days",
+      "reversal_conditions": [
+        "New evidence shows a different buying situation consistently produces stronger qualified demand."
+      ],
+      "confidence": "MEDIUM"
+    }
+  ],
+  "selected_thesis_id": "thesis_demo_a",
+  "strongest_alternative_id": "thesis_demo_b",
+  "selection_rationale": "The selected thesis concentrates limited capacity on the strongest verified buyer problem and available proof, while the strongest alternative requires broader production and has weaker immediate commercial linkage.",
+  "comparison": [
+    {
+      "thesis_id": "thesis_demo_a",
+      "strengths": [
+        "Strong buyer-problem linkage",
+        "Fits capacity"
+      ],
+      "weaknesses": [
+        "Narrower reach"
+      ],
+      "opportunity_cost": [
+        "Broad category awareness"
+      ]
+    },
+    {
+      "thesis_id": "thesis_demo_b",
+      "strengths": [
+        "Larger topic surface"
+      ],
+      "weaknesses": [
+        "Higher capacity burden",
+        "Weaker short-term commercial linkage"
+      ],
+      "opportunity_cost": [
+        "Depth in one buying problem"
+      ]
+    },
+    {
+      "thesis_id": "thesis_demo_statusquo",
+      "strengths": [
+        "Low transition cost"
+      ],
+      "weaknesses": [
+        "Weak focus"
+      ],
+      "opportunity_cost": [
+        "Compounding around a distinctive territory"
+      ]
+    }
+  ],
+  "explicit_tradeoffs": [
+    "Choose qualified relevance over broad category reach during the test horizon."
+  ],
+  "selected_pattern_ids": [
+    "PAT_STRATEGY_MEANS_TRADEOFFS"
+  ],
+  "rejected_pattern_ids": [],
+  "integrity_status": "READY_FOR_VALIDATION"
+}
