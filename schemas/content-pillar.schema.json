@@ -3,22 +3,116 @@
   "$id": "https://leaduxai.id/schemas/content-strategist/content-pillar.schema.json",
   "title": "LeadUX Content Pillar",
   "type": "object",
-  "required": ["pillar_id","name","job","objective","supporting_claim_ids","supporting_insight_ids","confidence"],
+  "required": [
+    "pillar_id",
+    "name",
+    "job",
+    "objective",
+    "supporting_claim_ids",
+    "supporting_insight_ids",
+    "confidence"
+  ],
   "properties": {
-    "pillar_id":{"type":"string"},
-    "name":{"type":"string"},
-    "job":{"type":"string"},
-    "objective":{"type":"string"},
-    "target_segments":{"type":"array","items":{"type":"string"}},
-    "audience_problem":{"type":["string","null"]},
-    "supporting_claim_ids":{"type":"array","items":{"type":"string"}},
-    "supporting_insight_ids":{"type":"array","items":{"type":"string"}},
-    "supporting_voc_theme_ids":{"type":"array","items":{"type":"string"}},
-    "funnel_stages":{"type":"array","items":{"type":"string"}},
-    "in_scope":{"type":"array","items":{"type":"string"}},
-    "out_of_scope":{"type":"array","items":{"type":"string"}},
-    "differentiation":{"type":["string","null"]},
-    "confidence":{"enum":["HIGH","MEDIUM","LOW"]}
+    "pillar_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "job": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "target_segments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience_problem": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supporting_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_insight_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_voc_theme_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "funnel_stages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "in_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "out_of_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "differentiation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "strategic_thesis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "thesis_link": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "coherence_status": {
+      "enum": [
+        "COHERENT",
+        "WEAKLY_LINKED",
+        "GENERIC",
+        "CONTRADICTORY",
+        "UNKNOWN"
+      ]
+    },
+    "stop_review_condition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
   },
   "additionalProperties": true
 }
