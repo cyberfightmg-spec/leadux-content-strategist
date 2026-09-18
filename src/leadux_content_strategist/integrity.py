@@ -58,6 +58,22 @@ def strategy_integrity_errors(data: dict, research: dict | None = None) -> list[
     for b in data.get("creator_briefs",[]):
         did=b.get("decision_id")
         if did and did not in dec_ids: errors.append(f"creator brief {b.get('brief_id')} references missing decision {did}")
+    selected_thesis_id=data.get("selected_strategic_thesis_id")
+    if selected_thesis_id:
+        thesis_ids={x.get("thesis_id") for x in data.get("strategic_options",[])}
+        if selected_thesis_id not in thesis_ids:
+            errors.append(f"selected_strategic_thesis_id references missing thesis {selected_thesis_id}")
+        for label, items in (
+            ("content pillar", data.get("content_pillars",[])),
+            ("content opportunity", data.get("content_opportunities",[])),
+            ("creator brief", data.get("creator_briefs",[])),
+            ("strategy decision", data.get("decisions",[])),
+        ):
+            for item in items:
+                tid=item.get("strategic_thesis_id")
+                if tid != selected_thesis_id:
+                    ident=item.get("pillar_id") or item.get("content_opportunity_id") or item.get("brief_id") or item.get("decision_id") or "<unknown>"
+                    errors.append(f"{label} {ident} must trace to selected thesis {selected_thesis_id}")
     return errors
 
 
