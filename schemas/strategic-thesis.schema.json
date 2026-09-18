@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/strategic-thesis.schema.json",
+  "title": "LeadUX Strategic Thesis",
+  "type": "object",
+  "required": [
+    "thesis_id",
+    "option_type",
+    "name",
+    "status",
+    "objective",
+    "where_to_play",
+    "how_to_win",
+    "advantage_source",
+    "economic_logic",
+    "content_trust_mechanism",
+    "distribution_logic",
+    "strategic_bets",
+    "tradeoffs",
+    "capabilities_required",
+    "critical_assumptions",
+    "hard_gates",
+    "evidence_lineage",
+    "reversal_conditions",
+    "confidence"
+  ],
+  "properties": {
+    "thesis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "option_type": {
+      "enum": [
+        "CANDIDATE",
+        "STATUS_QUO"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "SELECTED",
+        "EXPERIMENTAL",
+        "DEFERRED",
+        "REJECTED",
+        "INVALIDATED"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "where_to_play": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "how_to_win": {
+      "type": "string",
+      "minLength": 1
+    },
+    "advantage_source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "economic_logic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_trust_mechanism": {
+      "type": "string",
+      "minLength": 1
+    },
+    "distribution_logic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategic_bets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "bet_id",
+          "statement",
+          "supporting_evidence_ids",
+          "uncertainty",
+          "first_signal",
+          "reversal_trigger"
+        ],
+        "properties": {
+          "bet_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "supporting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "uncertainty": {
+            "type": "string"
+          },
+          "first_signal": {
+            "type": "string"
+          },
+          "reversal_trigger": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "tradeoffs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "will_not_do": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "critical_assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assumption_id",
+          "statement",
+          "status"
+        ],
+        "properties": {
+          "assumption_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "SUPPORTED",
+              "PLAUSIBLE",
+              "UNKNOWN",
+              "CONTRADICTED"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "hard_gates": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "gate",
+          "status",
+          "rationale"
+        ],
+        "properties": {
+          "gate": {
+            "enum": [
+              "EVIDENCE_VIABILITY",
+              "COMMERCIAL_FIT",
+              "CREDIBILITY_PROOF",
+              "CAPABILITY_CAPACITY",
+              "ETHICAL_LEGAL_FIT"
+            ]
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "CONDITIONAL",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "comparison_dimensions": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "HIGH",
+          "MEDIUM",
+          "LOW",
+          "UNKNOWN"
+        ]
+      }
+    },
+    "evidence_lineage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "time_horizon": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reversal_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
