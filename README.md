@@ -1,80 +1,150 @@
 # LeadUX Content Strategist
 
-Open-source universal, founder-aware, evidence-first strategy layer between market research and content creation.
+Open-source, universal, evidence-first **strategy formulation system** between verified market research and downstream content creation.
+
+It is designed to answer a harder question than “what should we post?”:
+
+> Given verified market evidence, confirmed business/founder context, real constraints, and multiple plausible directions — **which strategy should we choose, why this one, what are we deliberately not doing, and what evidence would make us change course?**
+
+## Architecture
 
 ```text
-Identity Unpacking (when founder-led)
-        ↓ confirmed identity
-Business Context
-        ↓ confirmed commercial reality
 LeadUX Competitor Research
-        ↓ verified market evidence
+        ↓ verified strategy handoff
+Identity / Business Context
+        ↓
 Audience / ICP Fit
-        ↓ content audience / user / buyer / decision-maker / ICP map
+        ↓
 Customer Journey / Funnel Intent
-        ↓ supported decision states / objections / proof needs / CTA boundaries
+        ↓
 Positioning / Offer Fit
-        ↓ supported offer / ICP / promise / reason-to-choose
+        ↓
 Channel / Distribution Fit
-        ↓ supported channel roles / formats / repurposing / measurement boundaries
+        ↓
 Founder / Brand Context
-        ↓ strategy-safe context
+        +
+Strategy Memory / First-party Performance
+        +
 Validated Strategy Patterns
-        ↓ reusable mechanisms with evidence grades
-Strategy Memory + First-party Performance
-        ↓ historical winners / losers / experiments
-LeadUX Content Strategist
-        ↓ strategy / portfolio / experiments / briefs
-Creator
-        ↓ published content
-Performance observations
-        └──────────────→ strategy memory / refresh
+        ↓
+Objective Mapping
+        ↓
+STRATEGY DIAGNOSIS
+        ↓
+2–4 MATERIAL STRATEGIC THESES
+        +
+STATUS-QUO BASELINE
+        ↓
+NON-COMPENSATORY HARD GATES
+        ↓
+ONE PRIMARY STRATEGIC THESIS
+        ↓
+STRATEGY CHALLENGER
+        ↓
+STRATEGY VALIDATION
+        ↓
+Strategic Wedge
+        ↓
+Content Pillars / Opportunities / Portfolio
+        ↓
+Experiments / Creator Briefs
+        ↓
+Performance Learning ↺
 ```
 
-## What it is
+## v0.9 — Strategy Formulation Engine
 
-This repository does **not** generate random ideas, does **not** recommend platforms merely because they are popular, and does **not** write final posts by default.
+The central change in v0.9 is that **pillars are no longer treated as strategy**.
 
-It makes content-strategy decisions from distinct evidence layers:
+A full strategy now requires:
 
-1. **Identity** — self-stated/confirmed founder identity, expertise, values and public boundaries when founder-led.
-2. **Business Context** — what the business actually sells, current goals, revenue model, resources and constraints.
-3. **Market evidence** — verified competitor/customer/VOC/GTM/signals from LeadUX Competitor Research.
-4. **Audience / ICP Fit** — separates who consumes content from who has the problem, uses, buys, decides, influences, and actually fits the business commercially.
-5. **Customer Journey / Funnel Intent** — maps supported roles to decision states, objections, trust/proof needs, triggers, next decisions and CTA boundaries without equating engagement with purchase intent.
-6. **Positioning / Offer Fit** — which offer to prioritize, which approved ICP/problem is supported, what promise is defensible, and why the customer should choose it.
-7. **Channel / Distribution Fit** — decides where content should be distributed, what job each channel performs, what format fits, and whether the business can execute it sustainably.
-8. **Founder/Brand Context** — merged strategy context used downstream.
-9. **Validated Strategy Patterns** — mechanisms adapted from researched open-source strategy systems, with explicit evidence grades and limitations.
-10. **First-party learning** — the brand's own historical content and performance patterns.
+- a `strategy-diagnosis`;
+- 2–4 materially different candidate theses;
+- exactly one `STATUS_QUO` baseline;
+- five hard gates per thesis;
+- exactly one selected primary thesis;
+- a strongest alternative;
+- explicit trade-offs / `will_not_do`;
+- strategic bets and critical assumptions;
+- challenger review;
+- pre-mortem and reversal triggers;
+- thesis-linked downstream content decisions.
 
-The goal is not “what content is popular?” but:
+### Strategic Thesis
+
+Each thesis states:
 
 ```text
-What should THIS business say and do,
-for THIS supported audience role,
-at THIS supported decision state,
-around THIS priority offer,
-on THIS supportable distribution surface,
-with THIS defensible promise,
-based on THIS evidence,
-and what should it deliberately not claim or pursue?
+OBJECTIVE
+WHERE TO PLAY
+HOW TO WIN
+ADVANTAGE SOURCE
+ECONOMIC LOGIC
+CONTENT / TRUST MECHANISM
+DISTRIBUTION LOGIC
+STRATEGIC BETS
+TRADE-OFFS
+CAPABILITIES REQUIRED
+CRITICAL ASSUMPTIONS
+EVIDENCE LINEAGE
+REVERSAL CONDITIONS
+TIME HORIZON
 ```
 
-## v0.8 highlights
+### Hard gates
 
-- new first-class `channel-distribution-fit` skill after Positioning / Offer Fit;
-- channel families cover owned site, search, email, messaging, social, short/long video, communities, marketplaces/directories, partners, PR, paid, outbound and events;
-- channel evidence states: `CONFIRMED_FIT`, `SUPPORTED_FIT`, `HYPOTHESIS`, `INSUFFICIENT_EVIDENCE`, `REJECTED`;
-- channel priorities: `PRIMARY`, `SECONDARY`, `REPURPOSE_ONLY`, `EXPERIMENTAL`, `DEFERRED`, `REJECTED`;
-- explicit separation of WHO / STATE / JOB / WHERE / FORMAT / ACTION / OUTCOME;
-- platform popularity and competitor presence do not prove fit;
-- views/reach/engagement are not leads or revenue by default;
-- owned vs rented distribution is modeled explicitly;
-- repurposing graph preserves strategic intent while adapting packaging per channel;
-- operational capacity, response burden, budget and compliance are part of channel selection;
-- Creator briefs now preserve approved channel role, format adaptation, CTA and measurement level;
-- CLI schema inference and tests cover Channel / Distribution Fit objects.
+Before options are compared, each thesis must pass:
+
+```text
+EVIDENCE_VIABILITY
+COMMERCIAL_FIT
+CREDIBILITY_PROOF
+CAPABILITY_CAPACITY
+ETHICAL_LEGAL_FIT
+```
+
+A fatal weakness cannot be averaged away by a high score elsewhere.
+
+### Material alternatives
+
+Different wording is not a different strategy.
+
+Options must differ in consequential choices such as:
+- where to play;
+- how to win;
+- economic logic;
+- proof mechanism;
+- distribution logic;
+- resource allocation;
+- trade-offs.
+
+Different hooks, topics, formats, cadence, or slogans do not qualify.
+
+### Coherence
+
+Every downstream decision should be able to state:
+
+```text
+THIS EXISTS BECAUSE OF THESIS [thesis_id]
+```
+
+The system also asks:
+
+> Would this recommendation remain unchanged under the strongest alternative thesis?
+
+If yes, it is likely generic.
+
+## What this repository does not do
+
+It does not:
+- redo the companion competitor-research repository;
+- invent missing identity/business/market facts;
+- infer buyer intent from engagement;
+- equate reach with revenue;
+- recommend platforms because they are popular;
+- let scores choose strategy automatically;
+- treat a content calendar as strategy;
+- write final posts/scripts by default.
 
 ## Core strategy flow
 
@@ -91,41 +161,33 @@ identity-unpacking
 → strategy-memory
 → strategy-pattern-selection
 → objective-mapping
+→ strategy-diagnosis
+→ strategy-formulation
+→ strategy-challenger
+→ strategy-validation
 → strategic-wedge
 → content-pillars
 → content-opportunity-engine
 → portfolio-prioritization
 → experiment-design
-→ strategy-challenger
 → content-briefing
 → synthesis
         ↺ performance-learning
 ```
 
-## Evidence lineage
+## Deterministic validation
 
-Every material opportunity or decision should be traceable to one or more of:
+The Python layer validates more than JSON shape.
 
-- research `claim_id` / `insight_id` / `market_opportunity_id`;
-- VOC / strategic signal / content-performance evidence;
-- Identity Profile field;
-- Business Context field;
-- Audience / ICP Fit segment/role/evidence status;
-- Customer Journey / Funnel Intent path/state/confidence;
-- Positioning / Offer Fit object;
-- Channel / Distribution Fit channel/evidence/job mapping;
-- first-party `performance_pattern_id`;
-- validated `pattern_id`;
-- explicit business constraint.
-
-## External pattern evidence
-
-See:
-
-- `references/validated-strategy-patterns.json`
-- `docs/STRATEGY_SOURCES.md`
-
-GitHub stars, installs or one creator's result are not treated as business proof. The repository explicitly distinguishes adoption, independent usage, author-reported results and independent replication.
+It checks, among other things:
+- exactly one status-quo option;
+- exactly one selected thesis;
+- selected thesis ID consistency;
+- strongest alternative validity;
+- each hard gate appears exactly once;
+- selected thesis has no `FAIL` or `UNKNOWN` hard gate;
+- validation cannot `SURVIVE` a failed hard gate;
+- final pillars/opportunities/briefs/decisions trace to the selected thesis.
 
 ## Install
 
@@ -134,17 +196,24 @@ pip install -e '.[dev]'
 pytest
 ```
 
-## Quick start
+## Validate examples
 
 ```bash
-leadux-strategist validate examples/business-context.example.json
-leadux-strategist validate examples/audience-icp-fit.example.json
-leadux-strategist validate examples/customer-journey-intent.example.json
-leadux-strategist validate examples/positioning-offer-fit.example.json
-leadux-strategist validate examples/channel-distribution-fit.example.json
-leadux-strategist validate examples/research-package.example.json
-leadux-strategist preflight --research examples/research-package.example.json
-leadux-strategist score examples/content-opportunity.example.json
+leadux-strategist validate examples/strategy-diagnosis.example.json
+leadux-strategist validate examples/strategy-formulation.example.json
+leadux-strategist validate examples/strategy-validation.example.json
+leadux-strategist validate examples/strategy-output.example.json --research examples/research-package.example.json
 ```
 
-See `docs/CLI.md`, `docs/HANDOFF.md`, `docs/SKILLS.md`, and `docs/STRATEGY_SOURCES.md` for details.
+See:
+- `SKILL.md`
+- `AGENTS.md`
+- `docs/SKILLS.md`
+- `frameworks/quality-gates.md`
+- `docs/STRATEGY_SOURCES.md`
+
+## Companion research layer
+
+The upstream research repository remains responsible for competitor/market/VOC/pricing/GTM/whitespace/signals/contradictions/evidence verification.
+
+This repository starts from the **verified strategy handoff** and focuses on strategic choice.
