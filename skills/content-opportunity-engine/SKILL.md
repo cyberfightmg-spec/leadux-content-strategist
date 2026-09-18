@@ -1,10 +1,10 @@
 ---
 name: content-opportunity-engine
 description: >-
-  Convert research, VOC, journey intent, channel/distribution fit, founder context, validated strategy patterns,
-  and first-party history into traceable founder-fit content opportunities.
+  Convert the validated strategic thesis, research, pillars, journey, distribution, and first-party
+  learning into traceable content opportunities that exist because of a strategic choice.
 metadata:
-  version: 0.8.0
+  version: 0.9.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -13,128 +13,58 @@ license: MIT
 # Skill: Content Opportunity Engine
 
 ## Mission
-Convert verified market evidence plus approved audience, journey, positioning, channel, Founder/Brand Context and first-party learning into specific content opportunities that this brand has a reason and a distribution path to pursue.
+Generate content opportunities that implement the selected Strategic Thesis rather than merely sounding relevant.
 
 ## Opportunity construction
-A strong opportunity should combine as many of these as are genuinely available:
 
 ```text
-audience problem / desired outcome
+selected strategic thesis
 +
-audience role / ICP status
+pillar
 +
-journey state / next decision
+audience problem / next decision
 +
-market or competitor gap
+proof mechanism
 +
-founder credibility / proof
+approved distribution role
 +
-business or offer relevance
+market evidence / timing
 +
-approved channel job / format fit
-+
-timing signal (optional)
-+
-first-party performance pattern (optional)
-+
-validated strategy mechanism (optional)
+first-party learning (optional)
+→ content opportunity
 ```
 
 ## Required questions
 For each candidate answer:
+1. Which `thesis_id` causes this opportunity to exist?
+2. Which where-to-play or strategic bet does it support?
+3. Why this audience role and journey state?
+4. Why this problem/decision?
+5. Why this founder/brand and proof?
+6. Why this offer/objective?
+7. Why this approved channel/format?
+8. Why now, if timing matters?
+9. What evidence supports it?
+10. What would make us stop?
+11. Would this opportunity remain unchanged under the strongest alternative thesis?
 
-1. Why this audience and role?
-2. Why this journey state / next decision?
-3. Why this problem/tension?
-4. Why this founder/brand?
-5. Why this business objective or offer?
-6. Why now, if timing matters?
-7. Why this angle instead of the obvious category angle?
-8. Why this approved channel?
-9. Why this format on that channel?
-10. What is the intended next action and is CTA strength appropriate?
-11. What evidence supports it?
-12. What contradicts or weakens it?
-13. What would make us defer/reject/stop it?
+If #11 is yes, mark it `GENERIC` unless an explicit infrastructural reason justifies it.
 
 ## Rules
-- preserve lineage to upstream IDs;
-- include relevant Audience / ICP Fit, Customer Journey, Positioning and Channel / Distribution Fit IDs;
-- include relevant Founder/Brand Context references;
-- include selected `pattern_id`s when an external mechanism influenced the opportunity;
+- preserve lineage to thesis and upstream evidence IDs;
 - do not infer demand from trend presence alone;
 - do not infer competitor success from activity alone;
-- do not infer channel fit from platform popularity;
-- do not infer lead/revenue potential from reach or engagement alone;
-- do not copy competitor angles or formats merely because they are frequent;
-- do not force an opportunity into a channel that is `DEFERRED` or `REJECTED`;
-- `HYPOTHESIS` channel fit requires an explicit experiment framing;
-- separate evergreen opportunity from timing advantage;
-- mark weakly evidenced candidates as experiments;
-- record contradictory evidence and unknowns;
-- downgrade ideas that attract the wrong audience or dilute a priority offer/positioning;
-- prefer opportunities that can be demonstrated with real proof over generic commentary.
-
-## Channel adaptation rule
-An opportunity may have one core strategic idea and multiple channel-specific executions, but each execution must preserve:
-
-```text
-audience role
-+
-journey job
-+
-positioning job
-+
-proof requirement
-```
-
-while adapting:
-
-```text
-format
-+
-depth
-+
-pacing
-+
-opening
-+
-CTA
-+
-proof presentation
-```
-
-to the selected channel.
-
-Do not create identical cross-posting merely to increase channel count.
-
-## Anti-copy rule
-Competitor success, creator success, or a validated external pattern may establish that a mechanism deserves consideration. It does not justify cloning visible execution.
-
-Always transform:
-
-```text
-external mechanism
-→ brand-specific strategic job
-→ differentiated angle
-→ approved audience / journey
-→ approved distribution surface
-→ evidence/proof available to this brand
-```
+- do not copy competitor execution;
+- do not target a non-ICP as buyer without an explicit content job;
+- respect thesis trade-offs and `will_not_do`;
+- weakly evidenced directions remain experiments;
+- first-party observation does not prove causality.
 
 ## Output
-Objects conforming to `schemas/content-opportunity.schema.json` and include when known:
-- `target_segment_ids`;
-- `audience_roles`;
-- `journey_state_ids`;
-- `content_jobs`;
-- `channel_fit_id`;
-- `recommended_channel_ids`;
-- `recommended_formats`;
-- `desired_next_actions`;
-- `founder_fit`;
-- `commercial_fit`;
+Objects conforming to `schemas/content-opportunity.schema.json` plus:
+- `strategic_thesis_id`;
+- `thesis_link`;
+- `coherence_status`;
 - `proof_assets`;
 - `selected_pattern_ids`;
-- `transfer_assumptions`;
 - `rejection_or_stop_conditions`.
