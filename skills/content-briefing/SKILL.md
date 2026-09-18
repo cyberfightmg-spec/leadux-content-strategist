@@ -1,10 +1,10 @@
 ---
 name: content-briefing
 description: >-
-  Convert an approved strategy decision into an execution-ready Creator brief that preserves audience role,
-  journey state, channel role, format adaptation, proof boundaries, CTA intent, and measurement level without writing final content.
+  Convert an approved thesis-linked strategy decision into an execution-ready Creator brief without
+  allowing the Creator layer to rewrite the strategy.
 metadata:
-  version: 0.8.0
+  version: 0.9.0
   category: content-strategy
   evidence_mode: required
 license: MIT
@@ -13,67 +13,42 @@ license: MIT
 # Skill: Content Briefing
 
 ## Mission
-Turn an approved content opportunity/strategy decision into an execution-ready brief for a downstream Creator.
+Turn an approved content opportunity/decision into a Creator-ready brief while preserving the selected Strategic Thesis.
 
-The brief must preserve strategy. It must not let the Creator silently change the target audience, journey state, channel job, claim boundary, or CTA pressure.
-
-## Required inputs
-- approved content opportunity;
-- approved strategy decision;
-- Audience / ICP Fit;
-- Customer Journey / Funnel Intent when material;
-- Positioning / Offer Fit;
-- Channel / Distribution Fit;
-- Founder / Brand Context;
-- required research evidence;
-- experiment definition when applicable.
-
-## Brief fields
-Include when known/material:
+## Required brief fields
+- `strategic_thesis_id`;
+- thesis link: what strategic choice this execution serves;
 - objective;
-- audience / segment IDs;
-- audience role (`ICP`, buyer, user, decision-maker, content audience, etc.);
-- journey state and confidence;
-- next decision/question the content should help resolve;
+- audience / buying role;
+- journey state / next decision;
 - content job;
-- content pillar;
+- pillar;
 - topic/tension;
 - angle;
-- positioning job;
-- founder/brand POV and proof assets;
-- required evidence IDs;
+- approved channel role and format;
+- evidence IDs;
+- proof assets;
 - required facts;
-- claims that must not be made;
-- approved `channel_fit_id` and `channel_id`;
-- channel role / family;
-- recommended format for that channel;
-- adaptation notes when derived from another asset;
-- CTA intent and CTA strength;
-- desired next action;
-- success metric;
-- metric level: distribution signal / audience response / lead signal / business outcome;
-- constraints;
-- experiment ID if applicable.
+- forbidden/qualified claims;
+- CTA intent/strength;
+- success metric and measurement level;
+- experiment/bet/assumption ID when applicable;
+- constraints.
 
-## Channel rule
-Do not choose a channel because it is popular or because the Creator prefers it.
+## Coherence rule
+The Creator must be able to answer:
 
-If a channel is not approved in Channel / Distribution Fit:
-- route it back as a strategy change;
-- or mark it as an explicit channel experiment.
+> Which part of thesis [thesis_id] does this asset implement?
 
-Do not copy the same final asset unchanged across every channel. Preserve the strategic message while adapting packaging, pacing, depth, format, CTA, and proof presentation to the surface.
+If that answer is missing, return the brief upstream rather than inventing strategic intent.
 
-## Measurement rule
-A brief may optimize for a distribution signal when that is the actual job, but it must not describe that metric as a lead or business outcome.
+## Boundary
+Do not write final posts/scripts by default.
 
-Examples:
-- view completion = distribution/content signal;
-- qualified reply = audience-response/lead signal depending on definition;
-- booked qualified call = lead signal;
-- customer/revenue = business outcome.
-
-## Creator boundary
-Do not write the final post, script, caption, email, article, carousel, or video in this skill.
-
-Output conforms to `schemas/content-brief.schema.json`.
+The Creator may adapt execution to the channel, but may not change:
+- audience priority;
+- strategic promise;
+- proof boundary;
+- thesis trade-offs;
+- core CTA intent;
+- `will_not_do`.
