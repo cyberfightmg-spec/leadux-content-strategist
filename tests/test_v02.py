@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from leadux_content_strategist.schemas import validate_schema
-from leadux_content_strategist.integrity import research_integrity_errors, strategy_integrity_errors
+from leadux_content_strategist.integrity import research_integrity_errors, strategy_integrity_errors, strategy_formulation_integrity_errors, strategy_validation_integrity_errors
 from leadux_content_strategist.scoring import score_dimensions
 from leadux_content_strategist.memory import find_near_duplicates, similarity
 from leadux_content_strategist.performance import build_baseline, compare_to_baseline
@@ -43,6 +43,30 @@ def test_channel_distribution_fit_schema():
     assert any(c['priority']=='PRIMARY' for c in fit['channels'])
     assert any(c['evidence_status']=='HYPOTHESIS' for c in fit['channels'])
     assert fit['safe_for_strategy'] is True
+
+def test_strategy_diagnosis_schema():
+    x=load('examples/strategy-diagnosis.example.json')
+    assert validate_schema(x,'strategy-diagnosis.schema.json') == []
+    assert x['readiness_status'] in {'READY_FOR_FORMULATION','READY_WITH_UNCERTAINTY'}
+
+def test_strategy_formulation_schema_and_semantics():
+    x=load('examples/strategy-formulation.example.json')
+    assert validate_schema(x,'strategy-formulation.schema.json') == []
+    assert strategy_formulation_integrity_errors(x) == []
+    assert sum(1 for o in x['options'] if o['status']=='SELECTED') == 1
+    assert sum(1 for o in x['options'] if o['option_type']=='STATUS_QUO') == 1
+
+def test_strategy_validation_schema_and_semantics():
+    x=load('examples/strategy-validation.example.json')
+    f=load('examples/strategy-formulation.example.json')
+    assert validate_schema(x,'strategy-validation.schema.json') == []
+    assert strategy_validation_integrity_errors(x,f) == []
+    assert x['thesis_id'] == f['selected_thesis_id']
+
+def test_selected_thesis_has_no_fatal_gate():
+    x=load('examples/strategy-formulation.example.json')
+    selected=next(o for o in x['options'] if o['status']=='SELECTED')
+    assert all(g['status'] not in {'FAIL','UNKNOWN'} for g in selected['hard_gates'])
 
 def test_positioning_offer_fit_schema():
     fit=load('examples/positioning-offer-fit.example.json')
