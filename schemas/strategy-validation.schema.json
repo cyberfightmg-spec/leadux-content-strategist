@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leaduxai.id/schemas/content-strategist/strategy-validation.schema.json",
+  "title": "LeadUX Strategy Validation",
+  "type": "object",
+  "required": [
+    "validation_id",
+    "created_at",
+    "formulation_id",
+    "thesis_id",
+    "hard_gate_review",
+    "coherence_checks",
+    "strongest_alternative_review",
+    "premortem",
+    "reversal_triggers",
+    "result"
+  ],
+  "properties": {
+    "validation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "formulation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "thesis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hard_gate_review": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "gate",
+          "status"
+        ],
+        "properties": {
+          "gate": {
+            "enum": [
+              "EVIDENCE_VIABILITY",
+              "COMMERCIAL_FIT",
+              "CREDIBILITY_PROOF",
+              "CAPABILITY_CAPACITY",
+              "ETHICAL_LEGAL_FIT"
+            ]
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "CONDITIONAL",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "coherence_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item",
+          "status",
+          "thesis_link"
+        ],
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "COHERENT",
+              "WEAKLY_LINKED",
+              "GENERIC",
+              "CONTRADICTORY"
+            ]
+          },
+          "thesis_link": {
+            "type": "string"
+          },
+          "required_change": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "strongest_alternative_review": {
+      "type": "object",
+      "required": [
+        "alternative_thesis_id",
+        "why_not_selected",
+        "evidence_that_would_reverse_choice"
+      ],
+      "properties": {
+        "alternative_thesis_id": {
+          "type": "string"
+        },
+        "why_not_selected": {
+          "type": "string"
+        },
+        "evidence_that_would_reverse_choice": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "premortem": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "failure_mode",
+          "warning_sign"
+        ],
+        "properties": {
+          "failure_mode": {
+            "type": "string"
+          },
+          "warning_sign": {
+            "type": "string"
+          },
+          "mitigation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "challenger_summary": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "required_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reversal_triggers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "result": {
+      "enum": [
+        "SURVIVES",
+        "NARROWED",
+        "INVALIDATED",
+        "BLOCKED"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
